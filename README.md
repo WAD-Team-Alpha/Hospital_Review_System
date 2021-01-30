@@ -20,4 +20,4 @@ I created the Directory structure for temporary purpose. It will be changed acco
 
 # To People who would like to contribute
 
-For any queries email to -> [teja8551@gmail.com]
+For any queries email to -> teja8551@gmail.com
