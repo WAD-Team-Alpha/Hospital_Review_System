@@ -14,3 +14,10 @@ I created the Directory structure for temporary purpose. It will be changed acco
 
 # NOTICE BOARD
 **Will update this section daily**
+
+# Work Distribution
+* User Registeration form, login and signup prompts will be designed by **Surya Teja**
+* Hospital Registeration form will be designed by **Sekhar**
+* The Main Page and search bar will be designed by **Satyam**
+* Doctor Registeration form will be designed by **Prathyush**
+* User Main Page will be designed by **Mahaboob**
