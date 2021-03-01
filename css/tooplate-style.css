@@ -8,7 +8,7 @@ http://www.tooplate.com/view/2098-health
 
   @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
-  #top{
+  body {
     background: #ffffff;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
@@ -107,7 +107,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .section-btn {
-    background: #a5c422;
+    background: #0cd9e7;
     border: 0;
     border-radius: 3px;
     color: #ffffff;
@@ -144,23 +144,23 @@ http://www.tooplate.com/view/2098-health
     background: #4267b2;
   }
 
-  .news-thumb {
+  .hospital-thumb {
     background: #ffffff;
     border-radius: 10px;
   }
-  .news-thumb img {
+  .hospital-thumb img {
     border-radius: 10px 10px 0 0;
   }
 
-  .news-info {
+  .hospital-info {
     padding: 30px;
     text-align: left;
   }
-  .news-info span {
+  .hospital-info span {
     display: block;
     letter-spacing: 0.5px;
   }
-  .news-info h3 {
+  .hospital-info h3 {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -186,14 +186,14 @@ http://www.tooplate.com/view/2098-health
   }
 
 
-  #about, #team, #news,
-  #news-detail {
+  #about, #team, #hospital,
+  #hospital-detail {
     position: relative;
     padding-top: 100px;
     padding-bottom: 100px;
   }
 
-  #news, #service {
+  #hospital, #service {
     text-align: center;
   }
 
@@ -327,7 +327,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-nav li.appointment-btn a {
-    background: #a5c422;
+    background: #0cd9e7;
     border-radius: 3px;
     color: #ffffff;
     font-weight: 600;
@@ -599,54 +599,54 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-      NEWS             
+      hospital             
   -----------------------------------------*/
 
-  #news, #news-detail {
+  #hospital, #hospital-detail {
     background: #f9f9f9;
   }
 
-  #news-detail blockquote {
+  #hospital-detail blockquote {
     margin: 30px 0;
   }
 
-  .news-detail-thumb .news-image img {
+  .hospital-detail-thumb .hospital-image img {
     border-radius: 10px;
   }
 
-  .news-detail-thumb h3 {
+  .hospital-detail-thumb h3 {
     margin-bottom: 8px;
   }
 
-  .news-image {
+  .hospital-image {
     margin-bottom: 30px;
     position: relative;
   }
 
-  .news-image img {
+  .hospital-image img {
     width: 100%;
   }
 
-  .news-detail-thumb ul {
+  .hospital-detail-thumb ul {
     margin: 32px 12px 22px 0px;
   }
 
-  .news-detail-thumb ul li {
+  .hospital-detail-thumb ul li {
     list-style: circle;
     font-weight: normal;
     padding: 6px 12px 6px 0px;
   }
 
-  .news-sidebar {
+  .hospital-sidebar {
     margin-top: 16px;
   }
 
-  .news-social-share {
+  .hospital-social-share {
     text-align: center;
     padding-top: 22px;
   }
 
-  .news-social-share .btn {
+  .hospital-social-share .btn {
     border-radius: 100px;
     border: none;
     font-size: 10px;
@@ -655,19 +655,19 @@ http://www.tooplate.com/view/2098-health
     padding: 8px 14px;
   }
 
-  .news-social-share .btn-primary {
+  .hospital-social-share .btn-primary {
     background: #3b5998;
   }
 
-  .news-social-share .btn-success {
+  .hospital-social-share .btn-success {
     background: #1da1f2;
   }
 
-  .news-social-share .btn-danger {
+  .hospital-social-share .btn-danger {
     background: #dd4b39;
   }
 
-  .news-social-share a .fa {
+  .hospital-social-share a .fa {
     padding-right: 4px;
   }
 
@@ -690,15 +690,15 @@ http://www.tooplate.com/view/2098-health
     margin-top: 5px;
   }
 
-  .news-categories {
+  .hospital-categories {
     margin-top: 8px;
   }
 
-  .news-categories li a {
+  .hospital-categories li a {
     color: #2b2b2b;
   }
 
-  .news-ads {
+  .hospital-ads {
     background: #ffffff;
     border-right: 4px solid #2b2b2b;
     padding: 42px;
@@ -706,27 +706,27 @@ http://www.tooplate.com/view/2098-health
     margin: 26px 0 26px 0;
   }
 
-  .news-ads.sidebar-ads {
+  .hospital-ads.sidebar-ads {
     border-left: 4px solid #2b2b2b;
     border-right: 0px;
   }
 
-  .news-ads h4 {
+  .hospital-ads h4 {
     font-size: 18px;
   }
 
-  .news-tags h4 {
+  .hospital-tags h4 {
     padding-bottom: 6px;
   }
 
-  .news-categories li,
-  .news-tags li {
+  .hospital-categories li,
+  .hospital-tags li {
     list-style: none;
     display: inline-block;
     margin: 4px;
   }
 
-  .news-tags li a {
+  .hospital-tags li a {
     background: #393939;
     border-radius: 50px;
     color: #ffffff;
@@ -741,7 +741,7 @@ http://www.tooplate.com/view/2098-health
     transition: all ease-in-out 0.4s;
   }
 
-  .news-tags li a:hover {
+  .hospital-tags li a:hover {
     background: #4267b2;
   }
 
@@ -777,14 +777,14 @@ http://www.tooplate.com/view/2098-health
   }
 
   #appointment button#cf-submit {
-    background: #a5c422;
+    background: #0cd9e7;
     color: #ffffff;
     font-weight: 600;
     height: 55px;
   }
 
   #appointment button#cf-submit:hover {
-    background: #393939;
+    background: #2d60ec;
     color: #ffffff;
   }
 
@@ -1006,7 +1006,7 @@ http://www.tooplate.com/view/2098-health
       padding-bottom: 8px;
     }
 
-    .news-sidebar {
+    .hospital-sidebar {
       margin-top: 2em;
     }
 
