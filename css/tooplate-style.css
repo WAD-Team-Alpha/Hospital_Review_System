@@ -186,14 +186,14 @@ http://www.tooplate.com/view/2098-health
   }
 
 
-  #about, #team, #hospital,
+  #about, #doctor, #hospital,
   #hospital-detail {
     position: relative;
     padding-top: 100px;
     padding-bottom: 100px;
   }
 
-  #hospital, #service {
+  #hospital, #service, #doctor {
     text-align: center;
   }
 
@@ -244,7 +244,7 @@ http://www.tooplate.com/view/2098-health
     animation: spinner .9s linear infinite;
   }
 
-  @-webkit-@keyframes spinner {
+  @-webkit-keyframes spinner {
     to {transform: rotate(360deg);}
   }
 
@@ -287,7 +287,7 @@ http://www.tooplate.com/view/2098-health
     padding: 11px 15px;
   }
 
-  header span.date-icon {
+  header span.phone-icon {
     border-left: 1px solid #f2f2f2;
     border-right: 1px solid #f2f2f2;
     padding-right: 19px;
@@ -295,11 +295,29 @@ http://www.tooplate.com/view/2098-health
   }
 
   header span i {
-    color: #a5c422;
+    color: #22b9c4;
     margin-right: 5px;
   }
 
+  header span.appointment-btn{
+    margin: 3px 0 0 20px;
+  }
 
+  header span.appointment-btn a{
+    background: #0cd9e7;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: 600;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  header span.appointment-btn a:hover{
+    background: #4267b2;
+    color: #ffffff !important;
+  }
 
   /*---------------------------------------
       MENU              
@@ -452,15 +470,15 @@ http://www.tooplate.com/view/2098-health
   }
 
   .slider .item-first {
-    background-image: url(../images/slider1.jpg);
+    background-image: url(../images/slider-1.jpg);
   }
 
   .slider .item-second {
-    background-image: url(../images/slider2.jpg);
+    background-image: url(../images/slider-2.jpg);
   }
 
   .slider .item-third {
-    background-image: url(../images/slider3.jpg);
+    background-image: url(../images/slider-3.jpg);
   }
 
 
@@ -470,7 +488,7 @@ http://www.tooplate.com/view/2098-health
 
   #about {
     background: url('../images/about-bg.jpg') no-repeat top center;
-    background-size: cover;
+    background-size:cover;
     padding-top: 150px;
     padding-bottom: 150px;
   }
@@ -496,106 +514,153 @@ http://www.tooplate.com/view/2098-health
     margin: 0;
   }
 
-
-
   /*---------------------------------------
-      TEAM MEMBERS              
+      doctor             
   -----------------------------------------*/
 
-  .team-thumb {
-    background-color: #f9f9f9;
-    border-radius: 0 0 10px 10px;
+  #doctor, #doctor-detail {
+    background: #f9f9f9;
+  }
+
+  #doctor-detail blockquote {
+    margin: 30px 0;
+  }
+
+  .doctor-detail-thumb .doctor-image img {
+    border-radius: 10px;
+  }
+
+  .doctor-detail-thumb h3 {
+    margin-bottom: 8px;
+  }
+
+  .doctor-image {
+    margin-bottom: 30px;
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
   }
 
-  .team-info {
-    padding: 20px 30px 0 30px;
+  .doctor-image img {
+    width: 100%;
   }
 
-  .team-contact-info {
-    border-top: 1px solid #e9e9e9;
-    padding-top: 1.2em;
-    margin-top: 1.5em;
+  .doctor-detail-thumb ul {
+    margin: 32px 12px 22px 0px;
   }
 
-  .team-contact-info .fa {
-    margin-right: 5px;
-    display: inline-block;
+  .doctor-detail-thumb ul li {
+    list-style: circle;
+    font-weight: normal;
+    padding: 6px 12px 6px 0px;
   }
 
-  .team-contact-info p {
-    margin-bottom: 2px;
+  .doctor-sidebar {
+    margin-top: 16px;
   }
 
-  .team-contact-info a {
-    color: #757575;
-  }
-
-  .team-thumb .social-icon li {
-    font-weight: 500;
-  }
-
-  .team-thumb .social-icon li a {
-    background: #ffffff;
-    border-radius: 100%;
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    margin: 0 2px 0 2px;
-  }
-
-  .team-thumb .social-icon {
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 0.5s 0.2s;
+  .doctor-social-share {
     text-align: center;
-    position: relative;
-    top: 0;
+    padding-top: 22px;
   }
 
-  .team-thumb:hover .social-icon {
-    opacity: 1;
-    transition-delay: 0.3s;
-    transform: translateY(0px);
-    top: -22em;
+  .doctor-social-share .btn {
+    border-radius: 100px;
+    border: none;
+    font-size: 10px;
+    font-weight: 600;
+    margin: 2px 6px;
+    padding: 8px 14px;
   }
 
-
-
-  /*---------------------------------------
-     SERVICE              
-  -----------------------------------------*/
-
-  #service {
-    background: #a5c422;
+  .doctor-social-share .btn-primary {
+    background: #3b5998;
   }
 
-  #service h2,
-  #service h4 {
-    color: #ffffff;
+  .doctor-social-share .btn-success {
+    background: #1da1f2;
   }
 
-  #service p {
-    color: #d9d9d9;
+  .doctor-social-share .btn-danger {
+    background: #dd4b39;
   }
 
-  #service .service-thumb {
-    padding: 0 22px;
+  .doctor-social-share a .fa {
+    padding-right: 4px;
   }
 
-  #service .fa {
-    font-size: 50px;
-    margin-bottom: 10px;
-    background: #ffffff;
-    color: #a5c422;
-    width: 120px;
-    height: 120px;
-    line-height: 120px;
+  .recent-post {
+    padding-top: 2px;
+    padding-bottom: 18px;
+  }
+
+  .recent-post .media img {
     border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    margin-right: 5px;
   }
+
+  .recent-post .media-heading {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: inherit;
+    margin-top: 5px;
+  }
+
+  .doctor-categories {
+    margin-top: 8px;
+  }
+
+  .doctor-categories li a {
+    color: #2b2b2b;
+  }
+
+  .doctor-ads {
+    background: #ffffff;
+    border-right: 4px solid #2b2b2b;
+    padding: 42px;
+    text-align: center;
+    margin: 26px 0 26px 0;
+  }
+
+  .doctor-ads.sidebar-ads {
+    border-left: 4px solid #2b2b2b;
+    border-right: 0px;
+  }
+
+  .doctor-ads h4 {
+    font-size: 18px;
+  }
+
+  .doctor-tags h4 {
+    padding-bottom: 6px;
+  }
+
+  .doctor-categories li,
+  .doctor-tags li {
+    list-style: none;
+    display: inline-block;
+    margin: 4px;
+  }
+
+  .doctor-tags li a {
+    background: #393939;
+    border-radius: 50px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    float: left;
+    min-width: 30px;
+    padding: 6px 12px;
+    -webkit-transition: all ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s;
+  }
+
+  .doctor-tags li a:hover {
+    background: #4267b2;
+  }
+
 
 
   /*---------------------------------------
@@ -987,9 +1052,17 @@ http://www.tooplate.com/view/2098-health
       text-align: left;
     }
     header span {
-      padding-top: 0;
+      padding-top: 0em;
       padding-left: 0;
       padding-bottom: 0;
+      margin-top: 1.15em;
+    }
+    header span.appointment-btn{
+      margin-left: 0px;
+    }
+    header span.phone-icon{
+      padding-left: 0.8em;
+      padding-right: 0.8em;
     }
   }
 
@@ -1008,6 +1081,10 @@ http://www.tooplate.com/view/2098-health
 
     .hospital-sidebar {
       margin-top: 2em;
+    }
+
+    #appointment img.img-responsive{
+      display: none;
     }
 
     #appointment-form {
@@ -1052,6 +1129,23 @@ http://www.tooplate.com/view/2098-health
       font-size: 11px;
       letter-spacing: 1px;
     }
+  }
 
+  @media only screen and (max-width: 468px){
+    header{
+      text-align: center;
+    }
+    header span.email-icon{
+      padding: 0px 0px;
+      margin-left: 5em;
+    }
+    header span.phone-icon{
+      padding-left: 0.4em;
+      padding-right: .1em;
+      border-right: 0px;
+    }
+    header span.appointment-btn{
+      margin-left: 5em;
+    }
   }
 
