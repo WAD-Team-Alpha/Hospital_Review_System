@@ -190,6 +190,14 @@ p {
     padding-top: 100px;
   }
 
+  #user_registration img{
+    height: 40em;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 2em;
+    padding-right: 10em;
+  }
+
   #user_registration label {
     color: #393939;
     font-weight: 500;
@@ -439,11 +447,13 @@ p {
     header span.email-icon {
       padding-left: 1.2em;
     }
-
-
-    
-
-
+    #user_registration img{
+      height: 32em;
+      width: 100%;
+      margin-left: 0px;
+      margin-top: 7em;
+      padding-right: 4em;
+    }
   }
 
   @media only screen and (max-width: 767px) {
@@ -497,15 +507,6 @@ p {
     }
     
   }
-
-  /* @media only screen and (max-width:334px){ 
-    header span.phone-icon {
-      border-right: 0px;
-    }
-    
-    
-  } */
-
   @media only screen and (max-width:344px){
     header span.phone-icon {
       border-right: 0px;

@@ -1,12 +1,4 @@
-/*
-
-Template 2098 Health
-
-http://www.tooplate.com/view/2098-health
-
-*/
-
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
     background: #ffffff;
@@ -144,64 +136,17 @@ http://www.tooplate.com/view/2098-health
     background: #4267b2;
   }
 
-  .hospital-thumb {
-    background: #ffffff;
-    border-radius: 10px;
-  }
-  .hospital-thumb img {
-    border-radius: 10px 10px 0 0;
-  }
 
-  .hospital-info {
-    padding: 30px;
-    text-align: left;
-  }
-  .hospital-info span {
-    display: block;
-    letter-spacing: 0.5px;
-  }
-  .hospital-info h3 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .author {
-    border-top: 1px solid #f0f0f0;
-    padding-top: 1.5em;
-    margin-top: 2em;
-  }
-  .author img,
-  .author .author-info {
-    display: inline-block;
-    vertical-align: top;
-  }
-  .author-info h5 {
-    margin-bottom: 0;
-  }
-  .author img {
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-
-
-  #about, #doctor, #hospital,
-  #hospital-detail {
+  #about, #doctor, #hospital{
     position: relative;
     padding-top: 100px;
     padding-bottom: 100px;
   }
 
-  #hospital, #service, #doctor {
+  #hospital, #doctor {
     text-align: center;
   }
 
-  #google-map {
-    line-height: 0;
-    margin: 0;
-    padding: 0;
-  }
 
 
   /*---------------------------------------
@@ -255,7 +200,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-      MENU              
+      HEADER      
   -----------------------------------------*/
 
   header {
@@ -320,7 +265,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   /*---------------------------------------
-      MENU              
+      NAVIGATION BAR           
   -----------------------------------------*/
 
   .navbar-default {
@@ -518,299 +463,17 @@ http://www.tooplate.com/view/2098-health
       doctor             
   -----------------------------------------*/
 
-  #doctor, #doctor-detail {
+  #doctor{
     background: #f9f9f9;
   }
-
-  #doctor-detail blockquote {
-    margin: 30px 0;
-  }
-
-  .doctor-detail-thumb .doctor-image img {
-    border-radius: 10px;
-  }
-
-  .doctor-detail-thumb h3 {
-    margin-bottom: 8px;
-  }
-
-  .doctor-image {
-    margin-bottom: 30px;
-    position: relative;
-  }
-
-  .doctor-image img {
-    width: 100%;
-  }
-
-  .doctor-detail-thumb ul {
-    margin: 32px 12px 22px 0px;
-  }
-
-  .doctor-detail-thumb ul li {
-    list-style: circle;
-    font-weight: normal;
-    padding: 6px 12px 6px 0px;
-  }
-
-  .doctor-sidebar {
-    margin-top: 16px;
-  }
-
-  .doctor-social-share {
-    text-align: center;
-    padding-top: 22px;
-  }
-
-  .doctor-social-share .btn {
-    border-radius: 100px;
-    border: none;
-    font-size: 10px;
-    font-weight: 600;
-    margin: 2px 6px;
-    padding: 8px 14px;
-  }
-
-  .doctor-social-share .btn-primary {
-    background: #3b5998;
-  }
-
-  .doctor-social-share .btn-success {
-    background: #1da1f2;
-  }
-
-  .doctor-social-share .btn-danger {
-    background: #dd4b39;
-  }
-
-  .doctor-social-share a .fa {
-    padding-right: 4px;
-  }
-
-  .recent-post {
-    padding-top: 2px;
-    padding-bottom: 18px;
-  }
-
-  .recent-post .media img {
-    border-radius: 100%;
-    width: 80px;
-    height: 80px;
-    margin-right: 5px;
-  }
-
-  .recent-post .media-heading {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: inherit;
-    margin-top: 5px;
-  }
-
-  .doctor-categories {
-    margin-top: 8px;
-  }
-
-  .doctor-categories li a {
-    color: #2b2b2b;
-  }
-
-  .doctor-ads {
-    background: #ffffff;
-    border-right: 4px solid #2b2b2b;
-    padding: 42px;
-    text-align: center;
-    margin: 26px 0 26px 0;
-  }
-
-  .doctor-ads.sidebar-ads {
-    border-left: 4px solid #2b2b2b;
-    border-right: 0px;
-  }
-
-  .doctor-ads h4 {
-    font-size: 18px;
-  }
-
-  .doctor-tags h4 {
-    padding-bottom: 6px;
-  }
-
-  .doctor-categories li,
-  .doctor-tags li {
-    list-style: none;
-    display: inline-block;
-    margin: 4px;
-  }
-
-  .doctor-tags li a {
-    background: #393939;
-    border-radius: 50px;
-    color: #ffffff;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    float: left;
-    min-width: 30px;
-    padding: 6px 12px;
-    -webkit-transition: all ease-in-out 0.4s;
-    transition: all ease-in-out 0.4s;
-  }
-
-  .doctor-tags li a:hover {
-    background: #4267b2;
-  }
-
-
 
   /*---------------------------------------
       hospital             
   -----------------------------------------*/
 
-  #hospital, #hospital-detail {
+  #hospital{
     background: #f9f9f9;
   }
-
-  #hospital-detail blockquote {
-    margin: 30px 0;
-  }
-
-  .hospital-detail-thumb .hospital-image img {
-    border-radius: 10px;
-  }
-
-  .hospital-detail-thumb h3 {
-    margin-bottom: 8px;
-  }
-
-  .hospital-image {
-    margin-bottom: 30px;
-    position: relative;
-  }
-
-  .hospital-image img {
-    width: 100%;
-  }
-
-  .hospital-detail-thumb ul {
-    margin: 32px 12px 22px 0px;
-  }
-
-  .hospital-detail-thumb ul li {
-    list-style: circle;
-    font-weight: normal;
-    padding: 6px 12px 6px 0px;
-  }
-
-  .hospital-sidebar {
-    margin-top: 16px;
-  }
-
-  .hospital-social-share {
-    text-align: center;
-    padding-top: 22px;
-  }
-
-  .hospital-social-share .btn {
-    border-radius: 100px;
-    border: none;
-    font-size: 10px;
-    font-weight: 600;
-    margin: 2px 6px;
-    padding: 8px 14px;
-  }
-
-  .hospital-social-share .btn-primary {
-    background: #3b5998;
-  }
-
-  .hospital-social-share .btn-success {
-    background: #1da1f2;
-  }
-
-  .hospital-social-share .btn-danger {
-    background: #dd4b39;
-  }
-
-  .hospital-social-share a .fa {
-    padding-right: 4px;
-  }
-
-  .recent-post {
-    padding-top: 2px;
-    padding-bottom: 18px;
-  }
-
-  .recent-post .media img {
-    border-radius: 100%;
-    width: 80px;
-    height: 80px;
-    margin-right: 5px;
-  }
-
-  .recent-post .media-heading {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: inherit;
-    margin-top: 5px;
-  }
-
-  .hospital-categories {
-    margin-top: 8px;
-  }
-
-  .hospital-categories li a {
-    color: #2b2b2b;
-  }
-
-  .hospital-ads {
-    background: #ffffff;
-    border-right: 4px solid #2b2b2b;
-    padding: 42px;
-    text-align: center;
-    margin: 26px 0 26px 0;
-  }
-
-  .hospital-ads.sidebar-ads {
-    border-left: 4px solid #2b2b2b;
-    border-right: 0px;
-  }
-
-  .hospital-ads h4 {
-    font-size: 18px;
-  }
-
-  .hospital-tags h4 {
-    padding-bottom: 6px;
-  }
-
-  .hospital-categories li,
-  .hospital-tags li {
-    list-style: none;
-    display: inline-block;
-    margin: 4px;
-  }
-
-  .hospital-tags li a {
-    background: #393939;
-    border-radius: 50px;
-    color: #ffffff;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    float: left;
-    min-width: 30px;
-    padding: 6px 12px;
-    -webkit-transition: all ease-in-out 0.4s;
-    transition: all ease-in-out 0.4s;
-  }
-
-  .hospital-tags li a:hover {
-    background: #4267b2;
-  }
-
-
 
   /*---------------------------------------
       APPOINTMENT             
@@ -1129,11 +792,18 @@ http://www.tooplate.com/view/2098-health
       font-size: 11px;
       letter-spacing: 1px;
     }
+    header p{
+      text-align: center;
+    }
   }
 
   @media only screen and (max-width: 468px){
     header{
       text-align: center;
+    }
+    header .text-align-right {
+      text-align: left;
+      padding-left: 4em;
     }
     header span.email-icon{
       padding: 0px 0px;
@@ -1149,3 +819,16 @@ http://www.tooplate.com/view/2098-health
     }
   }
 
+  @media only screen and (max-width: 376px){
+    header .text-align-right {
+      text-align: left;
+      padding-left: 2.2em;
+    }
+  }
+
+  @media only screen and (max-width: 321px){
+    header .text-align-right {
+      text-align: left;
+      padding-left: 0.2em;
+    }
+  }
