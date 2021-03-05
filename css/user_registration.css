@@ -56,6 +56,7 @@ p {
   font-size: 14px;
   font-weight: normal;
   line-height: 24px;
+  
 }
 
   a {
@@ -143,7 +144,12 @@ p {
     padding-right: 0;
   }
 
-  header p,
+  header p{
+    font-size: 12px;
+    line-height: 24px;
+    padding-top: 12.7px;
+    text-align: center;
+  }
   header span {
     font-size: 12px;
     line-height: 24px;
@@ -161,20 +167,23 @@ p {
     padding: 11px 15px;
   }
 
-  header span.phone-icon {
-    border-left: 1px solid #f2f2f2;
-    border-right: 1px solid #f2f2f2;
-    padding-right: 19px;
-    padding-left: 19px;
-  }
+ 
 
   header span i {
     color: #22b9c4;
     margin-right: 5px;
   }
 
-
+  header span.phone-icon {
+    border-left: 0px;
+    border-right: 1px solid #f2f2f2;
+    padding-right: 15px;
+    padding-left: 3px;
+  }
   
+ 
+
+ 
 
   /* User Registration*/
   #user_registration {
@@ -364,6 +373,17 @@ p {
 
   /*Responsive Styles*/
 
+  
+
+  
+  /*@media only screen and (max-width:768px){
+    header .col-md-8{
+      
+      top: 10px;
+    }
+  }*/
+  
+  
   @media only screen and (max-width: 1200px) {
     h1 {
       font-size: 4em;
@@ -394,7 +414,9 @@ p {
     }
 
     header {
+      
       padding-bottom: 10px;
+      
     }
     header .text-align-right {
       text-align: left;
@@ -403,11 +425,45 @@ p {
       padding-top: 0;
       padding-left: 0;
       padding-bottom: 0;
+      margin-top: 13px;
+     
     }
+
+    header span.phone-icon {
+      border-left:0px;
+      padding-right: 1.2em;
+      padding-left: 2px;
+
+    }
+
+    header span.email-icon {
+      padding-left: 1.2em;
+    }
+
+
+    
+
+
   }
 
   @media only screen and (max-width: 767px) {
     
+    #user_registration img{
+      display: none;
+    }
+    
+    header span.phone-icon {
+      border-left:0px;
+      padding-right: 1.2em;
+      
+    }
+
+    header span.email-icon {
+      padding-left: 1.2em;
+      
+    }
+    
+
     footer {
       padding-top: 60px;
       padding-bottom: 0;
@@ -428,4 +484,37 @@ p {
       bottom: 10em;
     }
   }
+
+  @media only screen and (max-width:356px){
+    header span.phone-icon {
+      border-left: 0px;
+      /*border-right:0px;*/
+      padding-right: 1em;
+      padding-left: 2px;
+    }
+    header span.email-icon{
+      padding-left:3px;
+    }
+    
+  }
+
+  /* @media only screen and (max-width:334px){ 
+    header span.phone-icon {
+      border-right: 0px;
+    }
+    
+    
+  } */
+
+  @media only screen and (max-width:344px){
+    header span.phone-icon {
+      border-right: 0px;
+      padding-right:1.5em;
+    }
+    
+    
+  }
+
+
+  
 
