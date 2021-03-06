@@ -434,8 +434,8 @@
   #about {
     background: url('../images/about-bg.jpg') no-repeat top center;
     background-size:cover;
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 7em;
+    padding-bottom: 10em;
   }
 
   .profile img,
@@ -514,6 +514,11 @@
   #appointment button#cf-submit:hover {
     background: #2d60ec;
     color: #ffffff;
+  }
+
+  #appointment img{
+    height: 40em;
+    padding-left: 8em;
   }
 
 
