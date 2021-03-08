@@ -511,18 +511,11 @@ footer a:hover {
   header span.email-icon {
     padding-left: 1.2em;
   }
-  #user_registration img{
-    height: 32em;
-    width: 100%;
-    margin-left: 0px;
-    margin-top: 7em;
-    padding-right: 4em;
-  }
 }
 
 @media only screen and (max-width: 767px) {
   
-  #user_registration img{
+  #appointment img{
     display: none;
   }
   
@@ -569,6 +562,13 @@ footer a:hover {
   header span.email-icon{
     padding-left:3px;
   }
+  #appointment button#cf-submit {
+    background: #0cd9e7;
+    color: #ffffff;
+    font-weight: 600;
+    height: 40px;
+    width: 35%;
+  }
   
 }
 @media only screen and (max-width:344px){
@@ -576,7 +576,5 @@ footer a:hover {
     border-right: 0px;
     padding-right:1.5em;
   }
-  
-  
 }
 
