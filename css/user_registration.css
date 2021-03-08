@@ -148,7 +148,7 @@ p {
     font-size: 12px;
     line-height: 24px;
     padding-top: 12.7px;
-    text-align: center;
+    
   }
   header span {
     font-size: 12px;
@@ -472,6 +472,10 @@ p {
       padding-left: 1.2em;
       
     }
+
+    header p{
+      text-align:center;
+    }
     
 
     footer {
@@ -504,6 +508,10 @@ p {
     }
     header span.email-icon{
       padding-left:3px;
+    }
+
+    header p{
+      text-align:center;
     }
     
   }

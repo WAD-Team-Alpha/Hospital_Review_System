@@ -1,6 +1,6 @@
 /* DOCTOR SEARCH BAR */
   #doctor-searchbar {
-    padding-top: 100px;
+    padding-top: 1em;
   }
 
   #doctor-searchbar label {
@@ -34,6 +34,11 @@
   #doctor-searchbar button#ds-submit:hover {
     background: #2d60ec;
     color: #ffffff;
+  }
+
+  #doctor-searchbar img.img-responsive{
+    height: 33em;
+    margin-top: 2em;
   }
 
   /* RESPONSIVE STYLES */
