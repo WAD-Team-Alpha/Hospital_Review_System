@@ -199,7 +199,12 @@ a:hover, a:active, a:focus {
     padding-right: 0;
   }
 
-  header p,
+  header p{
+    font-size: 12px;
+    line-height: 24px;
+    padding-top: 12.7px;
+    /* text-align: center; */
+  }
   header span {
     font-size: 12px;
     line-height: 24px;
@@ -217,39 +222,20 @@ a:hover, a:active, a:focus {
     padding: 11px 15px;
   }
 
-  header span.phone-icon {
-    border-left: 1px solid #f2f2f2;
-    border-right: 1px solid #f2f2f2;
-    padding-right: 19px;
-    padding-left: 19px;
-  }
+ 
 
   header span i {
     color: #22b9c4;
     margin-right: 5px;
   }
 
-  header span.appointment-btn{
-    margin: 3px 0 0 20px;
-  }
-
-  header span.appointment-btn a{
-    background: #0cd9e7;
-    border-radius: 3px;
-    color: #ffffff;
-    font-weight: 600;
-    padding-top: 1px;
-    padding-bottom: 1px;
+  header span.phone-icon {
+    border-left: 0px;
+    border-right: 1px solid #f2f2f2;
+    padding-right: 15px;
     padding-left: 3px;
-    padding-right: 3px;
   }
-
-  header span.appointment-btn a:hover{
-    background: #4267b2;
-    color: #ffffff !important;
-  }
-
-
+  
 
 
 /*---------------------------------------
@@ -492,11 +478,6 @@ footer a:hover {
   header span.email-icon {
     padding-top: 0;
   }
-
-  .navbar-default .navbar-nav li a {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -505,51 +486,53 @@ footer a:hover {
   }
 
   header {
+    
     padding-bottom: 10px;
+    
   }
   header .text-align-right {
     text-align: left;
   }
   header span {
-    padding-top: 0em;
+    padding-top: 0;
     padding-left: 0;
     padding-bottom: 0;
-    margin-top: 1.15em;
+    margin-top: 13px;
+   
   }
-  header span.appointment-btn{
-    margin-left: 0px;
+
+  header span.phone-icon {
+    border-left:0px;
+    padding-right: 1.2em;
+    padding-left: 2px;
+
   }
-  header span.phone-icon{
-    padding-left: 0.8em;
-    padding-right: 0.8em;
+
+  header span.email-icon {
+    padding-left: 1.2em;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: transparent;
-  }
-  .navbar-default .navbar-nav li.appointment-btn {
-    margin-left: 15px;
-  }
-  .navbar-default .navbar-nav li a {
-    display: inline-block;
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-
-  .hospital-sidebar {
-    margin-top: 2em;
-  }
-
-  #appointment img.img-responsive{
+  
+  #appointment img{
     display: none;
   }
-
-  #appointment-form {
-    padding-top: 4em;
-    padding-bottom: 4em;
+  
+  header span.phone-icon {
+    border-left:0px;
+    padding-right: 1.2em;
+    
   }
+
+  header span.email-icon {
+    padding-left: 1.2em;
+    
+  }
+  /* header p{
+    text-align:center;
+  } */
+  
 
   footer {
     padding-top: 60px;
@@ -572,39 +555,32 @@ footer a:hover {
   }
 }
 
-@media only screen and (max-width: 639px) {
-  h1 {
-    font-size: 3em;
-    line-height: 1.2em;
-  }
-  h2 {
-    font-size: 2.1em;
-  }
-  h4 {
-    font-size: 1.4em;
-  }
-
-  #home h3 {
-    font-size: 11px;
-    letter-spacing: 1px;
-  }
-}
-
-@media only screen and (max-width: 468px){
-  header{
-    text-align: center;
+@media only screen and (max-width:356px){
+  header span.phone-icon {
+    border-left: 0px;
+    /*border-right:0px;*/
+    padding-right: 1em;
+    padding-left: 2px;
   }
   header span.email-icon{
-    padding: 0px 0px;
-    margin-left: 5em;
+    padding-left:3px;
   }
-  header span.phone-icon{
-    padding-left: 0.4em;
-    padding-right: .1em;
+  #appointment button#cf-submit {
+    background: #0cd9e7;
+    color: #ffffff;
+    font-weight: 600;
+    height: 40px;
+    width: 35%;
+  }
+  
+}
+/* header p{
+  text-align:center;
+} */
+@media only screen and (max-width:344px){
+  header span.phone-icon {
     border-right: 0px;
-  }
-  header span.appointment-btn{
-    margin-left: 5em;
+    padding-right:1.5em;
   }
 }
 

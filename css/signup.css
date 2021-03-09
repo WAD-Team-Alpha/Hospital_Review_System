@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
+* {
+  box-sizing: border-box;
+}
+
   body {
     background: #ffffff;
     font-family: 'Poppins', sans-serif;
@@ -90,30 +94,6 @@
     background: #000000;
   }
 
-  .section-title {
-    padding-bottom: 20px;
-  }
-
-  .section-title h2 {
-    margin-top: 0;
-  }
-
-  .section-btn {
-    background: #0cd9e7;
-    border: 0;
-    border-radius: 3px;
-    color: #ffffff;
-    font-size: inherit;
-    font-weight: 500;
-    padding: 14px 20px;
-    transition: transform 0.1s ease-in;
-    transform: translateX(0);
-  }
-
-  .section-btn:hover {
-    transform: translateY(-5px);
-  }
-
   .text-align-right {
     text-align: right;
   }
@@ -136,15 +116,28 @@
     background: #4267b2;
   }
 
-
-  #about, #doctor, #hospital{
-    position: relative;
-    padding-top: 100px;
-    padding-bottom: 100px;
+  .section-title {
+    padding-bottom: 20px;
   }
 
-  #hospital, #doctor {
-    text-align: center;
+  .section-title h2 {
+    margin-top: 0;
+  }
+
+  .section-btn {
+    background: #0cd9e7;
+    border: 0;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: inherit;
+    font-weight: 500;
+    padding: 14px 20px;
+    transition: transform 0.1s ease-in;
+    transform: translateX(0);
+  }
+
+  .section-btn:hover {
+    transform: translateY(-5px);
   }
 
 
@@ -214,7 +207,12 @@
     padding-right: 0;
   }
 
-  header p,
+  header p{
+    font-size: 12px;
+    line-height: 24px;
+    padding-top: 12.7px;
+    
+  }
   header span {
     font-size: 12px;
     line-height: 24px;
@@ -232,316 +230,93 @@
     padding: 11px 15px;
   }
 
-  header span.phone-icon {
-    border-left: 1px solid #f2f2f2;
-    border-right: 1px solid #f2f2f2;
-    padding-right: 19px;
-    padding-left: 19px;
-  }
-
   header span i {
     color: #22b9c4;
     margin-right: 5px;
   }
 
-  header span.appointment-btn{
-    margin: 3px 0 0 20px;
-  }
-
-  header span.appointment-btn a{
-    background: #0cd9e7;
-    border-radius: 3px;
-    color: #ffffff;
-    font-weight: 600;
-    padding-top: 1px;
-    padding-bottom: 1px;
+  header span.phone-icon {
+    border-left: 0px;
+    border-right: 1px solid #f2f2f2;
+    padding-right: 15px;
     padding-left: 3px;
-    padding-right: 3px;
-  }
-
-  header span.appointment-btn a:hover{
-    background: #4267b2;
-    color: #ffffff !important;
   }
 
   /*---------------------------------------
-      NAVIGATION BAR           
+      Choose the Context           
   -----------------------------------------*/
 
-  .navbar-default {
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0,0,0,.075);
-    border: none;
-    margin-bottom: 0;
-    padding: 10px;
-  }
-
-  .navbar-default .navbar-brand {
-    color: #393939;
-    font-weight: 500;
-  }
-
-  .navbar-default .navbar-brand .fa {
-    color: #a5c422;
-  }
-
-  .navbar-default .navbar-nav li.appointment-btn {
-    margin: 3px 0 0 20px;
-  }
-
-  .navbar-default .navbar-nav li.appointment-btn a {
-    background: #0cd9e7;
-    border-radius: 3px;
-    color: #ffffff;
-    font-weight: 600;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  .navbar-default .navbar-nav li.appointment-btn a:hover {
-    background: #4267b2;
-    color: #ffffff !important;
-  }
-
-  .navbar-default .navbar-nav li a {
-    color: #555555;
-    font-size: 12px;
-    font-weight: 500;
-    padding-right: 20px;
-    padding-left: 20px;
-    -webkit-transition: all ease-in-out 0.4s;
-    transition: all ease-in-out 0.4s;
-  }
-
-  .navbar-default .navbar-nav > li a:hover {
-    color: #393939 !important;
-  }
-
-  .navbar-default .navbar-nav > li > a:hover,
-  .navbar-default .navbar-nav > li > a:focus {
-    color: #555555;
-    background-color: transparent;
-  }
-
-  .navbar-default .navbar-nav > .active > a,
-  .navbar-default .navbar-nav > .active > a:hover,
-  .navbar-default .navbar-nav > .active > a:focus {
-    color: #393939;
-    background-color: transparent;
-  }
-
-  .navbar-default .navbar-toggle {
-    border: none;
-    padding-top: 10px;
-  }
-
-  .navbar-default .navbar-toggle .icon-bar {
-    background: #393939;
-    border-color: transparent;
-  }
-
-  .navbar-default .navbar-toggle:hover,
-  .navbar-default .navbar-toggle:focus { 
-    background-color: transparent;
-  }
-
-
-
-  /*---------------------------------------
-      HOME              
-  -----------------------------------------*/
-
-  #home h1 {
-    color: #ffffff;
-    padding-bottom: 10px;
-    margin-top: 0;
-  }
-
-  #home h3 {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: inherit;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .slider .container {
-    width: 100%;
-  }
-
-  .slider .owl-dots {
-      position: absolute;
-      top: 575px;
-      width: 100%;
-      justify-content: center;
-  }
-
-  .owl-theme .owl-dots .owl-dot span {
-    width: 8px;
-    height: 8px;
-    margin: 5px 7px;
-    border: 2px solid #d9d9d9;
-    background: transparent;
-    display: block;
-    -webkit-backface-visibility: visible;
-    transition: opacity 200ms ease;
-    border-radius: 30px;
-  }
-
-  .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+   #ctc .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    transition: 0.3s;
+    border-radius: .5em;
     background-color: #ffffff;
-    border-color: transparent;
+    width: 90%;
   }
 
-  .slider .caption {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  #ctc .card img{
+    height: 16em;
+    padding-right: 6em;
+    padding-left: 5em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    opacity: 0.76;
+  }
+
+  #ctc .card .data{
+    padding-left: 3em;
+    padding-top: .7em;
+    padding-bottom: .7em;
+    background-color: #3c3c3d;
+    border-radius: 0 0 .5em .5em;
+  }
+  #ctc .card .data h4, #ctc .card .data p{
+    color: white;
+  }
+
+  #ctc .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+    background-color: #49dbe6;
+  }
+
+  #heading{
+    margin-top: 5em;
+  }
+
+  #heading h3{
+    color: #888888;
     text-align: center;
-    background-color: rgba(20,20,20,0.2);
-    height: 100%;
-    color: #fff;
-    cursor: e-resize;
+    padding-bottom: 3.5em;
   }
 
-  .slider .item {
-    background-position: inherit;
-    background-repeat: no-repeat;
-    background-attachment: local;
-    background-size: cover;
-    height: 650px;
+  .data span{
+    float: right;
+    margin-right: 2.5em;
+    margin-top: 2.5em;
   }
 
-  .slider .item-first {
-    background-image: url(../images/slider-1.jpg);
-  }
-
-  .slider .item-second {
-    background-image: url(../images/slider-2.jpg);
-  }
-
-  .slider .item-third {
-    background-image: url(../images/slider-3.jpg);
-  }
-
-
-  /*---------------------------------------
-      ABOUT              
-  -----------------------------------------*/
-
-  #about1 {
-    background: url('../images/about-bg.jpg') no-repeat top center;
-    background-size:cover;
-    padding-top: 7em;
-    padding-bottom: 10em;
-  }
-
-  #about2 {
-    background: url('../images/choice1.jpg') no-repeat top center;
-    background-size:cover;
-    padding-top: 7em;
-    padding-bottom: 10em;
-  }
-
-  #about3 {
-    background: url('../images/choice2.jpg') no-repeat top center;
-    background-size:cover;
-    padding-top: 7em;
-    padding-bottom: 10em;
-  }
-
-  .profile img,
-  .profile figcaption {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 1em;
-  }
-  .profile img {
-    border-radius: 100%;
-    width: 65px;
-    height: 65px;
-    margin-right: 1em;
-  }
-  .profile figcaption h3 {
-    margin-top: 0;
-  }
-
-  #about1 h6, #about2 h6, #about3 h6 {
-    color: #858585;
-    margin: 0;
-  }
-
-  /*---------------------------------------
-      doctor             
-  -----------------------------------------*/
-
-  #doctor{
-    background: #f9f9f9;
-  }
-
-  /*---------------------------------------
-      hospital             
-  -----------------------------------------*/
-
-  #hospital{
-    background: #f9f9f9;
-  }
-
-  /*---------------------------------------
-      APPOINTMENT             
-  -----------------------------------------*/
-
-  #appointment {
-    padding-top: 100px;
-  }
-
-  #appointment label {
-    color: #393939;
-    font-weight: 500;
-  }
-
-  #appointment .form-control {
-    background: #f9f9f9;
-    border: none;
-    border-radius: 3px;
-    box-shadow: none;
-    font-size: 14px;
-    font-weight: normal;
-    margin-bottom: 15px;
-    transition: all ease-in-out 0.4s;
-  }
-
-  #appointment input,
-  #appointment select {
-    height: 45px;
-  }
-
-  #appointment button#cf-submit {
+  .data span.appointment-btn a{
     background: #0cd9e7;
+    border-radius: 3px;
     color: #ffffff;
     font-weight: 600;
-    height: 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
   }
 
-  #appointment button#cf-submit:hover {
-    background: #2d60ec;
-    color: #ffffff;
+  .data span.appointment-btn a:hover{
+    background: #4267b2;
+    color: #ffffff !important;
   }
-
-  #appointment img{
-    height: 40em;
-    padding-left: 8em;
-  }
-
 
   /*---------------------------------------
      FOOTER              
   -----------------------------------------*/
 
   footer {
-    padding-top: 80px;
+    padding-top: 9em;
     padding-bottom: 40px;
   }
 
@@ -715,10 +490,29 @@
     header span.email-icon {
       padding-top: 0;
     }
-
-    .navbar-default .navbar-nav li a {
-      padding-right: 15px;
-      padding-left: 15px;
+    #ctc .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+      transition: 0.3s;
+      border-radius: .5em;
+      background-color: #ffffff;
+      width: 100%;
+      margin:auto;
+      margin-bottom: 2em;
+    }
+  
+    #ctc .card img{
+      height: 17em;
+      padding-right: 4em;
+      padding-left: 3em;
+      padding-top: 2em;
+    }
+  
+    #ctc .card .data{
+      padding-left: 3em;
+      padding-top: .7em;
+      padding-bottom: .7em;
+      background-color: #3c3c3d;
+      border-radius: 0 0 .5em .5em;
     }
   }
 
@@ -726,56 +520,48 @@
     .slider .item {
       background-position: center;
     }
-
     header {
+      
       padding-bottom: 10px;
+      
     }
     header .text-align-right {
       text-align: left;
     }
     header span {
-      padding-top: 0em;
+      padding-top: 0;
       padding-left: 0;
       padding-bottom: 0;
-      margin-top: 1.15em;
+      margin-top: 13px;
+     
     }
-    header span.appointment-btn{
-      margin-left: 0px;
+
+    header span.phone-icon {
+      border-left:0px;
+      padding-right: 1.2em;
+      padding-left: 2px;
+
     }
-    header span.phone-icon{
-      padding-left: 0.8em;
-      padding-right: 0.8em;
+
+    header span.email-icon {
+      padding-left: 1.2em;
     }
-    #appointment img.img-responsive{
-        padding-left: 0em;
+
+    #ctc .card img{
+      height: 11em;
+      padding-right: 5em;
+      padding-left: 4em;
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+
+    .data span{
+      float: none;
+      margin-top: 5em;
     }
   }
 
   @media only screen and (max-width: 767px) {
-    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-      border-color: transparent;
-    }
-    .navbar-default .navbar-nav li.appointment-btn {
-      margin-left: 15px;
-    }
-    .navbar-default .navbar-nav li a {
-      display: inline-block;
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
-
-    .hospital-sidebar {
-      margin-top: 2em;
-    }
-
-    #appointment img.img-responsive{
-      display: none;
-    }
-
-    #appointment-form {
-      padding-top: 4em;
-      padding-bottom: 4em;
-    }
 
     footer {
       padding-top: 60px;
@@ -796,9 +582,50 @@
     .angle-up-btn {
       bottom: 10em;
     }
-    #about1 {
-      padding-top: 5em;
-      padding-bottom: 3em;
+    
+    header span.phone-icon {
+      border-left:0px;
+      padding-right: 1.2em;
+      
+    }
+
+    header span.email-icon {
+      padding-left: 1.2em;
+      
+    }
+
+    header p{
+      text-align:center;
+    }
+    #ctc .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+      transition: 0.3s;
+      border-radius: .5em;
+      background-color: #ffffff;
+      width: 65%;
+      margin:auto;
+      margin-bottom: 2em;
+    }
+  
+    #ctc .card img{
+      height: 25em;
+      padding-right: 6em;
+      padding-left: 5em;
+      padding-top: 2em;
+    }
+  
+    #ctc .card .data{
+      padding-left: 3em;
+      padding-top: .7em;
+      padding-bottom: .7em;
+      background-color: #3c3c3d;
+      border-radius: 0 0 .5em .5em;
+    }
+
+    .data span{
+      float: right;
+      margin-right: 2.5em;
+      margin-top: 2.5em;
     }
   }
 
@@ -821,28 +648,57 @@
     header p{
       text-align: center;
     }
+    #ctc .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+      transition: 0.3s;
+      border-radius: .5em;
+      background-color: #ffffff;
+      width: 70%;
+      margin:auto;
+      margin-bottom: 2em;
+    }
+  
+    #ctc .card img{
+      height: 22em;
+      padding-right: 4em;
+      padding-left: 3em;
+      padding-top: 2em;
+    }
+  
+    #ctc .card .data{
+      padding-left: 3em;
+      padding-top: .7em;
+      padding-bottom: .7em;
+      background-color: #3c3c3d;
+      border-radius: 0 0 .5em .5em;
+    }
   }
 
   @media only screen and (max-width: 468px){
-    header{
-      text-align: center;
+    #ctc .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+      transition: 0.3s;
+      border-radius: .5em;
+      background-color: #ffffff;
+      width: 80%;
+      margin:auto;
+      margin-bottom: 2em;
     }
-    header .text-align-right {
-      text-align: left;
-      padding-left: 4em;
+  
+    #ctc .card img{
+      height: 19em;
+      padding-right: 4em;
+      padding-left: 3em;
+      padding-top: 2em;
     }
-    header span.email-icon{
-      padding: 0px 0px;
-      margin-left: 5em;
-    }
-    header span.phone-icon{
-      padding-left: 0.4em;
-      padding-right: .1em;
-      border-right: 0px;
-    }
-    header span.appointment-btn{
-      margin-left: 5em;
-    }
+  
+    #ctc .card .data{
+      padding-left: 3em;
+      padding-top: .7em;
+      padding-bottom: .7em;
+      background-color: #3c3c3d;
+      border-radius: 0 0 .5em .5em;
+    } 
   }
 
   @media only screen and (max-width: 376px){
@@ -850,11 +706,88 @@
       text-align: left;
       padding-left: 2.2em;
     }
+    header span.email-icon{
+      padding-left:1px;
+    }
+    header span.phone-icon{
+      padding-right: 4px;
+    }
+    #ctc .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+      transition: 0.3s;
+      border-radius: .5em;
+      background-color: #ffffff;
+      width: 90%;
+      margin:auto;
+      margin-bottom: 2em;
+    }
+  
+    #ctc .card img{
+      height: 17em;
+      padding-right: 4em;
+      padding-left: 3em;
+      padding-top: 2em;
+    }
+  
+    #ctc .card .data{
+      padding-left: 3em;
+      padding-top: .7em;
+      padding-bottom: .7em;
+      background-color: #3c3c3d;
+      border-radius: 0 0 .5em .5em;
+    }
+  }
+
+  @media only screen and (max-width:356px){
+    header span.phone-icon {
+      border-left: 0px;
+      /*border-right:0px;*/
+      padding-right: 1em;
+      padding-left: 2px;
+    }
+    header span.email-icon{
+      padding-left:3px;
+    }
+
+    header p{
+      text-align:center;
+    }
+  }
+
+  @media only screen and (max-width:344px){
+    header span.phone-icon {
+      border-right: 0px;
+      padding-right:1.5em;
+    } 
   }
 
   @media only screen and (max-width: 321px){
     header .text-align-right {
       text-align: left;
       padding-left: 0.2em;
+    }
+    #ctc .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+      transition: 0.3s;
+      border-radius: .5em;
+      background-color: #ffffff;
+      width: 90%;
+      margin:auto;
+      margin-bottom: 2em;
+    }
+  
+    #ctc .card img{
+      height: 15em;
+      padding-right: 4em;
+      padding-left: 3em;
+      padding-top: 2em;
+    }
+  
+    #ctc .card .data{
+      padding-left: 3em;
+      padding-top: .7em;
+      padding-bottom: .7em;
+      background-color: #3c3c3d;
+      border-radius: 0 0 .5em .5em;
     }
   }
