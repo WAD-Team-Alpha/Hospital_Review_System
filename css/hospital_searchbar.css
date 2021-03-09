@@ -1,7 +1,7 @@
 /* hospital SEARCH BAR */
 
 #hospital-searchbar {
-    padding-top: 1em;
+    padding-top: 3em;
 }
 
 #hospital-searchbar label {
@@ -39,11 +39,38 @@
 
 #hospital-searchbar img.img-responsive {
     height: 33em;
-    margin-top: 2em;
+    margin-top: 1em;
+    margin-left: 20em;
 }
 
 
+
+
 /* RESPONSIVE STYLES */
+
+@media only screen and (max-width: 1300px){
+    #hospital-searchbar img.img-responsive {
+        height: 28em;
+        margin-top: 2em;
+        margin-left: 15em;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    #hospital-searchbar img.img-responsive {
+        height: 28em;
+        margin-top: 2em;
+        margin-left: 5em;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    #hospital-searchbar img.img-responsive {
+        height: 28em;
+        margin-top: 2em;
+        margin-left: 4em;
+    }
+}
 
 @media only screen and (max-width: 767px) {
     #hospital-searchbar img.img-responsive {

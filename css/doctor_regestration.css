@@ -192,8 +192,8 @@ header span.phone-icon {
 }
 
 #user_registration img {
-    height: 40em;
-    width: 100%;
+    height: 50.5em;
+    width: 120%;
     margin-left: 0px;
     margin-top: 2em;
     padding-right: 10em;
@@ -440,10 +440,10 @@ footer a:hover {
         padding-left: 1.2em;
     }
     #user_registration img {
-        height: 32em;
-        width: 100%;
-        margin-left: 0px;
-        margin-top: 7em;
+        height: 50em;
+        width: 130%;
+        margin-left: -60px;
+        margin-top: 2em;
         padding-right: 4em;
     }
 }

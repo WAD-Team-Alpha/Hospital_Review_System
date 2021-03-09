@@ -431,8 +431,22 @@
       ABOUT              
   -----------------------------------------*/
 
-  #about {
+  #about1 {
     background: url('../images/about-bg.jpg') no-repeat top center;
+    background-size:cover;
+    padding-top: 7em;
+    padding-bottom: 10em;
+  }
+
+  #about2 {
+    background: url('../images/choice1.jpg') no-repeat top center;
+    background-size:cover;
+    padding-top: 7em;
+    padding-bottom: 10em;
+  }
+
+  #about3 {
+    background: url('../images/choice2.jpg') no-repeat top center;
     background-size:cover;
     padding-top: 7em;
     padding-bottom: 10em;
@@ -454,7 +468,7 @@
     margin-top: 0;
   }
 
-  #about h6 {
+  #about1 h6, #about2 h6, #about3 h6 {
     color: #858585;
     margin: 0;
   }
@@ -732,6 +746,9 @@
       padding-left: 0.8em;
       padding-right: 0.8em;
     }
+    #appointment img.img-responsive{
+        padding-left: 0em;
+    }
   }
 
   @media only screen and (max-width: 767px) {
@@ -778,6 +795,10 @@
 
     .angle-up-btn {
       bottom: 10em;
+    }
+    #about1 {
+      padding-top: 5em;
+      padding-bottom: 3em;
     }
   }
 
