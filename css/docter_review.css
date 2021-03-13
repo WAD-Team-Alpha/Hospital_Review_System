@@ -1,0 +1,134 @@
+.review-heading {
+  color: #fff;
+  background-color: #3f3e3e;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.checked {
+  color: orange;
+}
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+.add-reveiw {
+  padding-bottom: 50px;
+}
+.text-input {
+  background: #f9f9f9;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  transition: all ease-in-out 0.4s;
+  padding: 10px;
+}
+.starRating:not(old){
+    display        : inline-block;
+    width          : 7.5em;
+    height         : 1.5em;
+    overflow       : hidden;
+    vertical-align : bottom;
+  }
+  
+  .starRating:not(old) > input{
+    margin-right : -100%;
+    opacity      : 0;
+  }
+  
+  .starRating:not(old) > label{
+    display         : block;
+    float           : right;
+    position        : relative;
+    background      : url('star-off.svg');
+    background-size : contain;
+  }
+  
+  .starRating:not(old) > label:before{
+    content         : '';
+    display         : block;
+    width           : 1.5em;
+    height          : 1.5em;
+    background      : url('star-on.svg');
+    background-size : contain;
+    opacity         : 0;
+    transition      : opacity 0.2s linear;
+  }
+  
+  .starRating:not(old) > label:hover:before,
+  .starRating:not(old) > label:hover ~ label:before,
+  .starRating:not(:hover) > :checked ~ label:before{
+    opacity : 1;
+  }
+  .heading {
+    font-size: 25px;
+    margin-right: 25px;
+  }
+  .average{
+    background: green;
+    color : white;
+    font-size:medium
+  }
+  .hr-line{
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:gray
+  }
+  .fa {
+    font-size: 25px;
+  }
+  .side {
+    padding-left: 20px;
+    float: left; 
+    width: 15%;
+    margin-top: 10px;
+  }
+  
+  .middle {
+    float: left;
+    width: 70%;
+    margin-top: 10px;
+  }
+  
+  /* Place text to the right */
+  .right {
+    padding-right: 20px;
+    text-align: right;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* The bar container */
+  .bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Individual bars */
+  .bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+  .bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+  .bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+  .bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+  .bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+  
+  /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+  @media (max-width: 400px) {
+    .side, .middle {
+      width: 100%;
+    }
+    /* Hide the right column on small screens */
+    .right {
+      display: none;
+    }
+  }  
