@@ -1,0 +1,83 @@
+/* hospital SEARCH BAR */
+
+#hospital-searchbar {
+    padding-top: 3em;
+}
+
+#hospital-searchbar label {
+    color: #393939;
+    font-weight: 500;
+}
+
+#hospital-searchbar .form-control {
+    background: #f9f9f9;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 15px;
+    transition: all ease-in-out 0.4s;
+}
+
+#hospital-searchbar input,
+#hospital-searchbar select {
+    height: 45px;
+}
+
+#hospital-searchbar button#ds-submit {
+    background: #0cd9e7;
+    color: #ffffff;
+    font-weight: 600;
+    height: 55px;
+}
+
+#hospital-searchbar button#ds-submit:hover {
+    background: #2d60ec;
+    color: #ffffff;
+}
+
+#hospital-searchbar img.img-responsive {
+    height: 33em;
+    margin-top: 1em;
+    margin-left: 20em;
+}
+
+
+
+
+/* RESPONSIVE STYLES */
+
+@media only screen and (max-width: 1300px){
+    #hospital-searchbar img.img-responsive {
+        height: 28em;
+        margin-top: 2em;
+        margin-left: 15em;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    #hospital-searchbar img.img-responsive {
+        height: 28em;
+        margin-top: 2em;
+        margin-left: 5em;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    #hospital-searchbar img.img-responsive {
+        height: 28em;
+        margin-top: 2em;
+        margin-left: 4em;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #hospital-searchbar img.img-responsive {
+        display: none;
+    }
+    #hospital_search {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+}
