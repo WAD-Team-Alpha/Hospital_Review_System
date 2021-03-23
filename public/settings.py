@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import pyrebase
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,12 +79,20 @@ WSGI_APPLICATION = 'public.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+firebaseConfig = {
+    "apiKey": "AIzaSyDhaOjFCuvGvfiavpNsBJ64OUcW4PUCPmg",
+    "authDomain": "jeevan-naksha.firebaseapp.com",
+    "projectId": "jeevan-naksha",
+    "storageBucket": "jeevan-naksha.appspot.com",
+    "messagingSenderId": "283736840553",
+    "databaseURL":"https://jeevan-naksha-default-rtdb.firebaseio.com/",
+    "appId": "1:283736840553:web:2448f0845323a8fb5b05f8",
+    "measurementId": "G-TZ00CV5RM6"
+};
+Firebase = pyrebase.initialize_app(firebaseConfig) 
+Auth     = Firebase.auth() 
+Database = Firebase.database()
+Storage  = Firebase.storage()
 
 
 # Password validation
