@@ -14,3 +14,5 @@ def userReg(request):
     return render(request, 'user_registration.html')
 def forgPass(request):
     return render(request, 'forgot_password.html')
+def signinFail(request):
+    return render(request, 'signin_fail.html')

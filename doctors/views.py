@@ -4,3 +4,5 @@ from django.shortcuts import render
 
 def docProf(request):
     return render(request, 'DoctorProfile.html')
+def searchRes(request):
+    return render(request, 'searchbarResults.html')

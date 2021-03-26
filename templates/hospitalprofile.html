@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html>
     <head>
@@ -10,18 +11,18 @@
         <meta name="author" content="index">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/animate.css">
-        <link rel="stylesheet" href="../css/owl.carousel.css">
-        <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      
         
       
-         <link rel="stylesheet" href="../css/Hospital_profile.css">
+         <link rel="stylesheet" href="{% static 'css/Hospital_profile.css' %}">
 
         
     </head>
@@ -49,8 +50,8 @@
        </header>
 
        <section class="sec" >
-          <div class=".container-fluid backimg">
-          <img src="../images/slider_1.jpg" alt="Snow" style="width:100%; ">
+          <div class=".container-fluid ba">
+          <img src="{% static 'images/slider_1.jpg' %}" alt="Snow" style="width:100%; ">
             <div class="top-left"> <h1 style="color:white;"> Health Care </h1>
             <p class="back" style="color:white;"> how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen</p>
              </div>
@@ -138,7 +139,7 @@
 
 
                     <div class="col-md-6 col-sm-12 doc-img">
-                        <img  src="../images/doctt.png" alt="">
+                        <img  src="{% static 'images/doctt.png' %}" alt="">
                     </div>
                     <div class="col-md-6 col-sm-12 doc-det">
                         <h1>Hello, I’m Doctor Sanjay</h1>
@@ -163,36 +164,36 @@
 
       <div class="carousel-inner"> 
         <div class="item active">
-          <div class="col-xs-3"><a href="#"><img src="../images/team-memb4.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb4.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
         </div>
         <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="../images/team-memb1.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5>
           </div>
         </div>
         <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="../images/team-memb2.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb2.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
         </div>
         <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="../images/team-memb3.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb3.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
         </div>
         <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="../images/team-memb4.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb4.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
         </div>
         <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="../images/team-memb1.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
         </div>
         <div class="item">
-          <div class="col-xs-3"><a href="#"><a href="#"><img src="../images/team-memb2.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><a href="#"><img src="{% static 'images/team-memb2.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
         </div>
         <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="../images/team-memb3.jpg" class="img-responsive"></a>
+          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb3.jpg' %}" class="img-responsive"></a>
           <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
         </div>
       </div>
@@ -283,14 +284,14 @@
             </div>
         </footer>
 
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/jquery.sticky.js"></script>
-        <script src="../js/jquery.stellar.min.js"></script>
-        <script src="../js/wow.min.js"></script>
-        <script src="../js/smoothscroll.js"></script>
-        <script src="../js/owl.carousel.min.js"></script>
-        <script src="../js/custom.js"></script>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/smoothscroll.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
         <script>   
 $('#myCarousel').carousel({
   interval: 4000
