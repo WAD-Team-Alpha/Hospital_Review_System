@@ -1,0 +1,56 @@
+/* DOCTOR SEARCH BAR */
+  #doctor-searchbar {
+    padding-top: 2.5em;
+  }
+
+  #doctor-searchbar label {
+    color: #393939;
+    font-weight: 500;
+  }
+
+  #doctor-searchbar .form-control {
+    background: #f9f9f9;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 15px;
+    transition: all ease-in-out 0.4s;
+  }
+
+  #doctor-searchbar input,
+  #doctor-searchbar select {
+    height: 45px;
+  }
+
+  #doctor-searchbar button#ds-submit {
+    background: #0cd9e7;
+    color: #ffffff;
+    font-weight: 600;
+    height: 55px;
+  }
+
+  #doctor-searchbar button#ds-submit:hover {
+    background: #2d60ec;
+    color: #ffffff;
+  }
+
+  #doctor-searchbar img.img-responsive{
+    height: 33em;
+    margin-top: 2em;
+  }
+
+  /* RESPONSIVE STYLES */
+
+  @media only screen and (max-width: 767px) {
+    
+    #doctor-searchbar img.img-responsive{
+      display: none;
+    }
+
+    #doctor_search {
+      padding-top: 4em;
+      padding-bottom: 4em;
+    }
+ }
