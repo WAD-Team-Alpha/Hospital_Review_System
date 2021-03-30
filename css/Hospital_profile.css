@@ -23,8 +23,13 @@ html{
 
   header .col-md-8 {
     padding-right: 0;
+    float: right;
   }
-
+  header .col-md-6 span{
+   
+    
+  }
+ 
   header p{
     font-size: 12px;
     line-height: 24px;
@@ -39,9 +44,21 @@ html{
 
   header a,
   header span {
-    color: #747474;
+    color: #777373;
   }
+  header  a:hover{
+    text-decoration: none;
+    color: rgb(130, 180, 12);
+}
 
+.stories-info a:hover{
+  text-decoration: none;
+  color: rgb(81, 143, 224);
+}
+.contact-info a:hover{
+  text-decoration: none;
+  color: rgb(81, 143, 224);
+}
   header span {
     font-weight: 500;
     display: inline-block;
