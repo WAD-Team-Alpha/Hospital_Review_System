@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .forms import UserForm
 # Create your views here.
 
 def signin(request):
@@ -11,7 +11,8 @@ def docReg(request):
 def hospReg(request):
     return render(request, 'Hospitalregistion.html')
 def userReg(request):
-    return render(request, 'user_registration.html')
+    userform = UserForm(request.POST)
+    return render(request, 'user_registration.html', {"form": userform})
 def forgPass(request):
     return render(request, 'forgot_password.html')
 def signinFail(request):
