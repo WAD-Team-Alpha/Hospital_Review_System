@@ -79,20 +79,15 @@ WSGI_APPLICATION = 'public.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-firebaseConfig = {
-    "apiKey": "AIzaSyDhaOjFCuvGvfiavpNsBJ64OUcW4PUCPmg",
-    "authDomain": "jeevan-naksha.firebaseapp.com",
-    "projectId": "jeevan-naksha",
-    "storageBucket": "jeevan-naksha.appspot.com",
-    "messagingSenderId": "283736840553",
-    "databaseURL":"https://jeevan-naksha-default-rtdb.firebaseio.com/",
-    "appId": "1:283736840553:web:2448f0845323a8fb5b05f8",
-    "measurementId": "G-TZ00CV5RM6"
-};
-Firebase = pyrebase.initialize_app(firebaseConfig) 
-Auth     = Firebase.auth() 
-Database = Firebase.database()
-Storage  = Firebase.storage()
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'JNDB',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+    }
+}
 
 
 # Password validation
@@ -134,3 +129,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'public/static')]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "jeevannakshawad@gmail.com"
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

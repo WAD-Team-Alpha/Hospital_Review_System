@@ -1,0 +1,90 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title> Hospital Registration </title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="index">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/OTP.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/hospital-registeration.css' %}">
+
+    </head>
+
+    <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+
+        <header>
+            <div class="container">
+                 <div class="row">
+
+                      <div class="col-md-4 col-sm-5">
+                           <p style="font-size: large;"><b>JEEVAN NAKSHA</b></p>
+                      </div>
+
+                      <div class="col-md-8 col-sm-7 text-align-right">
+
+                           <span class="phone-icon"><i class="fa fa-phone"></i>999-888-726-1</span>
+                           <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">jeevannaksha@WAD8.com</a></span>
+
+                      </div>
+
+                 </div>
+            </div>
+       </header>
+
+        <section id="OTP">
+            <h2 class="wow fadeInUp" style="text-align: center;margin-top: 2em;">Enter OTP which is sent to {{email}} here</h2>
+            <div class="container OTP">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 otpForm">
+                        <span>{{message}}</span>
+                        <form method="post" class="digit-group" data-group-name="digits" autocomplete="off" action="emailVerfifcation">
+                            {% csrf_token %}
+                            <input type="text" id="digit-1" name="digit-1" data-next="digit-2" />
+                            <input type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
+                            <input type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
+                            <input type="text" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3" />
+                            <input type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
+                            <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
+                            <button type="submit" class="form-control" id="user-cf-submit" name="submit">Verify OTP</button>
+                        </form>
+                        <form action="resendOTP" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="form-control" id="user-cf-submit" name="submit" >Resend OTP</button>
+                        </form>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/smoothscroll.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+        <script src="{% static 'js/authentication.js' %}"></script>
+        <script src="{% static 'js/OTP.js' %}"></script>
+
+    </body>
+
+
+
+</html>
