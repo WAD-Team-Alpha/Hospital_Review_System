@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import pyrebase
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'JNDB',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'sunny',
         'HOST': 'localhost',
     }
 }
