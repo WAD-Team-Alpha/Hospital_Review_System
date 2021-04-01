@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .forms import UserForm
+from .forms import *
+from django.views import View
 # Create your views here.
 
 def signin(request):
@@ -17,4 +18,9 @@ def forgPass(request):
     return render(request, 'forgot_password.html')
 def signinFail(request):
     return render(request, 'signin_fail.html')
+
+class Myview(View):
+    def get(self, request):
+        docform = DoctorForm(request.POST)
+        return render(request, 'docregform.html', {"form": docform})
 

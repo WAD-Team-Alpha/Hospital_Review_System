@@ -10,5 +10,5 @@ urlpatterns = [
     path('docReg', views.docReg, name="DoctorRegisteration"),
     path('hospReg', views.hospReg, name="HospitalRegisteration"),
     path('forgPass', views.forgPass, name="ForgotPassword"), 
-    path('docRegForm', TemplateView.as_view(template_name="docregform.html"), name="DoctorRegistrationForm"),
+    path('docRegForm', views.Myview.as_view(), name="DoctorRegistrationForm")
 ]
