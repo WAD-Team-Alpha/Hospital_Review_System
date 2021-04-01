@@ -17,3 +17,4 @@ def forgPass(request):
     return render(request, 'forgot_password.html')
 def signinFail(request):
     return render(request, 'signin_fail.html')
+
