@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .forms import *
+from doctors.forms import DoctorForm
+from .forms import UserForm
 from django.views import View
 # Create your views here.
 
