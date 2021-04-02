@@ -7,6 +7,7 @@ class Doctor(models.Model):
     FirstName = models.CharField(max_length=150)
     LastName = models.CharField(max_length=150)
     Email = models.CharField(max_length=150)
+    Username = models.CharField(max_length=150, default="")
     DateOfBirth = models.CharField(max_length=150)
     ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", blank=True)
     MobileNumber = models.CharField(max_length=10)

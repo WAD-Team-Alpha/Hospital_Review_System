@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from hospitals.forms import HospitalForm
 from doctors.forms import DoctorForm
 from .forms import UserForm
 from django.views import View
@@ -9,9 +10,11 @@ def signin(request):
 def signup(request):
     return render(request, 'signup.html')
 def docReg(request):
-    return render(request, 'doctor_regestration.html')
+    docform = DoctorForm(request.POST, request.FILES)
+    return render(request, 'doctor_regestration.html', {"form": docform})
 def hospReg(request):
-    return render(request, 'Hospitalregistion.html')
+    hospform = HospitalForm(request.POST, request.FILES)
+    return render(request, 'Hospitalregistion.html', {"form": hospform})
 def userReg(request):
     userform = UserForm(request.POST)
     return render(request, 'user_registration.html', {"form": userform})
@@ -19,14 +22,4 @@ def forgPass(request):
     return render(request, 'forgot_password.html')
 def signinFail(request):
     return render(request, 'signin_fail.html')
-
-class Myview(View):
-    def get(self, request):
-        docform = DoctorForm(request.POST, request.FILES)
-        return render(request, 'docregform.html', {"form": docform})
-
-class hospRegForm(View):
-    def get(self, request):
-
-        return render(request, 'hospital_reg.html')
 

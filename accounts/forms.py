@@ -5,8 +5,8 @@ from .choices import *
 class UserForm(forms.ModelForm):
 
     class Meta:
-        model = Users
-        fields = {"FirstName", "LastName", "Email", "DateOfBirth", "MobileNumber"}
+        model = User
+        fields = {"FirstName", "LastName", "Email", "Username", "DateOfBirth", "MobileNumber"}
         widgets = {
             "FirstName": forms.TextInput(
                 attrs={
@@ -28,6 +28,14 @@ class UserForm(forms.ModelForm):
                     'required': True
                 }
             ), 
+            "Username": forms.TextInput(attrs={
+                'type': 'text',
+                'class': 'form-control',
+                'id': 'username',
+                'name': 'Username',
+                'placeholder': 'Username',
+                'required': True
+            }),
             "Email": forms.EmailInput(
                 attrs={
                     'type': 'email',

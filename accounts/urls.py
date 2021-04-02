@@ -9,8 +9,5 @@ urlpatterns = [
     path('userReg', views.userReg, name="UserRegisteration"),
     path('docReg', views.docReg, name="DoctorRegisteration"),
     path('hospReg', views.hospReg, name="HospitalRegisteration"),
-    path('forgPass', views.forgPass, name="ForgotPassword"), 
-    path('docRegForm', views.Myview.as_view(), name="DoctorRegistrationForm"),
-    path('hospitalRegForm', views.hospRegForm.as_view(), name="HospitalRegistrationForm")
-
+    path('forgPass', views.forgPass, name="ForgotPassword"),
 ]
