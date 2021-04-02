@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-    
-
-
-
     <link rel="stylesheet" href="{% static 'css/doctor_regestration.css' %}">
 
     <style>
@@ -63,6 +59,11 @@
                                 <label for="date">Date of Birth</label>
                                 {{form.DateOfBirth}}
                             </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="ProfilePhoto">Profile Photo</label>
+                                {{form.ProfilePhoto}}
+                            </div>
                 
                             <div class="col-md-12 col-sm-12">
                                 <label for="psw">Password</label>
@@ -88,7 +89,16 @@
                                 
                                 <label for="hospitalname">Hospital</label>
                                 {{form.HospitalName}}
-                                
+
+                                <label for="city">City</label>
+                                {{form.City}}
+
+                                <label for="state">State</label>
+                                {{form.State}}
+
+                                <label for="pincode">Pincode</label>
+                                {{form.Pincode}}
+
                                 <label for="select">Department</label>
                                 {{form.Department}}
                                 

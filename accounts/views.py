@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .forms import *
+from doctors.forms import DoctorForm
+from .forms import UserForm
 from django.views import View
 # Create your views here.
 
@@ -21,7 +22,7 @@ def signinFail(request):
 
 class Myview(View):
     def get(self, request):
-        docform = DoctorForm(request.POST)
+        docform = DoctorForm(request.POST, request.FILES)
         return render(request, 'docregform.html', {"form": docform})
 
 class hospRegForm(View):
