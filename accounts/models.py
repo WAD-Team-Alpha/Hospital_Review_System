@@ -1,4 +1,5 @@
 from django.db import models
+from .choices import *
 
 # Create your models here.
 

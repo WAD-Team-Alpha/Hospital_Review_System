@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-    
-
-
-
     <link rel="stylesheet" href="{% static 'css/doctor_regestration.css' %}">
 
     <style>
@@ -46,57 +42,74 @@
                         <div class="wow fadeInUp animated" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
                             <div class="col-md-6 col-sm-6">
                                 <label for="name">First Name</label>
-                                <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
+                                {{form.FirstName}}
                             </div>
                 
                             <div class="col-md-6 col-sm-6">
                                 <label for="name">Last Name</label>
-                                <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+                                {{form.LastName}}
                             </div>
                 
                             <div class="col-md-6 col-sm-6">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="reg_email" name="email" placeholder="Your Email" required="">
+                                {{form.Email}}
                             </div>
                 
                             <div class="col-md-6 col-sm-6">
                                 <label for="date">Date of Birth</label>
-                                <input type="date" name="date" value="" class="form-control">
+                                {{form.DateOfBirth}}
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="ProfilePhoto">Profile Photo</label>
+                                {{form.ProfilePhoto}}
                             </div>
                 
                             <div class="col-md-12 col-sm-12">
                                 <label for="psw">Password</label>
                                 <input class="form-control" type="password" id="o_psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="">
+
                                 <label for="psw">Confirm Password</label>
                                 <input class="form-control" type="password" id="c_psw" name="cpsw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="">
+
                                 <label for="phone_number">Mobile Number</label>
-                                <input type="pnum" class="form-control" id="mobile-num" name="m-num" placeholder="+91 ">
+                                {{form.MobileNumber}}
+
                                 <label for="certificates">Certificates for proof</label>
-                                <input class="form-control" type="file" id="attach" name="cs" placeholder="here">
+                                {{form.DoctorLicense}}
+                                
                                 <label for="years of experience">Years of experience</label>
-                                <input class="form-control" type="number" id="attach" name="yoe" placeholder="here">
+                                {{form.YearsOfExperience}}
+                                
                                 <label for="education">Education</label>
-                                <input type="text" class="form-control" id="education" name="education" placeholder="Education">
+                                {{form.Education}}
+                                
                                 <label for="master">Master</label>
-                                <input type="text" class="form-control" id="master" name="master" placeholder="Master">
+                                {{form.Masters}}
+                                
                                 <label for="hospitalname">Hospital</label>
-                                <input type="text" class="form-control" id="hospital_name" name="hospital_name" placeholder="Hospital Name">
+                                {{form.HospitalName}}
+
+                                <label for="city">City</label>
+                                {{form.City}}
+
+                                <label for="state">State</label>
+                                {{form.State}}
+
+                                <label for="pincode">Pincode</label>
+                                {{form.Pincode}}
+
                                 <label for="select">Department</label>
-                                <select class="form-control">
-                                    <option>General Health</option>
-                                    <option>Cardiology</option>
-                                    <option>Dental</option>
-                                    <option>Medical Research</option>
-                                    <option>Emergency</option>
-                                    <option>Gynecologist</option>
-                                </select>
+                                {{form.Department}}
+                                
                                 <label for="status">Status</label>
-                                <input type="text" class="form-control" id="status" name="status" placeholder="Status">
+                                {{form.Description}}
+                                
                                 <label for="achievements">Enter any four achievements</label>
-                                <input type="text" class="form-control" id="ach_1" name="ach1" placeholder="1. ">
-                                <input type="text" class="form-control" id="ach_2" name="ach2" placeholder="2. ">
-                                <input type="text" class="form-control" id="ach_3" name="ach3" placeholder="3. ">
-                                <input type="text" class="form-control" id="ach_4" name="ach4" placeholder="4. ">
+                                {{form.Achievements1}}
+                                {{form.Achievements2}}
+                                {{form.Achievements3}}
+                                {{form.Achievements4}}
                                 <button type="submit" class="form-control" id="user-cf-submit" name="submit">Register</button>
                             </div>
                         </div>
