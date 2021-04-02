@@ -22,6 +22,6 @@ def signinFail(request):
 
 class Myview(View):
     def get(self, request):
-        docform = DoctorForm(request.POST)
+        docform = DoctorForm(request.POST, request.FILES)
         return render(request, 'docregform.html', {"form": docform})
 
