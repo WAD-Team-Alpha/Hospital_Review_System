@@ -24,3 +24,8 @@ class Myview(View):
         docform = DoctorForm(request.POST)
         return render(request, 'docregform.html', {"form": docform})
 
+class hospRegForm(View):
+    def get(self, request):
+
+        return render(request, 'hospital_reg.html')
+
