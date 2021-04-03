@@ -6,7 +6,7 @@ class DoctorForm(forms.ModelForm):
 
     class Meta:
         model = Doctor
-        fields = ["FirstName", "LastName", "HospitalName", "City", "State", "Pincode", "Email", "Education", "DoctorLicense", "Description", "Department", "DateOfBirth", 
+        fields = ["FirstName", "LastName", "HospitalName", "City", "State", "Pincode", "Email", "Username", "Education", "DoctorLicense", "Description", "Department", "DateOfBirth", 
                   "ProfilePhoto", "Achievements4", "Achievements3", "Achievements2", "Achievements1", "YearsOfExperience", "Masters", "MobileNumber"]
         widgets = {
             "FirstName": forms.TextInput(attrs={
@@ -31,6 +31,14 @@ class DoctorForm(forms.ModelForm):
                 'id': 'reg_email',
                 'name': 'email',
                 'placeholder': 'Your Email',
+                'required': True
+            }),
+            "Username": forms.TextInput(attrs={
+                'type': 'text',
+                'class': 'form-control',
+                'id': 'username',
+                'name': 'username',
+                'placeholder': 'Username',
                 'required': True
             }),
             "ProfilePhoto": forms.FileInput(attrs={
@@ -129,28 +137,32 @@ class DoctorForm(forms.ModelForm):
                 'class': 'form-control',
                 'id': 'ach_1',
                 'name': 'ach1',
-                'placeholder': '1.'
+                'placeholder': '1.',
+                'required': False
             }), 
             "Achievements2":forms.TextInput(attrs={
                 'type': 'text',
                 'class': 'form-control',
                 'id': 'ach_2',
                 'name': 'ach2',
-                'placeholder': '2.'
+                'placeholder': '2.',
+                'required': False
             }), 
             "Achievements3": forms.TextInput(attrs={
                 'type': 'text',
                 'class': 'form-control',
                 'id': 'ach_3',
                 'name': 'ach3',
-                'placeholder': '3.'
+                'placeholder': '3.',
+                'required': False
             }), 
             "Achievements4": forms.TextInput(attrs={
                 'type': 'text',
                 'class': 'form-control',
                 'id': 'ach_4',
                 'name': 'ach4',
-                'placeholder': '4.'
+                'placeholder': '4.',
+                'required': False
             }), 
             "MobileNumber": forms.TextInput(attrs={
                 'type': 'text',

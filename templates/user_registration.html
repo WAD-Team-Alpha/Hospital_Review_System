@@ -78,12 +78,18 @@
                                 </div>
 
                                 <div class="col-md-12 col-sm-12">
+                                    <label for="username">Username</label>
+                                    {{form.Username}}
+                                    
                                     <label for="psw">Password</label>
                                     <input class="form-control" type="password" id="o_psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                    
                                     <label for="psw">Confirm Password</label>
                                     <input class="form-control" type="password" id="c_psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                    
                                     <label for="phone_number">Mobile Number</label>
                                     {{form.MobileNumber}}
+                                    
                                     <button type="submit" class="form-control" id="user-cf-submit" name="submit">Register</button>
                                 </div>
                             </div>
