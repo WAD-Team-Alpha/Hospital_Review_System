@@ -69,7 +69,8 @@
 
           <div class="col-md-6 col-sm-6">
             <!-- CONTACT FORM HERE -->
-            <form id="appointment-form" role="form" method="post" action="signin_fail.html">
+            <form id="appointment-form" method="POST" action="{% url 'signin' %}">
+              {% csrf_token %}
               <!-- SECTION TITLE -->
               <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
                 <h2>Sign in</h2>
@@ -77,13 +78,13 @@
 
               <div class="wow fadeInUp" data-wow-delay="0.8s">
                 <div class="col-md-12 col-sm-12">
-                  <label for="name">Email</label>
+                  <label for="name">Username</label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
+                    id="username"
+                    name="username"
+                    placeholder="username"
                     required
                   />
                 </div>
