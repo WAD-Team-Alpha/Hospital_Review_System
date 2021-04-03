@@ -4,6 +4,9 @@ from doctors.forms import DoctorForm
 from .forms import UserForm
 from django.views import View
 from django.contrib import auth
+from django.contrib import messages, auth
+from django.contrib.auth.models import User
+from django import forms
 # Create your views here.
 
 def signin(request):
@@ -30,8 +33,15 @@ def docReg(request):
     docform = DoctorForm(request.POST, request.FILES)
     return render(request, 'doctor_regestration.html', {"form": docform})
 def hospReg(request):
-    hospform = HospitalForm(request.POST, request.FILES)
-    return render(request, 'Hospitalregistion.html', {"form": hospform})
+    if request.method == "POST":
+        hospform = HospitalForm(request.POST, request.FILES)
+        username = request.POST['Username']
+        print(username)
+        if User.objects.filter(username=username).exists():
+            return render(request, 'Hospitalregistion.html', {"form": hospform, "data": "Username Already Exists"})
+    else:
+        hospform = HospitalForm()
+    return render(request, 'Hospitalregistion.html', {"form": hospform, "data": ""})
 def userReg(request):
     userform = UserForm(request.POST)
     return render(request, 'user_registration.html', {"form": userform})

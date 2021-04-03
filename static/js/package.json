@@ -1,0 +1,14 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "main": "authentication.js",
+  "scripts": {
+    "test": "node authentication.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.5.1"
+  },
+  "description": ""
+}
