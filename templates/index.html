@@ -50,12 +50,27 @@
           </div>
 
           <div class="col-md-8 col-sm-7 text-align-right">
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated %} {% if user.username in users %}
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
-              ><a href="{% url 'Signout' %}">signout</a></span
+              ><a href="{% url 'Signout' %}">Signout</a></span
+            >
+            {% elif user.username in doctors %}
+            <span class="appointment-btn"
+              ><i class="fa fa-user-circle"></i
+              ><a href="{% url 'Signout' %}">Doctor Account</a></span
+            >
+            {% elif user.username in hospitals %}
+            <span class="appointment-btn"
+              ><i class="fa fa-user-circle"></i
+              ><a href="{% url 'Signout' %}">Hospital Account</a></span
             >
             {% else %}
+            <span class="appointment-btn"
+              ><i class="fa fa-user-circle"></i
+              ><a href="{% url 'Signout' %}">problem in the database</a></span
+            >
+            {% endif %} {% else %}
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
               ><a href="{% url 'signin' %}">Sign in</a></span
