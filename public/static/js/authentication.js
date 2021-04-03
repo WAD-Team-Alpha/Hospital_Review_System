@@ -4,12 +4,12 @@ function checkPass()
     confirmPassword = document.getElementById('c_psw').value
     if(originalPassword == confirmPassword)
     {
-        document.getElementById('res').innerHTML = "Correct"
+        document.getElementById('res').innerHTML = ""
         return true
     }
     else
     {
-        document.getElementById('res').innerHTML = "Wrong"
+        document.getElementById('res').innerHTML = "Passwords do not match! Try again"
         return false
     }
 }   
