@@ -1,12 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from hospitals.forms import HospitalForm
 from doctors.forms import DoctorForm
 from .forms import UserForm
 from django.views import View
+from django.contrib import auth
 # Create your views here.
 
 def signin(request):
-    return render(request, 'signin.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        print(username, password)
+        user = auth.authenticate(request, username=username, password=password)
+        print(user)
+        if user is not None:
+            auth.login(request, user)
+            
+            return redirect('index')
+        else:
+           
+            return redirect('signin')
+
+        
+    else:
+        return render(request, 'signin.html')
 def signup(request):
     return render(request, 'signup.html')
 def docReg(request):
@@ -22,4 +39,8 @@ def forgPass(request):
     return render(request, 'forgot_password.html')
 def signinFail(request):
     return render(request, 'signin_fail.html')
+def signout(request):
+    auth.logout(request)
+    
+    return redirect('index')
 
