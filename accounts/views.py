@@ -111,6 +111,6 @@ def signinFail(request):
     
 def signout(request):
     auth.logout(request)
-    usertype = ""
+    
     return redirect('index')
 
