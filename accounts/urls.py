@@ -11,4 +11,5 @@ urlpatterns = [
     path('hospReg', views.hospReg, name="HospitalRegisteration"),
     path('forgPass', views.forgPass, name="ForgotPassword"),
     path('signout', views.signout, name="Signout"),
+    # path('signinFail', views.signinFail, name="SigninFail"),
 ]

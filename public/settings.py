@@ -86,10 +86,14 @@ DATABASES = {
         'NAME': 'JNDB',
         'USER': 'postgres',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'PASSWORD': 'sunny',
 =======
         'PASSWORD': 'Bannu@123',
 >>>>>>> da7006319e0e01d4772c3e16501e74c9275cf1df
+=======
+        'PASSWORD': 'Surya_0180',
+>>>>>>> 51e6fc9f1f16c2f5dcd55253d2cdb9e6df1240b1
         'HOST': 'localhost',
     }
 }
