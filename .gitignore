@@ -10,3 +10,4 @@ mainpage/__pycache__
 mainpage/migrations/__pycache__
 public/__pycache__
 media
+public/email.py
