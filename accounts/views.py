@@ -67,8 +67,41 @@ def hospReg(request):
     return render(request, 'Hospitalregistion.html', {"form": hospform, "data": ""})
 
 def userReg(request):
-    userform = UserForm(request.POST)
-    return render(request, 'user_registration.html', {"form": userform})
+    if request.method == "POST":
+        userform = UserForm(request.POST, request.FILES)
+        username = request.POST['Username']
+        password = request.POST['psw']
+        email=request.POST['Email']
+        print(username)
+        if User.objects.filter(username=username).exists():
+            return render(request, 'user_registration.html', {"form": userform, "data": "Username Already Exists"})
+
+        if User.objects.filter(email=email).exists():
+            return render(request, 'user_registration.html', {"form": userform, "data": "Email Already Exists"})
+
+        if userform.is_valid():
+            # Create user
+            user = User.objects.create_user(username=username, password=password)
+            user.is_active = False
+            user.save()
+            
+            # Save the Data to the Database 
+            userform.save()
+            
+            #automatically login the user for the firsttime
+            user = auth.authenticate(request, username=username, password=password)
+            print("User Created")
+            if user is not None:
+                auth.login(request, user)
+                return redirect('index')
+            else:
+                return redirect('index')
+        else:
+            return render(request, 'user_registration.html', {"form": userform, "data": userform.errors})
+
+    else:
+        userform = UserForm()
+    return render(request, 'user_registration.html', {"form": userform, "data": ""})
 
 def forgPass(request):
     return render(request, 'forgot_password.html')
