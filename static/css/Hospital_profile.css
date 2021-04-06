@@ -4,10 +4,30 @@ body {
   background: #ffffff;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  animation-name: example;
+  animation-duration: 3s;
+}
+@keyframes example {
+  from { opacity: 0.2;}
+  to { opacity: 1;}
 }
 
 html{
     -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; 
 }
 
 
@@ -25,10 +45,7 @@ html{
     padding-right: 0;
     float: right;
   }
-  header .col-md-6 span{
-   
-    
-  }
+  
  
   header p{
     font-size: 12px;
