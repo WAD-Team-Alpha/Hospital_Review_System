@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-from public.email import EMAIL_HOST, EMAIL_HOST_PASSWORD, EMAIL_HOST_USER, DEFAULT_FROM_EMAIL
+from public.email import EMAIL_HOST, EMAIL_HOST_PASSWORD, EMAIL_HOST_USER, DEFAULT_FROM_EMAIL, DB_PASSWORD
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'reviews.apps.ReviewsConfig',
     'mainpage.apps.MainpageConfig',
     'doctors.apps.DoctorsConfig',
     'hospitals.apps.HospitalsConfig',
@@ -85,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'JNDB',
         'USER': 'postgres',
-        'PASSWORD': 'sunny',
+        'PASSWORD': '',
         'HOST': 'localhost',
     }
 }
