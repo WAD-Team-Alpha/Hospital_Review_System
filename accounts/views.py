@@ -117,6 +117,23 @@ def userReg(request):
             
             # Save the Data to the Database 
             userform.save()
+
+            subject = "Activate Your account"
+            uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
+            token = token_generator.make_token(user)
+            domain = get_current_site(request).domain
+            link = reverse('activate', kwargs={'uidb64': uidb64, "token": token})
+            activate_url = 'http://'+domain+link
+            body = "Hi " + username + "!\n To activate your account please click on this link\n" + activate_url
+
+            Email = send_mail (
+                subject,
+                body,
+                "jeevannakshawad@gmail.com",
+                [email],
+                fail_silently=False
+            )
+
             
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
