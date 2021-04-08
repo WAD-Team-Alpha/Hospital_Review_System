@@ -23,9 +23,11 @@ def index(request):
     for hospital in hospitals:
         
         hospital_list.append(hospital.Username)
+    id = 1
     context = {
         'users' : user_list,
         'doctors' : doctor_list,
-        'hospitals' : hospital_list
+        'hospitals' : hospital_list,
+        'id' : id
     }
     return render(request, 'index.html', context)
