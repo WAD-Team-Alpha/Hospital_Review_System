@@ -25,3 +25,5 @@ class Doctor(models.Model):
     Achievements2 = models.CharField(max_length=50, blank=True)
     Achievements3 = models.CharField(max_length=50, blank=True)
     Achievements4 = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.Username
