@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/owl.theme.default.min.css' %}"
+    />
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{% static 'css/signin.css' %}" />
@@ -38,22 +41,23 @@
     <!-- HEADER -->
     <header>
       <div class="container">
-           <div class="row">
+        <div class="row">
+          <div class="col-md-4 col-sm-5">
+            <p style="font-size: large"><b>JEEVAN NAKSHA</b></p>
+          </div>
 
-                <div class="col-md-4 col-sm-5">
-                     <p style="font-size: large;"><b>JEEVAN NAKSHA</b></p>
-                </div>
-                     
-                <div class="col-md-8 col-sm-7 text-align-right">
-                    
-                     <span class="phone-icon"><i class="fa fa-phone"></i>999-888-726-1</span>
-                     <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">jeevannaksha@WAD8.com</a></span>
-                     
-                </div>
-
-           </div>
+          <div class="col-md-8 col-sm-7 text-align-right">
+            <span class="phone-icon"
+              ><i class="fa fa-phone"></i>999-888-726-1</span
+            >
+            <span class="email-icon"
+              ><i class="fa fa-envelope-o"></i>
+              <a href="#">jeevannaksha@WAD8.com</a></span
+            >
+          </div>
+        </div>
       </div>
- </header>
+    </header>
 
     <!-- Sign In Page -->
     <section id="appointment" data-stellar-background-ratio="3">
@@ -69,7 +73,12 @@
 
           <div class="col-md-6 col-sm-6">
             <!-- CONTACT FORM HERE -->
-            <form id="appointment-form" role="form" method="post" action="signin_fail.html">
+            <form
+              id="appointment-form"
+              method="POST"
+              action="{% url 'signin' %}"
+            >
+              {% csrf_token %}
               <!-- SECTION TITLE -->
               <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
                 <h2>Sign in</h2>
@@ -77,13 +86,13 @@
 
               <div class="wow fadeInUp" data-wow-delay="0.8s">
                 <div class="col-md-12 col-sm-12">
-                  <label for="name">Email</label>
+                  <label for="name">Username</label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
+                    id="username"
+                    name="username"
+                    placeholder="username"
                     required
                   />
                 </div>
@@ -99,24 +108,9 @@
                   />
                 </div>
 
-                <div class="col-md-6 col-sm-6">
-                  <div>
-                    <label for="inputState">Usertype</label>
-                    <select
-                      style="width: 100%"
-                      id="inputState"
-                      class="form-control"
-                    >
-                      <option selected>Public</option>
-                      <option>Hospital</option>
-                      <option>Doctor</option>
-                    </select>
-                  </div>
-                </div>
                 <br />
                 <div class="col-md-12 col-sm-12">
                   <button
-                    
                     type="submit"
                     class="form-control"
                     id="cf-submit"
@@ -129,7 +123,6 @@
             </form>
 
             <div class="col-md-12 col-sm-12">
-            
               <p><a href="{% url 'ForgotPassword' %}">forgot password?</a></p>
               <p>
                 If you don't have an account then

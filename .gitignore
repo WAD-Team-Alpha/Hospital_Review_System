@@ -1,2 +1,15 @@
 static/admin
 .vscode
+accounts/__pycache__
+accounts/migrations/__pycache__
+doctors/__pycache__
+doctors/migrations/__pycache__
+hospitals/__pycache__
+hospitals/migrations/__pycache__
+reviews/__pycache__
+reviews/migrations/__pycache__
+mainpage/__pycache__
+mainpage/migrations/__pycache__
+public/__pycache__
+media
+public/email.py
