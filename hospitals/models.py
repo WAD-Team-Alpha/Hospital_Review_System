@@ -26,3 +26,5 @@ class Hospital(models.Model):
     Achievements4 = models.CharField(max_length=50, blank=True)
     Achievements5 = models.CharField(max_length=50, blank=True)
     Achievements6 = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.HospitalName

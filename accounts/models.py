@@ -10,3 +10,5 @@ class User(models.Model):
     Email = models.CharField(max_length=150)
     DateOfBirth = models.CharField(max_length=150)
     MobileNumber = models.CharField(max_length=10)
+    def __str__(self):
+        return self.Username
