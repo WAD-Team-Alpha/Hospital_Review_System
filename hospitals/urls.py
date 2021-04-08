@@ -3,5 +3,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.hosProf, name="HospitalProfile"),
+    path('<int:hospital_id>', views.hosProf, name="HospitalProfile"),
 ]
