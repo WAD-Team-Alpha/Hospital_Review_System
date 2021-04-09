@@ -4,6 +4,7 @@ from accounts.models import User
 from reviews.models import DocReview
 # Create your views here.
 
+
 def docProf(request, doctor_id):
     doctor =get_object_or_404(Doctor, pk= doctor_id)
     doctorReviews = DocReview.objects.all()
