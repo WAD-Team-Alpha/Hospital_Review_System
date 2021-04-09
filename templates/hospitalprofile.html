@@ -366,66 +366,85 @@
               </td>
             </tr>
           </table>
-          <div class="add-reveiw">
-            <div class="row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-10">
-                <h3 class="h3">Please share your experience</h3>
-                <p>
-                  Rating:
-                  <span class="starRating">
-                    <input
-                      id="rating5"
-                      type="radio"
-                      name="rating"
-                      value="5"
-                    />
-                    <label for="rating5">5</label>
-                    <input
-                      id="rating4"
-                      type="radio"
-                      name="rating"
-                      value="4"
-                    />
-                    <label for="rating4">4</label>
-                    <input
-                      id="rating3"
-                      type="radio"
-                      name="rating"
-                      value="3"
-                    />
-                    <label for="rating3">3</label>
-                    <input
-                      id="rating2"
-                      type="radio"
-                      name="rating"
-                      value="2"
-                    />
-                    <label for="rating2">2</label>
-                    <input
-                      id="rating1"
-                      type="radio"
-                      name="rating"
-                      value="1"
-                    />
-                    <label for="rating1">1</label>
-                  </span>
-                </p>
-                <textarea
-                  class="text-input"
-                  rows="5"
-                  cols="140"
-                  style="max-width: 100%;"
-                  name="description"
+          <form action="{% url 'hosreview' %}" method="POST">
+            {% csrf_token %} {% if user.is_authenticated %}
+              <input
+                type="hidden"
+                name="username"
+                value="{{ user.username }}"
+              />
+              {% else %}
+              <input type="hidden" name="user_id" value="NONE" />
+              {% endif %}
+
+              <input type="hidden" name="hospital_id" value="{{ hospital.id }}" />
+              <input
+                type="hidden"
+                name="hospital_name"
+                value="{{ hospital.Username }}"
+              />
+            <div class="add-reveiw">
+              <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                  <h3 class="h3">Please share your experience</h3>
+                  <p>
+                    Rating:
+                    <span class="starRating">
+                      <input
+                        id="rating5"
+                        type="radio"
+                        name="rating"
+                        value="5"
+                      />
+                      <label for="rating5">5</label>
+                      <input
+                        id="rating4"
+                        type="radio"
+                        name="rating"
+                        value="4"
+                      />
+                      <label for="rating4">4</label>
+                      <input
+                        id="rating3"
+                        type="radio"
+                        name="rating"
+                        value="3"
+                      />
+                      <label for="rating3">3</label>
+                      <input
+                        id="rating2"
+                        type="radio"
+                        name="rating"
+                        value="2"
+                      />
+                      <label for="rating2">2</label>
+                      <input
+                        id="rating1"
+                        type="radio"
+                        name="rating"
+                        value="1"
+                      />
+                      <label for="rating1">1</label>
+                    </span>
+                  </p>
+                  <textarea
+                    class="text-input"
+                    rows="5"
+                    cols="140"
+                    style="max-width: 100%;"
+                    name="review"
+                    
+                  >
                   
-                >
-                
-                </textarea
-                ><br />
-                <button class="btn btn-info" type="submit">Add</button>
+                  </textarea
+                  ><br />
+                  <button class="btn btn-info" type="submit">Add</button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
+          
         </div>
       </div>
     </div>

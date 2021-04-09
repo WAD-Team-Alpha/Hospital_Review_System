@@ -137,6 +137,7 @@ def userReg(request):
                 auth.login(request, user)
                 return redirect('index')
             else:
+                messages.success(request, 'Activate your account after clicking the link sent to your mail')
                 return redirect('index')
         else:
             return render(request, 'user_registration.html', {"form": userform, "data": userform.errors})
