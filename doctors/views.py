@@ -7,24 +7,16 @@ from reviews.models import DocReview
 
 def docProf(request, doctor_id):
     doctor =get_object_or_404(Doctor, pk= doctor_id)
-    doctorReviews = DocReview.objects.all()
-    doctor_reviews = []
-    for doctorReview in doctorReviews:
-       if doctorReview.doctor.id == doctor_id:
-           data = {
-               'doctor' : doctorReview.doctor,
-               'user' : doctorReview.user,
-               'rating' : doctorReview.rating,
-               'reviews' : doctorReview.review,
-               'review_date' : doctorReview.review_date
-           }
-           doctor_reviews.append(data)
-
+    queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)[:3]
+    if request.method == 'POST':
+        queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
         
+    
+ 
     context = {
         'doctor' : doctor,
-        'doctor_reviews' : doctor_reviews
-        
+        'doctor_reviews' : queryset_list,
+    
     }
     return render(request, 'DoctorProfile.html', context)
 

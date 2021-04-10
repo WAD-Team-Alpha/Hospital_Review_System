@@ -6,7 +6,8 @@ from accounts.models import User
 # Create your models here.
 class DocReview(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING)
-    rating = models.IntegerField()
+    star_rating = models.TextField(blank=True)
+    non_rating = models.TextField(blank=True)
     review = models.TextField(blank=True)
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     review_date = models.DateTimeField(default=datetime.now, blank=True)
@@ -14,7 +15,8 @@ class DocReview(models.Model):
         return self.user.Username
 class HosReview(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.DO_NOTHING)
-    rating = models.IntegerField()
+    star_rating = models.TextField(blank=True)
+    non_rating = models.TextField(blank=True)
     review = models.TextField(blank=True)
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     review_date = models.DateTimeField(default=datetime.now, blank=True)
