@@ -8,7 +8,9 @@ from reviews.models import DocReview
 def docProf(request, doctor_id):
     doctor =get_object_or_404(Doctor, pk= doctor_id)
     queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)[:3]
+    flag = 0
     if request.method == 'POST':
+        flag = 1
         queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
         
     
@@ -16,7 +18,7 @@ def docProf(request, doctor_id):
     context = {
         'doctor' : doctor,
         'doctor_reviews' : queryset_list,
-    
+        'flag' : flag
     }
     return render(request, 'DoctorProfile.html', context)
 

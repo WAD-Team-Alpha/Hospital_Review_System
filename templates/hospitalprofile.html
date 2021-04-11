@@ -370,15 +370,12 @@
                     src="{% static 'images/boy_avatar.jpg' %}"
                     alt="profile"
                   />
+                  <p style="padding-top: 10px">{{ review.review_date | timesince }} ago</p>
                 </div>
                
-                <p style="padding-top: 50px">{{ review.review_date | timesince }}</p>
+               
               </td>
-              <td style="width: 80%;" class="reveiws">
-                <h4><strong>Review</strong></h4>
-                <p>
-                  {{ review.review }}
-                </p>
+              <td style="width: 85%;" class="reveiws">
                 <h4><strong>Rating </strong></h4>
                 
                 {% for i in review.star_rating %}
@@ -387,6 +384,11 @@
                 {% for i in review.non_rating %}
                   <span class="fa fa-star "></span>
                 {% endfor %}
+                <h4><strong>Review</strong></h4>
+                <p>
+                  {{ review.review }}
+                </p>
+                
               
                 
               </td>
@@ -395,10 +397,14 @@
             <p class="p">No Reviews added</p>
             {% endif %}
           </table>
-          <form action="{% url 'HospitalProfile' hospital.id %}" method="POST">
-            {% csrf_token %}
-            <button class="btn btn-info">Load more</button>
-          </form>
+          {% if flag == 0 %}
+              <form action="{% url 'HospitalProfile' hospital.id %}" method="POST">
+              {% csrf_token %}
+              <button class="btn btn-info">Load more</button>
+            </form>
+          {% else %}
+            <p class="p">No more reveiws available</p>
+          {% endif %}
           <br>
           
         </div>
