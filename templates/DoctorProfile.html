@@ -68,17 +68,17 @@
         <div class="row">
           <div class="col-sm-6 sec1">
             <img
-              src="{% static 'images/doctor-search-bar.jpg' %}"
+              src="{{ doctor.ProfilePhoto.url }}"
               alt="profile-photo"
             />
             <div class="profile-contact">
-              <h3>Name: Abhinav Singh</h3>
+              <h3>Name: {{ doctor.FirstName }}</h3>
               <p>
-                <b>Hospital: </b>Apollo Hospital chennai <br />
-                <b>Experience: </b>10 Years <br />
-                <b>Department: </b>Anesthesia <br />
-                <b>Education: </b>King George Medical Hospitals (MBBS) <br />
-                <b>Master: </b>AIIMS (MD Anesthesia) <br />
+                <b>Hospital: </b>{{ doctor.HospitalName }} <br />
+                <b>Experience: </b>{{doctor.YearsOfExperience}}<br />
+                <b>Department: </b>{{ doctor.Department }} <br />
+                <b>Education: </b>{{ doctor.Education }}<br />
+                <b>Master: </b>{{ doctor.Masters }} <br />
               </p>
             </div>
           </div>
@@ -116,10 +116,10 @@
               </table>
               <div class="doctor-contact">
                 <h3>Contact Me</h3>
-                <p><i class="fa fa-phone"></i> <a href="#">98766522384</a></p>
+                <p><i class="fa fa-phone"></i> <a href="#">{{ doctor.MobileNumber }}</a></p>
                 <p>
                   <i class="fa fa-envelope-o"></i>
-                  <a href="#">JamesBond@WAD8.com</a>
+                  <a href="#">{{ doctor.Email }}</a>
                 </p>
               </div>
             </div>

@@ -26,7 +26,7 @@ def index(request):
     for hospital in hospitals:
         hospital_list.append(hospital.Username)
     #this is used for just for development purpose in future it might be removed
-    id = 2
+    id = 1
     context = {
         'users' : user_list,
         'doctors' : doctor_list,
