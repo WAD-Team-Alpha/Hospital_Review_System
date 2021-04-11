@@ -5,23 +5,16 @@ from reviews.models import HosReview
 # Create your views here.
 def hosProf(request, hospital_id):
     hospital =get_object_or_404(Hospital, pk= hospital_id)
-    hospitalReviews = HosReview.objects.all()
-    hospital_reviews = []
-    for hospitalReview in hospitalReviews:
-       if hospitalReview.hospital.id == hospital_id:
-           data = {
-               'hospital' : hospitalReview.hospital,
-               'user' : hospitalReview.user,
-               'rating' : hospitalReview.rating,
-               'reviews' : hospitalReview.review,
-               'review_date' : hospitalReview.review_date
-           }
-           hospital_reviews.append(data)
-
+    queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)[:3]
+    flag = 0
+    if request.method == 'POST':
+        flag = 1
+        queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)
         
     context = {
         'hospital' : hospital,
-        'hospital_reviews' : hospital_reviews
+        'hospital_reviews' : queryset_list,
+        'flag' : flag
         
     }
     return render(request, 'HospitalProfile.html', context)
