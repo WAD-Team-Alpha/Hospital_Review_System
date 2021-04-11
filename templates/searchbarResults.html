@@ -21,6 +21,11 @@
      <link rel="stylesheet" href="{% static 'css/searchbarResults.css' %}">
      <link rel="stylesheet" href="{% static 'css/docter_review.css' %}">
 
+     <style>
+          h6 {text-align: center; font-size: 30px}
+         
+     </style>
+
 </head>
 <body id="top" data-spy="scroll" data-offset="50">
 
@@ -59,123 +64,44 @@
          <!-- data1 -->
           <div class="parentresults container">
                <!-- Search Results -->
-               <div class="results row">
-                    <!-- <div class="col-md-2"></div> -->
-                    <div class="image col-md-4">
-                         <img src="{% static 'images/hospita-search-bar.png' %}" alt="dc" class="profileImage">
-                    </div>
-                    <!-- <div class="col-md-1"></div> -->
-                    <div class="data col-md-4">
-                         <h3>Name: Abhinav Singh</h3>
-                         <p class="values">
-                              <b>Hospital: </b> Appolo Hospitals <br>
-                              <b>Position: </b>Chief Doctor <br/>
-                              <b>Department: </b>Anesthesia <br/>
-                              <b>Works at: </b>Appolo Hospitals, near thaliva colony <br> opposite to pvp shopping mall
-                              Chennai, Tamil Naadu<br/>
-                         </p>
-                    </div>
-                    <div class="ratings col-md-3">
-                         <h4><strong>Rating </strong></h4>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star"></span>
-                         <span class="fa fa-star"></span><br>
-                         <div class="appointment-btn"><a href="DoctorProfile.html">View Profile</a></div>
-                    </div>
-               </div>
+               {% if results %} {% for result in results %}
+                         <div class="results row">
+                              <div class="image col-md-4">
+                                   <img src="{{result.ProfilePhoto.url}}" alt="dc" class="profileImage">
+                              </div>
+                              <!-- <div class="col-md-1"></div> -->
+                              <div class="data col-md-4">
+                                   <h3>Name: {{result.FirstName}} {{result.LastName}}</h3>
+                                   <p class="values">
+                                        <b>Hospital: </b> {{result.HospitalName}} <br>
+                                        <b>Department: </b> {{Department}} <br/>
+                                        <b>Works at: </b> {{result.City}},{{States}}<br/>
+                                        <b>Pincode: </b>{{result.Pincode}} <br>
+                                   </p>
+                                   
+                              </div>
+                              <div class="ratings col-md-3">
+                                   <h4><strong>Rating </strong></h4>
+                                   <span class="fa fa-star checked"></span>
+                                   <span class="fa fa-star checked"></span>
+                                   <span class="fa fa-star checked"></span>
+                                   <span class="fa fa-star"></span>
+                                   <span class="fa fa-star"></span><br>
+                                   <div class="appointment-btn"><a href="DoctorProfile.html">View Profile</a></div>
+                              </div>
+                          </div>
+                          <br>
+                         {% endfor %} {% else %}
+                        
+                         
+                         <div class="results row">
+                              <div class="col-md-12">
+                                   <h6><b> No Doctors Found </b></h6>
+                              </div>
+                         </div>
+                         {% endif %}
           </div>
-          <!-- data2 -->
-          <div class="parentresults container">
-               <!-- Search Results -->
-               <div class="results row">
-                    <!-- <div class="col-md-2"></div> -->
-                    <div class="image col-md-4">
-                         <img src="{% static 'images/hospita-search-bar.png' %}" alt="dc" class="profileImage">
-                    </div>
-                    <!-- <div class="col-md-1"></div> -->
-                    <div class="data col-md-4">
-                         <h3>Name: Abhinav Singh</h3>
-                         <p class="values">
-                              <b>Hospital: </b> Appolo Hospitals <br>
-                              <b>Position: </b>Chief Doctor <br/>
-                              <b>Department: </b>Anesthesia <br/>
-                              <b>Works at: </b>Appolo Hospitals, near thaliva colony <br> opposite to pvp shopping mall
-                              Chennai, Tamil Naadu<br/>
-                         </p>
-                    </div>
-                    <div class="ratings col-md-3">
-                         <h4><strong>Rating </strong></h4>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star"></span>
-                         <span class="fa fa-star"></span><br>
-                         <div class="appointment-btn"><a href="./DoctorProfile.html">View Profile</a></div>
-                    </div>
-               </div>
-          </div>
-          <!-- data3 -->
-          <div class="parentresults container">
-               <!-- Search Results -->
-               <div class="results row">
-                    <!-- <div class="col-md-2"></div> -->
-                    <div class="image col-md-4">
-                         <img src="{% static 'images/hospita-search-bar.png' %}" alt="dc" class="profileImage">
-                    </div>
-                    <!-- <div class="col-md-1"></div> -->
-                    <div class="data col-md-4">
-                         <h3>Name: Abhinav Singh</h3>
-                         <p class="values">
-                              <b>Hospital: </b> Appolo Hospitals <br>
-                              <b>Position: </b>Chief Doctor <br/>
-                              <b>Department: </b>Anesthesia <br/>
-                              <b>Works at: </b>Appolo Hospitals, near thaliva colony <br> opposite to pvp shopping mall
-                              Chennai, Tamil Naadu<br/>
-                         </p>
-                    </div>
-                    <div class="ratings col-md-3">
-                         <h4><strong>Rating </strong></h4>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star"></span>
-                         <span class="fa fa-star"></span><br>
-                         <div class="appointment-btn"><a href="./DoctorProfile.html">View Profile</a></div>
-                    </div>
-               </div>
-          </div>
-          <!-- data4 -->
-          <div class="parentresults container">
-               <!-- Search Results -->
-               <div class="results row">
-                    <!-- <div class="col-md-2"></div> -->
-                    <div class="image col-md-4">
-                         <img src="{% static 'images/hospita-search-bar.png' %}" alt="dc" class="profileImage">
-                    </div>
-                    <!-- <div class="col-md-1"></div> -->
-                    <div class="data col-md-4">
-                         <h3>Name: Abhinav Singh</h3>
-                         <p class="values">
-                              <b>Hospital: </b> Appolo Hospitals <br>
-                              <b>Position: </b>Chief Doctor <br/>
-                              <b>Department: </b>Anesthesia <br/>
-                              <b>Works at: </b>Appolo Hospitals, near thaliva colony <br> opposite to pvp shopping mall
-                              Chennai, Tamil Naadu<br/>
-                         </p>
-                    </div>
-                    <div class="ratings col-md-3">
-                         <h4><strong>Rating </strong></h4>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star checked"></span>
-                         <span class="fa fa-star"></span>
-                         <span class="fa fa-star"></span><br>
-                         <div class="appointment-btn"><a href="./DoctorProfile.html">View Profile</a></div>
-                    </div>
-               </div>
-          </div>
+          
     </section>
 
      <!-- FOOTER -->
