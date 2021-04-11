@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -200,89 +201,6 @@
               </div>
             </div>
             <h2 class="review-heading h2 strong">Reviews & Ratings</h2>
-            <table class="table table-hover">
-              <tr>
-                <td>
-                  <div>
-                    <img
-                      class="avatar"
-                      src="{% static 'images/boy_avatar.jpg' %}"
-                      alt="profile"
-                    />
-                  </div>
-                  <p style="padding-top: 50px">5 days ago</p>
-                </td>
-                <td class="reveiws">
-                  <h4><strong>Reveiw</strong></h4>
-                  <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout . The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters
-                  </p>
-                  <h4><strong>Rating </strong></h4>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <img
-                      class="avatar"
-                      src="{% static 'images/girl_avatar.jpg' %}"
-                      alt="profile"
-                    />
-                  </div>
-                  <p style="padding-top: 50px">5 days ago</p>
-                </td>
-                <td class="reveiws">
-                  <h4><strong>Reveiw</strong></h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't
-                    look even slightly believable
-                  </p>
-                  <h4><strong>Rating </strong></h4>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <img
-                      class="avatar"
-                      src="{% static 'images/boy_avatar.jpg' %}"
-                      alt="profile"
-                    />
-                  </div>
-                  <p style="padding-top: 50px">5 days ago</p>
-                </td>
-                <td class="reveiws">
-                  <h4><strong>Reveiw</strong></h4>
-                  <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout . The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters
-                  </p>
-                  <h4><strong>Rating </strong></h4>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </td>
-              </tr>
-            </table>
             <form action="{% url 'docreview' %}" method="POST">
               {% csrf_token %} {% if user.is_authenticated %}
               <input
@@ -312,28 +230,28 @@
                           id="rating5"
                           type="radio"
                           name="rating"
-                          value="5"
+                          value="12345"
                         />
                         <label for="rating5">5</label>
                         <input
                           id="rating4"
                           type="radio"
                           name="rating"
-                          value="4"
+                          value="1234"
                         />
                         <label for="rating4">4</label>
                         <input
                           id="rating3"
                           type="radio"
                           name="rating"
-                          value="3"
+                          value="123"
                         />
                         <label for="rating3">3</label>
                         <input
                           id="rating2"
                           type="radio"
                           name="rating"
-                          value="2"
+                          value="12"
                         />
                         <label for="rating2">2</label>
                         <input
@@ -359,6 +277,54 @@
                 </div>
               </div>
             </form>
+            <table style="column-width: auto;" class="table table-hover">
+              {% if doctor_reviews %} {% for review in doctor_reviews %}
+              <tr>
+                <td>
+                  <div>
+                    <h4 class="h4" style="padding-left: 20px;">{{ review.user.Username }}</h4>
+                    <img
+                      class="avatar"
+                      src="{% static 'images/boy_avatar.jpg' %}"
+                      alt="profile"
+                    />
+                  </div>
+                 
+                  <p style="padding-top: 10px">{{ review.review_date | timesince }} ago</p>
+                </td>
+                <td style="width: 85%;" class="reveiws">
+                  <h4><strong>Rating </strong></h4>
+                  
+                  {% for i in review.star_rating %}
+                    <span class="fa fa-star checked"></span>
+                  {% endfor %}
+                  {% for i in review.non_rating %}
+                    <span class="fa fa-star "></span>
+                  {% endfor %}
+                  <h4><strong>Review</strong></h4>
+                  <p>
+                    {{ review.review }}
+                  </p>
+                  
+                
+                  
+                </td>
+              </tr>
+              {% endfor %} {% else %} 
+              <p class="p">No Reviews added</p>
+              {% endif %}
+            </table>
+            {% if flag == 0 %}
+              <form action="{% url 'DoctorProfile' doctor.id %}" method="POST">
+              {% csrf_token %}
+              <button class="btn btn-info">Load more</button>
+            </form>
+            {% else %}
+            <p class="p">No more reveiws available</p>
+            {% endif %}
+            
+            <br>
+            
           </div>
         </div>
       </div>

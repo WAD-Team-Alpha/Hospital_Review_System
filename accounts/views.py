@@ -54,7 +54,7 @@ def hospReg(request):
 
         if hospform.is_valid():
             # Create user
-            user = User.objects.create_user(username=username, password=password)
+            user = User.objects.create_user(username=username, password=password, email=email)
             user.is_active = False
             user.save()
 
