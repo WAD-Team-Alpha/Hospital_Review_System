@@ -47,18 +47,24 @@ def docreview(request):
         avg = sum(avg)/len(avg)
         print(avg)
         stars = ""
+        non_stars = "12345"
         if avg > 4.5:
             stars = "12345"
+            non_stars = ""
         elif avg > 3.5:
             stars = "1234"
+            non_stars = "1"
         elif avg > 2.5:
             stars = "123"
+            non_stars = "12"
         elif avg > 1.5:
             stars = "12"
+            non_stars = "123"
         elif avg > 0.5:
             stars = "1"
+            non_stars = "1234"
         
-        doctor = Doctor.objects.all().filter(Username=doctor_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length)
+        doctor = Doctor.objects.all().filter(Username=doctor_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length,non_stars = non_stars)
         print("success")
         return redirect('/doctors/'+doctor_id)
 def hosreview(request):
@@ -101,18 +107,24 @@ def hosreview(request):
         avg = sum(avg)/len(avg)
         print(avg)
         stars = ""
+        non_stars = "12345"
         if avg > 4.5:
             stars = "12345"
+            non_stars = ""
         elif avg > 3.5:
             stars = "1234"
+            non_stars = "1"
         elif avg > 2.5:
             stars = "123"
+            non_stars = "12"
         elif avg > 1.5:
             stars = "12"
+            non_stars = "123"
         elif avg > 0.5:
             stars = "1"
+            non_stars = "1234"
         
-        hospital = Hospital.objects.all().filter(Username=hospital_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length)
+        hospital = Hospital.objects.all().filter(Username=hospital_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length,non_stars = non_stars)
         print("success")
         return redirect('/hospitals/'+hospital_id)
 
