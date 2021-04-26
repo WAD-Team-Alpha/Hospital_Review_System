@@ -36,6 +36,29 @@ def docreview(request):
 
         reviewed = DocReview(doctor=doctor, user=user, star_rating=star_rating,non_rating=non_rating, review=review)
         reviewed.save()
+        queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
+        
+        avg = []
+        length = 0
+        for doctor in queryset_list:
+            length = length + 1 
+            avg.append(len(doctor.star_rating))  
+        
+        avg = sum(avg)/len(avg)
+        print(avg)
+        stars = ""
+        if avg > 4.5:
+            stars = "12345"
+        elif avg > 3.5:
+            stars = "1234"
+        elif avg > 2.5:
+            stars = "123"
+        elif avg > 1.5:
+            stars = "12"
+        elif avg > 0.5:
+            stars = "1"
+        
+        doctor = Doctor.objects.all().filter(Username=doctor_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length)
         print("success")
         return redirect('/doctors/'+doctor_id)
 def hosreview(request):
@@ -67,6 +90,29 @@ def hosreview(request):
 
         reviewed = HosReview(hospital=hospital, user=user, star_rating=star_rating,non_rating=non_rating, review=review)
         reviewed.save()
+        queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)
+        
+        avg = []
+        length = 0
+        for hospital in queryset_list:
+            length = length + 1 
+            avg.append(len(hospital.star_rating))  
+        
+        avg = sum(avg)/len(avg)
+        print(avg)
+        stars = ""
+        if avg > 4.5:
+            stars = "12345"
+        elif avg > 3.5:
+            stars = "1234"
+        elif avg > 2.5:
+            stars = "123"
+        elif avg > 1.5:
+            stars = "12"
+        elif avg > 0.5:
+            stars = "1"
+        
+        hospital = Hospital.objects.all().filter(Username=hospital_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length)
         print("success")
         return redirect('/hospitals/'+hospital_id)
 
