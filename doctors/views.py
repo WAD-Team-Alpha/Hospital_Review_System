@@ -1,3 +1,4 @@
+from django.db.models.aggregates import Count
 from django.shortcuts import render, get_object_or_404
 from .models import Doctor
 from accounts.models import User
@@ -8,18 +9,63 @@ from .choices import Department, States
 
 def docProf(request, doctor_id):
     doctor =get_object_or_404(Doctor, pk= doctor_id)
+    queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
+    
+    five_stars = 0
+    for review  in queryset_list:
+        if review.star_rating == "12345":
+            five_stars = five_stars + 1
+    four_stars = 0
+    for review  in queryset_list:
+        if review.star_rating == "1234":
+            four_stars = four_stars + 1
+    three_stars = 0
+    for review  in queryset_list:
+        if review.star_rating == "123":
+            three_stars = three_stars + 1
+    two_stars = 0
+    for review  in queryset_list:
+        if review.star_rating == "12":
+            two_stars = two_stars + 1
+    one_stars = 0
+    for review  in queryset_list:
+        if review.star_rating == "1":
+            one_stars = one_stars + 1
+    #percentages
+    count = doctor.Ratings_count
+    five_starPercentage = five_stars/count*100
+    four_starPercentage = four_stars/count*100
+    three_starPercentage = three_stars/count*100
+    two_starPercentage = two_stars/count*100
+    one_starPercentage = one_stars/count*100
+    ratings_count = {
+        "five_star" : five_stars,
+        "four_star" : four_stars,
+        "three_star" : three_stars,
+        "two_star" : two_stars,
+        "one_star" : one_stars,
+    }
+    ratings_percentage = {
+        "five_starPercentage" : five_starPercentage,
+        "four_starPercentage" : four_starPercentage,
+        "three_starPercentage" : three_starPercentage,
+        "two_starPercentage" : two_starPercentage,
+        "one_starPercentage" : one_starPercentage,
+    
+    }
+    
     queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)[:3]
     flag = 0
     if request.method == 'POST':
         flag = 1
         queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
-        
-    
- 
     context = {
         'doctor' : doctor,
         'doctor_reviews' : queryset_list,
-        'flag' : flag
+        'flag' : flag,
+        'ratings_count' : ratings_count,
+        'ratings_percentage' : ratings_percentage,
+        
     }
     return render(request, 'DoctorProfile.html', context)
 
