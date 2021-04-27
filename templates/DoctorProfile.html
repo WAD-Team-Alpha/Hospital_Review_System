@@ -132,13 +132,14 @@
           <div class="col-sm-12 sec3">
             <div style="padding-top: 50px">
               <span class="heading"><strong>User Ratings</strong> </span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
+              {% for i in doctor.Ratings_stars %}
+                <span class="fa fa-star checked"></span>
+              {% endfor %}
+              {% for i in doctor.non_stars %}
+                <span class="fa fa-star"></span>
+              {% endfor %}
               <p style="padding-top: 20px">
-                <span class="average">4.1</span> average based on 254 reviews.
+                <span class="average">{{doctor.Rating}}</span> average based on {{doctor.Ratings_count}} reviews.
               </p>
               <hr class="hr-line" />
 
@@ -148,55 +149,55 @@
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div class="bar-5"></div>
+                    <div style="width: {{ratings_percentage.five_starPercentage}}%;" class="bar-5"></div>
                   </div>
                 </div>
                 <div class="side right">
-                  <div>150</div>
+                  <div>{{ratings_count.five_star}}</div>
                 </div>
                 <div class="side">
                   <div>4 star</div>
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div class="bar-4"></div>
+                    <div style="width: {{ratings_percentage.four_starPercentage}}%;" class="bar-4"></div>
                   </div>
                 </div>
                 <div class="side right">
-                  <div>63</div>
+                  <div>{{ratings_count.four_star}}</div>
                 </div>
                 <div class="side">
                   <div>3 star</div>
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div class="bar-3"></div>
+                    <div style="width: {{ratings_percentage.three_starPercentage}}%;" class="bar-3"></div>
                   </div>
                 </div>
                 <div class="side right">
-                  <div>15</div>
+                  <div>{{ratings_count.three_star}}</div>
                 </div>
                 <div class="side">
                   <div>2 star</div>
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div class="bar-2"></div>
+                    <div style="width: {{ratings_percentage.two_starPercentage}}%;" class="bar-2"></div>
                   </div>
                 </div>
                 <div class="side right">
-                  <div>6</div>
+                  <div>{{ratings_count.two_star}}</div>
                 </div>
                 <div class="side">
                   <div>1 star</div>
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div class="bar-1"></div>
+                    <div style="width: {{ratings_percentage.one_starPercentage}}%;" class="bar-1"></div>
                   </div>
                 </div>
                 <div class="side right">
-                  <div>20</div>
+                  <div>{{ratings_count.one_star}}</div>
                 </div>
               </div>
             </div>
