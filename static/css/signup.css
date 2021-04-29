@@ -295,7 +295,7 @@
     margin-top: 2.5em;
   }
 
-  .data span.appointment-btn a{
+  .data span.signup-btn a{
     background: #0cd9e7;
     border-radius: 3px;
     color: #ffffff;
@@ -306,7 +306,7 @@
     padding-right: 7px;
   }
 
-  .data span.appointment-btn a:hover{
+  .data span.signup-btn a:hover{
     background: #4267b2;
     color: #ffffff !important;
   }
