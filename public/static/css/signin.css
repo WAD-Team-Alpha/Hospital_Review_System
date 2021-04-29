@@ -239,19 +239,19 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    APPOINTMENT             
+    signin             
 -----------------------------------------*/
 
-#appointment {
+#signin {
   padding-top: 100px;
 }
 
-#appointment label {
+#signin label {
   color: #393939;
   font-weight: 500;
 }
 
-#appointment .form-control {
+#signin .form-control {
   background: #f9f9f9;
   border: none;
   border-radius: 3px;
@@ -273,12 +273,12 @@ a:hover, a:active, a:focus {
 }
 
 
-#appointment input,
-#appointment select {
+#signin input,
+#signin select {
   height: 45px;
 }
 
-#appointment button#cf-submit {
+#signin button#cf-submit {
   background: #0cd9e7;
   color: #ffffff;
   font-weight: 600;
@@ -286,12 +286,12 @@ a:hover, a:active, a:focus {
   width: 25%;
 }
 
-#appointment button#cf-submit:hover {
+#signin button#cf-submit:hover {
   background: #2d60ec;
   color: #ffffff;
 }
 
-#appointment img.img-responsive{
+#signin img.img-responsive{
   height: 45em;
   width: 33em;
   margin-top: -5em;
@@ -515,7 +515,7 @@ footer a:hover {
 
 @media only screen and (max-width: 767px) {
   
-  #appointment img{
+  #signin img{
     display: none;
   }
   
@@ -565,7 +565,7 @@ footer a:hover {
   header span.email-icon{
     padding-left:3px;
   }
-  #appointment button#cf-submit {
+  #signin button#cf-submit {
     background: #0cd9e7;
     color: #ffffff;
     font-weight: 600;
