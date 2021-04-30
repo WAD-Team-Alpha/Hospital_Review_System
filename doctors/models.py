@@ -20,6 +20,7 @@ class Doctor(models.Model):
     Education = models.CharField(max_length=250, blank=True)
     Masters = models.CharField(max_length=250, blank=True)
     HospitalName = models.CharField(max_length=50)
+    HospitalRegisterationNumber = models.CharField(max_length=100, default="")
     City = models.CharField(max_length=100)
     State = models.IntegerField(choices=States, default=1)
     Pincode = models.CharField(max_length=20)

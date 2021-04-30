@@ -90,6 +90,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <label for="Registration">Hospital Registration Number</label>
                                 {{form.HospitalRegisterationNumber}}
+                                <span style="color: red;">{{regerror}}</span>
 
                                 <label for="certificates">Hospital License ( .pdf )</label>
                                 {{form.HospitalLicense}}
@@ -101,12 +102,13 @@
                             <div class="col-md-12 col-sm-12">
                                 <label for="email">Email</label>
                                 {{form.Email}}
+                                <span style="color: red;">{{emailerror}}</span>
                             </div>
 
                             <div class="col-md-12 col-sm-12">
                                 <label for="username">Username</label>
                                 {{form.Username}}
-                                {{data}}
+                                <span style="color: red;">{{usernameerror}}</span>
                             </div>
 
                             <div class="col-md-12 col-sm-12">
@@ -174,7 +176,7 @@
                                 {{form.Achievements4}}
                                 {{form.Achievements5}}
                                 {{form.Achievements6}}
-                                <a href="{% url 'DoctorRegisteration' %}">Add Doctor</a> <br>
+                                <span style="color: red;">{{formerror}}</span>
                                 <button type="submit" class="form-control" id="user-cf-submit" name="submit">Register</button>
                             </div>
                         </div>
