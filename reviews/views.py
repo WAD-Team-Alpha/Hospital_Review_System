@@ -14,7 +14,7 @@ def docreview(request):
         if not request.user.is_authenticated:
             print("failed")
             #messages.error(request, "Please Signin")
-            return redirect('/doctors/'+doctor_id)
+            return redirect('signin')
         username = request.POST['username']
         star_rating = request.POST['rating']
         non_rating = ""
