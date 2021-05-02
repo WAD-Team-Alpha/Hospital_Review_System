@@ -25,3 +25,14 @@ function showPass() {
       y.type = "password";
     }
 }
+function show_pass() {
+  var x = document.getElementById('o_psw');
+  
+  if (x.type === "password") {
+    x.type = "text";
+    
+  } else {
+    x.type = "password";
+    
+  }
+}

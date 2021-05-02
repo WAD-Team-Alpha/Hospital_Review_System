@@ -12,7 +12,7 @@ class Hospital(models.Model):
     HospitalEshtablishDate = models.DateField()
     HospitalDescription = models.TextField(max_length=250, blank=True)
     Rating = models.DecimalField(max_digits=2, decimal_places = 1, default=0.0)
-    Ratings_stars = models.CharField(max_length=5,default="")
+    Ratings_stars = models.CharField(max_length=5,default="", blank=True)
     non_stars = models.CharField(max_length=5,default="12345")
     Ratings_count = models.IntegerField(default=0)  
     Town = models.CharField(max_length=150)

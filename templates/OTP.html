@@ -31,7 +31,7 @@
                  <div class="row">
 
                       <div class="col-md-4 col-sm-5">
-                           <p style="font-size: large;"><b>JEEVAN NAKSHA</b></p>
+                           <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a> </p>
                       </div>
 
                       <div class="col-md-8 col-sm-7 text-align-right">
@@ -51,15 +51,16 @@
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="col-md-6 otpForm">
-                        <span>{{message}}</span>
-                        <form method="post" class="digit-group" data-group-name="digits" autocomplete="off" action="emailVerfifcation">
+                        <span style="color: red;" >{{error}}</span>
+                        <span style="color: green;" >{{sucess}}</span>
+                        <form method="post" class="digit-group" data-group-name="digits" autocomplete="off" action="OTPverify">
                             {% csrf_token %}
-                            <input type="text" id="digit-1" name="digit-1" data-next="digit-2" />
-                            <input type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
-                            <input type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
-                            <input type="text" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3" />
-                            <input type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
-                            <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
+                            <input type="text" id="digit-1" name="digit-1" data-next="digit-2" required/>
+                            <input type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" required />
+                            <input type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" required />
+                            <input type="text" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3" required />
+                            <input type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" required />
+                            <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" required />
                             <button type="submit" class="form-control" id="user-cf-submit" name="submit">Verify OTP</button>
                         </form>
                         <form action="resendOTP" method="post">

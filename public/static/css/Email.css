@@ -239,19 +239,19 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    signin             
+    Email             
 -----------------------------------------*/
 
-#signin {
+#Email {
   padding-top: 100px;
 }
 
-#signin label {
+#Email label {
   color: #393939;
   font-weight: 500;
 }
 
-#signin .form-control {
+#Email .form-control {
   background: #f9f9f9;
   border: none;
   border-radius: 3px;
@@ -273,12 +273,12 @@ a:hover, a:active, a:focus {
 }
 
 
-#signin input,
-#signin select {
+#Email input,
+#Email select {
   height: 45px;
 }
 
-#signin button#cf-submit {
+#Email button#cf-submit {
   background: #0cd9e7;
   color: #ffffff;
   font-weight: 600;
@@ -286,137 +286,17 @@ a:hover, a:active, a:focus {
   width: 25%;
 }
 
-#signin button#cf-submit:hover {
+#Email button#cf-submit:hover {
   background: #2d60ec;
   color: #ffffff;
 }
 
-#signin img.img-responsive{
+#Email img.img-responsive{
   height: 45em;
   width: 33em;
   margin-top: -5em;
   margin-left: -2em;
 }
-
-
-/*---------------------------------------
-   FOOTER              
------------------------------------------*/
-
-footer {
-  padding-top: 80px;
-  padding-bottom: 40px;
-}
-
-footer h4 {
-  padding-bottom: 5px;
-}
-
-footer a {
-  color: #757575;
-}
-
-footer a:hover {
-  color: #4267b2;
-}
-
-.contact-info {
-  padding-top: 10px;
-}
-
-.contact-info .fa {
-  background: #393939;
-  border-radius: 100%;
-  color: #ffffff;
-  font-size: 15px;
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
-  text-align: center;
-  margin-right: 5px;
-  margin-bottom: 2px;
-}
-
-.latest-stories {
-  margin-bottom: 20px;
-}
-
-.stories-image,
-.stories-info {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.stories-image img {
-  border-radius: 100%;
-  width: 65px;
-  height: 65px;
-}
-
-.stories-info {
-  margin-left: 15px;
-}
-
-.stories-info h5 {
-  margin-bottom: 2px;
-}
-
-.stories-info span {
-  color: #858585;
-  font-size: 12px;
-}
-
-.opening-hours p {
-  line-height: 18px;
-}
-
-.opening-hours span {
-  font-weight: 500;
-  display: inline-block;
-  padding-left: 10px;
-}
-
-.copyright-text p,
-.footer-link a {
-  color: #858585;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.footer-link a {
-  font-size: 12px;
-  display: inline-block;
-  padding: 0 10px;
-  margin-top: 4px;
-}
-
-.angle-up-btn {
-  position: relative;
-  bottom: 4em;
-  display: block;
-}
-
-.angle-up-btn a {
-  background: #ffffff;
-  border: 1px solid #f2f2f2;
-  border-radius: 3px;
-  font-size: 20px;
-  color: #393939;
-  display: inline-block;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  line-height: 38px;
-  transition: transform 0.1s ease-in;
-  transform: translateX(0);
-}
-
-.angle-up-btn a:hover {
-  background: #4267b2;
-  color: #ffffff;
-  transform: translateY(-5px);
-}
-
 
 /*---------------------------------------
    SOCIAL ICON              
@@ -515,7 +395,7 @@ footer a:hover {
 
 @media only screen and (max-width: 767px) {
   
-  #signin img{
+  #Email img{
     display: none;
   }
   
@@ -565,7 +445,7 @@ footer a:hover {
   header span.email-icon{
     padding-left:3px;
   }
-  #signin button#cf-submit {
+  #Email button#cf-submit {
     background: #0cd9e7;
     color: #ffffff;
     font-weight: 600;

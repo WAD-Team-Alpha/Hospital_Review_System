@@ -41,7 +41,7 @@
         #snackbar.show {
             visibility: visible;
             -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 1s, fadeout 3.75s 1.5s;
         }
         /* Animations to fade the snackbar in and out */
         
@@ -125,7 +125,7 @@
             {% else %}
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
-              ><a href="{% url 'Signout' %}">problem in the database</a></span
+              ><a href="{% url 'Signout' %}">Superuser Logout</a></span
             >
             {% endif %} {% else %}
             <span class="appointment-btn"
@@ -592,7 +592,7 @@
         <div class="row">
           <div class="col-md-6 col-sm-6">
             <img
-              src="{% static 'images/appointment.jpg' %}"
+              src="{% static 'images/makeappointment.jpg' %}"
               class="img-responsive"
               alt=""
             />

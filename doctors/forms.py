@@ -6,7 +6,7 @@ class DoctorForm(forms.ModelForm):
 
     class Meta:
         model = Doctor
-        fields = ["FirstName", "LastName", "HospitalName", "City", "State", "Pincode", "Email", "Username", "Education", "DoctorLicense", "Description", "Department", "DateOfBirth", 
+        fields = ["FirstName", "LastName", "HospitalName", "HospitalRegisterationNumber", "City", "State", "Pincode", "Email", "Username", "Education", "DoctorLicense", "Description", "Department", "DateOfBirth", 
                   "ProfilePhoto", "Achievements4", "Achievements3", "Achievements2", "Achievements1", "YearsOfExperience", "Masters", "MobileNumber"]
         widgets = {
             "FirstName": forms.TextInput(attrs={
@@ -76,6 +76,14 @@ class DoctorForm(forms.ModelForm):
                 'id': 'Hospname',
                 'name': 'Hospname',
                 'placeholder': 'Hospital Name',
+                'required': True
+            }),
+            "HospitalRegisterationNumber": forms.TextInput(attrs={
+                'type': 'text',
+                'class': 'form-control',
+                'id': 'HospRegNo',
+                'name': 'HosRegNo',
+                'placeholder': 'Hospital Registeration Number',
                 'required': True
             }), 
             "Education": forms.TextInput(attrs={

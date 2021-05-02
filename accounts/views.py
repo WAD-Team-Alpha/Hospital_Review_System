@@ -6,6 +6,7 @@ from django.views import View
 from django.contrib import auth
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from hospitals.models import Hospital
 from django import forms
 from django.core.mail import send_mail
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
@@ -45,12 +46,35 @@ def hospReg(request):
         username = request.POST['Username']
         password = request.POST['psw']
         email = request.POST['Email']
-        print(email)
-        print(username)
-        if User.objects.filter(username=username).exists():
-            return render(request, 'Hospitalregistion.html', {"form": hospform, "data": "Username Already Exists"})
+        hospreg = request.POST['HospitalRegisterationNumber']
+
+        emailerror = ""
+        usernameerror = ""
+        regerror = ""
+
         if User.objects.filter(email=email).exists():
-            return render(request, 'Hospitalregistion.html', {"form": hospform, "data": "Email Already Exists"})
+            emailerror = "Email already exists"
+        else:
+            emailerror = ""
+        if User.objects.filter(username=username).exists():
+            usernameerror = "Username already exists"
+        else:
+            usernameerror = ""
+        if Hospital.objects.filter(HospitalRegisterationNumber=hospreg).exists():
+            regerror = "A hospital is already registered with this registeration number"
+        else:
+            regerror = ""
+
+        context = {
+            "form": hospform,
+            "regerror": regerror,
+            "emailerror": emailerror,
+            "usernameerror": usernameerror,
+            "formerror": ""
+        }
+
+        if emailerror != "" or usernameerror != "":
+            return render(request, 'Hospitalregistion.html', context)
 
         if hospform.is_valid():
             # Create user
@@ -87,11 +111,11 @@ def hospReg(request):
                 messages.success(request, 'Activate your account after clicking the link sent to your mail')
                 return redirect('index')
         else:
-            return render(request, 'Hospitalregistion.html', {"form": hospform, "data": hospform.errors})
+            return render(request, 'Hospitalregistion.html', {"form": hospform, "regerror": "", "emailerror": "", "usernameerror": "", "formerror": hospform.errors})
 
     else:
         hospform = HospitalForm()
-    return render(request, 'Hospitalregistion.html', {"form": hospform, "data": ""})
+    return render(request, 'Hospitalregistion.html', {"form": hospform, "regerror": "", "emailerror": "", "usernameerror": "", "formerror": ""})
 
 def userReg(request):
     if request.method == "POST":

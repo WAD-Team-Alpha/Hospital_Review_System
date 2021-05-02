@@ -33,11 +33,18 @@ def hosProf(request, hospital_id):
             one_stars = one_stars + 1
     #percentages
     count = hospital.Ratings_count
-    five_starPercentage = five_stars/count*100
-    four_starPercentage = four_stars/count*100
-    three_starPercentage = three_stars/count*100
-    two_starPercentage = two_stars/count*100
-    one_starPercentage = one_stars/count*100
+    if count != 0:
+        five_starPercentage = five_stars/count*100
+        four_starPercentage = four_stars/count*100
+        three_starPercentage = three_stars/count*100
+        two_starPercentage = two_stars/count*100
+        one_starPercentage = one_stars/count*100
+    else:
+        five_starPercentage = 0
+        four_starPercentage = 0
+        three_starPercentage = 0
+        two_starPercentage = 0
+        one_starPercentage = 0
     ratings_count = {
         "five_star" : five_stars,
         "four_star" : four_stars,

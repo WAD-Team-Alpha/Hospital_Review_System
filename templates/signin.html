@@ -60,7 +60,7 @@
     </header>
 
     <!-- Sign In Page -->
-    <section id="appointment" data-stellar-background-ratio="3">
+    <section id="signin" data-stellar-background-ratio="3">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-6">
@@ -74,7 +74,7 @@
           <div class="col-md-6 col-sm-6">
             <!-- CONTACT FORM HERE -->
             <form
-              id="appointment-form"
+              id="signin-form"
               method="POST"
               action="{% url 'signin' %}"
             >
@@ -101,13 +101,15 @@
                   <input
                     type="password"
                     class="form-control"
-                    id="email"
+                    id="o_psw"
                     name="password"
                     placeholder="password"
                     required
                   />
                 </div>
-
+                <div class="shps" style="margin-top: 1em; margin-left : 18px;">
+                  Show Password: <input type="checkbox" name="showpass" id="showpass" onclick="show_pass()" style="height: 9px;">
+              </div>
                 <br />
                 <div class="col-md-12 col-sm-12">
                   <button
@@ -123,7 +125,7 @@
             </form>
 
             <div class="col-md-12 col-sm-12">
-              <p><a href="{% url 'ForgotPassword' %}">forgot password?</a></p>
+              <p><a href="{% url 'password_reset' %}">forgot password?</a></p>
               <p>
                 If you don't have an account then
                 <a href="{% url 'signup' %}">sign up</a>
@@ -228,5 +230,6 @@
     <script src="{% static 'js/smoothscroll.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/authentication.js' %}"></script>
   </body>
 </html>
