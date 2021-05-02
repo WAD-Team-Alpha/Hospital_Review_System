@@ -99,12 +99,30 @@ def userReg(request):
         username = request.POST['Username']
         password = request.POST['psw']
         email=request.POST['Email']
-        print(username)
-        if User.objects.filter(username=username).exists():
-            return render(request, 'user_registration.html', {"form": userform, "data": "Username Already Exists"})
 
+        emailerror = ""
+        usernameerror = ""
+
+        if User.objects.filter(username=username).exists():
+            usernameerror = "Username already exists"
+        else:
+            usernameerror = ""
         if User.objects.filter(email=email).exists():
-            return render(request, 'user_registration.html', {"form": userform, "data": "Email Already Exists"})
+            emailerror = "Email already exists"
+            
+        else:
+            emailerror = ""
+        
+        context = {
+            "form": userform,
+            "emailerror": emailerror,
+            "usernameerror": usernameerror,
+            "formerror": ""
+        }
+
+        if emailerror != "" or usernameerror != "":
+            return render(request, 'user_registration.html', context)
+
 
         if userform.is_valid():
             # Create user
@@ -140,11 +158,11 @@ def userReg(request):
                 messages.success(request, 'Activate your account after clicking the link sent to your mail')
                 return redirect('index')
         else:
-            return render(request, 'user_registration.html', {"form": userform, "data": userform.errors})
+            return render(request, 'user_registration.html', {"form": userform,  "emailerror": "", "usernameerror": "", "formerror": userform.errors})
 
     else:
         userform = UserForm()
-    return render(request, 'user_registration.html', {"form": userform, "data": ""})
+    return render(request, 'user_registration.html', {"form": userform, "emailerror": "", "usernameerror": "", "formerror": ""})
 
 
 def docReg(request):
