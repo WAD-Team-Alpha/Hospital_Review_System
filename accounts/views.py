@@ -52,11 +52,11 @@ def hospReg(request):
         usernameerror = ""
         regerror = ""
 
-        if User.objects.filter(username=username).exists():
+        if User.objects.filter(email=email).exists():
             emailerror = "Email already exists"
         else:
             emailerror = ""
-        if User.objects.filter(email=email).exists():
+        if User.objects.filter(username=username).exists():
             usernameerror = "Username already exists"
         else:
             usernameerror = ""
