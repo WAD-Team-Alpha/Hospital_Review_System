@@ -27,6 +27,9 @@
             text-align: center;
             font-size: 30px
         }
+        .divider{
+            margin-bottom: 5em;
+       }
     </style>
 
 </head>
@@ -96,6 +99,7 @@
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span><br>
                     <div class="appointment-btn"><a href="{% url 'HospitalProfile' result.id %}">View Profile</a></div>
+                    <div class="divider"> </div>
                 </div>
             </div>
             <br> {% endfor %} {% else %}
