@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jeevan Naksha</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="index" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/Email.css' %}" />
+    <style>
+        .divider{
+            margin-top: 9em;
+        }
+    </style>
+  </head>
+
+  <body
+    id="top"
+    data-spy="scroll"
+    data-target=".navbar-collapse"
+    data-offset="50"
+  >
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-5">
+            <p style="font-size: large"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a> </p>
+          </div>
+
+          <div class="col-md-8 col-sm-7 text-align-right">
+            <span class="phone-icon"
+              ><i class="fa fa-phone"></i>999-888-726-1</span
+            >
+            <span class="email-icon"
+              ><i class="fa fa-envelope-o"></i>
+              <a href="#">jeevannaksha@WAD8.com</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    
+    <section id="Email" data-stellar-background-ratio="3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3">
+            
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+            <!-- CONTACT FORM HERE -->
+            <form id="appointment-form" role="form" method="post" action="#">
+              {% csrf_token %}
+              <!-- SECTION TITLE -->
+              <div class="divider"> </div>
+              <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
+                <h3 style="text-align: center;">Enter your email where you will recieve OTP</h3>
+              </div>
+
+              <div class="wow fadeInUp" data-wow-delay="0.8s">
+                <div class="col-md-12 col-sm-12">
+                  <input
+                    style="width: 100%;"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                
+                <div class="col-md-12 col-sm-12">
+                  <button
+                    type="submit"
+                    class="btn btn-info"
+                    id="cf-submit"
+                    name="submit"
+                  >
+                    Confirm
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            
+          <div class="col-md-3 col-sm-3">
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/smoothscroll.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+  </body>
+</html>
