@@ -42,3 +42,9 @@ class Doctor(models.Model):
             new_img = (350, 350)
             img.thumbnail(new_img)
             img.save(self.ProfilePhoto.path)
+    
+    def get_image(self):
+        if self.ProfilePhoto and hasattr(self.ProfilePhoto, 'url'):
+            return self.ProfilePhoto
+        else:
+            return "#"

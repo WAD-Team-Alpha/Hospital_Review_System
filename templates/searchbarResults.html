@@ -64,12 +64,14 @@
                <h2 class="heading wow fadeInUp">Based on your recent search</h2>
          </div>
          <!-- data1 -->
+         {% if results %} {% for result in results %}
           <div class="parentresults container">
                <!-- Search Results -->
-               {% if results %} {% for result in results %}
+               
                          <div class="results row">
                               <div class="image col-md-4">
-                                   <img src="{{result.ProfilePhoto.url}}" alt="dc" class="profileImage">
+
+                                   <img src="{{result.get_image.url}}" alt="dc" class="profileImage">
                               </div>
                               <!-- <div class="col-md-1"></div> -->
                               <div class="data col-md-4">
@@ -93,17 +95,17 @@
                                    <div class="divider"> </div>
                               </div>
                           </div>
-                          <br>
-                         {% endfor %} {% else %}
-                        
-                         
-                         <div class="results row">
+                          <br>           
+          </div>
+          {% endfor %} {% else %}
+          <div class="parentresults container">
+               <div class="results row">
                               <div class="col-md-12">
                                    <h6><b> No Doctors Found </b></h6>
                               </div>
-                         </div>
-                         {% endif %}
+               </div>
           </div>
+               {% endif %}
           
     </section>
 
