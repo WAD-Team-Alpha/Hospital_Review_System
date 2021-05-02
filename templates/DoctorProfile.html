@@ -211,6 +211,9 @@
               />
               {% else %}
               <input type="hidden" name="user_id" value="NONE" />
+              <h3 class="h3" style="color: red;">Please get signed In before adding review..</h3>
+              
+              <a class="btn" href="{% url 'signin' %}"><button class="btn btn-info">Signin</button></a>
               {% endif %}
 
               <input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
