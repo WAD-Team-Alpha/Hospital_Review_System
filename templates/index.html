@@ -108,19 +108,19 @@
                 </div>
 
                 <div class="col-md-8 col-sm-7 text-align-right">
-                    {% if user.is_authenticated %} {% if user.username in users %}
+                    {% if user.is_authenticated %} {% if type == "user" %}
                     <span class="appointment-btn"><i class="fa fa-user-circle"></i
               ><a href="{% url 'Signout' %}">Signout</a></span
             >
-            {% elif user.username in doctors %}
+            {% elif type == "doctor" %}
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
-              ><a href="{% url 'Signout' %}">Doctor Account</a></span
+              ><a href="{% url 'DoctorProfile' USER.id %}">View Profile</a></span
             >
-            {% elif user.username in hospitals %}
+            {% elif type == "hospital" %}
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
-              ><a href="{% url 'Signout' %}">Hospital Account</a></span
+              ><a href="{% url 'HospitalProfile' USER.id %}">View Profile</a></span
             >
             {% else %}
             <span class="appointment-btn"

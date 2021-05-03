@@ -9,6 +9,8 @@ from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
+    username = request.user.username
+    print(username)
      
     users = User.objects.all()
     doctors = Doctor.objects.all()
@@ -25,13 +27,21 @@ def index(request):
 
     for hospital in hospitals:
         hospital_list.append(hospital.Username)
-    
-    
+    USER = None
+    type = "default"
+    if username in user_list:
+        USER = User.objects.all().filter(Username=username).get()
+        type = "user"
+    elif username in doctor_list:
+        USER = Doctor.objects.all().filter(Username=username).get()
+        type = "doctor"
+    elif username in hospital_list:
+        USER = Hospital.objects.all().filter(Username=username).get()
+        type = "hospital"
+    print(USER)
     context = {
-        'users' : user_list,
-        'doctors' : doctor_list,
-        'hospitals' : hospital_list,
-        
+        'type' : type,
+        'USER' : USER
     }
 
     return render(request, 'index.html', context)
