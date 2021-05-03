@@ -177,13 +177,30 @@ def docReg(request):
         username = request.POST['Username']
         password = request.POST['psw']
         email=request.POST['Email']
-        print(username)
+        emailerror = ""
+        usernameerror = ""
+
         if User.objects.filter(username=username).exists():
-            return render(request, 'doctor_regestration.html', {"form": doctorForm, "data": "Username Already Exists"})
-
+            usernameerror = "Username already exists"
+        else:
+            usernameerror = ""
         if User.objects.filter(email=email).exists():
-            return render(request, 'doctor_regestration.html', {"form": doctorForm, "data": "Email Already Exists"})
+            emailerror = "Email already exists"
+            
+        else:
+            emailerror = ""
+        
+        context = {
+            "form": doctorForm,
+            "emailerror": emailerror,
+            "usernameerror": usernameerror,
+            "formerror": ""
+        }
 
+        if emailerror != "" or usernameerror != "":
+            return render(request, 'doctor_regestration.html', context)
+
+        
         if doctorForm.is_valid():
             # Create user
             user = User.objects.create_user(username=username, password=password, email=email)
@@ -219,11 +236,11 @@ def docReg(request):
 
                 return redirect('index')
         else:
-            return render(request, 'doctor_regestration.html', {"form": doctorForm, "data": doctorForm.errors})
+            return render(request, 'doctor_regestration.html', {"form": doctorForm,  "emailerror": "", "usernameerror": "", "formerror": doctorForm.errors})
 
     else:
         doctorForm = DoctorForm()
-    return render(request, 'doctor_regestration.html', {"form": doctorForm, "data": ""})
+    return render(request, 'doctor_regestration.html', {"form": doctorForm, "emailerror": "", "usernameerror": "", "formerror": ""})
 
 def forgPass(request):
     return render(request, 'forgot_password.html')

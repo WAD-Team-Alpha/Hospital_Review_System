@@ -76,11 +76,13 @@
                             </div>
 
                             <div class="col-md-6 col-sm-6">
-                                <label for="email">Email</label> {{form.Email}} {{data}}
+                                <label for="email">Email</label> {{form.Email}}
+                                <span style="color: red;">{{emailerror}}</span>
                             </div>
 
                             <div class="col-md-6 col-sm-6">
-                                <label for="username">Username</label> {{form.Username}} {{data}}
+                                <label for="username">Username</label> {{form.Username}}
+                                <span style="color: red;"> {{usernameerror}} </span>
                             </div>
 
                             <div class="col-md-6 col-sm-6">
