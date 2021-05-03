@@ -51,13 +51,8 @@
           </div>
 
           <div class="col-md-8 col-sm-7 text-align-right">
-            <span class="phone-icon"
-              ><i class="fa fa-phone"></i>999-888-726-1</span
-            >
-            <span class="email-icon"
-              ><i class="fa fa-envelope-o"></i>
-              <a href="#">jeevannaksha@WAD8.com</a></span
-            >
+            <Button style="padding:.25cm;border-radius: 10px;   margin-right: 100px; margin-top: 3px; background-color:#0cd9e7;" >Logout</Button>
+                           <Button style="padding:.25cm; border-radius: 10px; margin-top: 3px; background-color:#0cd9e7">Update</Button>
           </div>
         </div>
       </div>
@@ -211,6 +206,9 @@
               />
               {% else %}
               <input type="hidden" name="user_id" value="NONE" />
+              <h3 class="h3" style="color: red;">Please get signed In before adding review..</h3>
+              
+              <a class="btn" href="{% url 'signin' %}"><button class="btn btn-info">Signin</button></a>
               {% endif %}
 
               <input type="hidden" name="doctor_id" value="{{ doctor.id }}" />

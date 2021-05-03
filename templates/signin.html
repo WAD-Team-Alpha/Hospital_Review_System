@@ -101,13 +101,15 @@
                   <input
                     type="password"
                     class="form-control"
-                    id="email"
+                    id="o_psw"
                     name="password"
                     placeholder="password"
                     required
                   />
                 </div>
-
+                <div class="shps" style="margin-top: 1em; margin-left : 18px;">
+                  Show Password: <input type="checkbox" name="showpass" id="showpass" onclick="show_pass()" style="height: 9px;">
+              </div>
                 <br />
                 <div class="col-md-12 col-sm-12">
                   <button
@@ -228,5 +230,6 @@
     <script src="{% static 'js/smoothscroll.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/authentication.js' %}"></script>
   </body>
 </html>
