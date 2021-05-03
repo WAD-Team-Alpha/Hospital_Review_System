@@ -9,7 +9,7 @@ class Doctor(models.Model):
     Email = models.CharField(max_length=150)
     Username = models.CharField(max_length=150, default="")
     DateOfBirth = models.CharField(max_length=150)
-    ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", blank=True)
+    ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", default="DoctorPhotos/boy_avatar.jpg")
     MobileNumber = models.CharField(max_length=10)
     DoctorLicense = models.FileField(upload_to="DoctorDocuments/")
     YearsOfExperience = models.IntegerField(blank=True)
