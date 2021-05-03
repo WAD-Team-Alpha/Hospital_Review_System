@@ -86,11 +86,9 @@
                               </div>
                               <div class="ratings col-md-3">
                                    <h4><strong>Rating </strong></h4>
-                                   <span class="fa fa-star checked"></span>
-                                   <span class="fa fa-star checked"></span>
-                                   <span class="fa fa-star checked"></span>
-                                   <span class="fa fa-star"></span>
-                                   <span class="fa fa-star"></span><br>
+                                   {% for i in result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %}
+                                   {% for i in result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
+                                   <br>
                                    <div class="appointment-btn"><a href="{% url 'DoctorProfile' result.id %}">View Profile</a></div>
                                    <div class="divider"> </div>
                               </div>
