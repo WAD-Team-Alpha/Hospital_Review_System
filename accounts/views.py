@@ -73,7 +73,7 @@ def hospReg(request):
             "formerror": ""
         }
 
-        if emailerror != "" or usernameerror != "":
+        if emailerror != "" or usernameerror != "" or regerror != "":
             return render(request, 'Hospitalregistion.html', context)
 
         if hospform.is_valid():
