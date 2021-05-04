@@ -10,7 +10,7 @@
     <meta name="keywords" content="" />
     <meta name="author" content="index" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+    <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
@@ -108,19 +108,19 @@
                 </div>
 
                 <div class="col-md-8 col-sm-7 text-align-right">
-                    {% if user.is_authenticated %} {% if user.username in users %}
+                    {% if user.is_authenticated %} {% if type == "user" %}
                     <span class="appointment-btn"><i class="fa fa-user-circle"></i
               ><a href="{% url 'Signout' %}">Signout</a></span
             >
-            {% elif user.username in doctors %}
+            {% elif type == "doctor" %}
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
-              ><a href="{% url 'Signout' %}">Doctor Account</a></span
+              ><a href="{% url 'DoctorProfile' USER.id %}">View Profile</a></span
             >
-            {% elif user.username in hospitals %}
+            {% elif type == "hospital" %}
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
-              ><a href="{% url 'Signout' %}">Hospital Account</a></span
+              ><a href="{% url 'HospitalProfile' USER.id %}">View Profile</a></span
             >
             {% else %}
             <span class="appointment-btn"
@@ -171,7 +171,7 @@
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="static/index.html" class="navbar-brand">WEBSITE LOGO</a>
+                    <a href="" class="navbar-brand"> STAY HOME STAY SAFE </a>
                 </div>
 
                 <!-- MENU LINKS -->

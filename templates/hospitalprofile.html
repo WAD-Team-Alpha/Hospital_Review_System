@@ -16,9 +16,9 @@
         <link rel="stylesheet" href="{% static 'css/animate.css' %}">
         <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
         <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      
         
       
@@ -27,7 +27,25 @@
     <link rel="stylesheet" href="{% static 'css/docter_review.css' %}" />
         
     </head>
-
+    <style>
+      .button{
+        background: #0cd9e7;
+        border-radius: 3px;
+        color: white;
+        font-weight: 600;
+        padding-top: 0px;
+        padding-bottom: 1px;
+        padding-left: 6px;
+        padding-right: 6px;
+        font-size: 12px;
+        line-height: 24px;
+        
+      }
+      
+      .button:hover {
+        background-color: #2d60ec;
+      }
+    </style>
     <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
       <!-- PRE LOADER -->
@@ -46,8 +64,29 @@
                            
                       <div class="col-md-8 col-sm-7 text-align-right mr-md-5" style="text-align:right;">
                           
-                          <Button style="padding:.25cm;border-radius: 10px;   margin-right: 100px; margin-top: 3px; background-color:#0cd9e7;" >Logout</Button>
-                           <Button style="padding:.25cm; border-radius: 10px; margin-top: 3px; background-color:#0cd9e7">Update</Button>
+                        {% if user.username == hospital.Username %}
+                        <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
+                        
+                          <a  href="{% url 'Signout' %}"><span class="button">Signout</span> </a>
+                        
+                        
+                      </span>
+                      <span style="padding-top: 10px; padding-bottom: 10px;" class="email-icon">
+                        
+                          <a  href="#"><span class="button">Update Profile</span> </a>
+                        
+                        
+                      </span>
+                      {% else %}
+                      <span class="email-icon"
+                        ><i class="fa fa-phone"></i>
+                        <a href="#">999-888-726-1</a></span
+                      > 
+                        <span class="email-icon"
+                        ><i class="fa fa-envelope-o"></i>
+                        <a href="#">jeevannaksha@WAD8.com</a></span
+                      > 
+                      {% endif %}
                            
                       </div>
   
@@ -57,9 +96,9 @@
 
        <section class="sec" >
           <div class=".container-fluid ba">
-          <img src="{% static 'images/slider_1.jpg' %}" alt="Snow" style="width:100%; ">
+          <img src="{{ hospital.HospitalPhoto.url }}" alt="Snow" style="width:100%; ">
             <div class="top-left"> <h1 style="color:white;"> {{hospital.HospitalName}} </h1>
-            <p class="back" style="color:white;"> how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen</p>
+            <p class="back" style="color:white;"> {{hospital.HospitalDescription}} </p>
              </div>
           </div>
           </section>
@@ -79,24 +118,24 @@
                       <center class="boss">
                       
                         <i class="glyphicon glyphicon-calendar"></i>
-                       <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                       <h3>Feature - 1</h3>
+                        <p>{{hospital.Achievements1}}</p>
                         </center>
                    </div>
 
                      <div class="col-md-3 col-sm-3">
                         <center>
                        <i class="glyphicon glyphicon-calendar"></i>
-                        <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                        <h3>Feature - 2</h3>
+                        <p>{{hospital.Achievements2}}</p>
                         </center>
                    </div>
                      <div class="col-md-3 col-sm-3">
                       <center>
                          <i class="glyphicon glyphicon-calendar"></i>
                       
-                        <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                        <h3>Feature - 3</h3>
+                        <p>{{hospital.Achievements3}}</p>
                         </center>
                    </div>
                    
@@ -110,23 +149,23 @@
                       <center class="boss">
                       
                         <i class="glyphicon glyphicon-calendar"></i>
-                        <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                        <h3>Feature - 4</h3>
+                        <p>{{hospital.Achievements4}}</p>
                         </center>
                    </div>
 
                      <div class="col-md-3 col-sm-3">
                         <center>
                        <i class="glyphicon glyphicon-calendar"></i>
-                       <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                       <h3>Feature - 5</h3>
+                        <p>{{hospital.Achievements5}}</p>
                         </center>
                    </div>
                      <div class="col-md-3 col-sm-3">
                       <center>
                          <i class="glyphicon glyphicon-calendar"></i>
-                      <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                      <h3>Feature - 6</h3>
+                        <p>{{hospital.Achievements6}}</p>
                         </center>
                    </div>
                    
@@ -145,7 +184,7 @@
 
 
                     <div class="col-md-6 col-sm-12 doc-img">
-                        <img  src="{% static 'images/doctt.png' %}" alt="">
+                        <img  src="{{ hospital.ChiefMedicalOfficerPhoto.url }}" alt="DC">
                     </div>
                     <div class="col-md-6 col-sm-12 doc-det">
                         <h1>Hello, I’m {{hospital.ChiefMedicalOfficer}}</h1>
@@ -168,38 +207,19 @@
 
       <div class="carousel-inner"> 
         <div class="item active">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb4.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5>
+          <div class="col-xs-3">
+            <a href=""><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
+            <h5>Please find all the doctors here</h5>
           </div>
         </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb2.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb3.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb4.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><a href="#"><img src="{% static 'images/team-memb2.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb3.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
+        {% for doctor in doctors %}
+          <div class="item">
+            <div class="col-xs-3">
+              <a href="{% url 'DoctorProfile' doctor.id %}"><img src="{{doctor.ProfilePhoto.url}}" class="img-responsive"></a>
+              <h5>Dr {{doctor.FirstName}} {{doctor.LastName}}</h5>
+            </div>
+          </div>
+        {% endfor %}
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>

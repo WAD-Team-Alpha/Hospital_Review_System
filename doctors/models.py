@@ -20,16 +20,16 @@ class Doctor(models.Model):
     Education = models.CharField(max_length=250, blank=True)
     Masters = models.CharField(max_length=250, blank=True)
     HospitalName = models.CharField(max_length=50)
-    HospitalRegisterationNumber = models.CharField(max_length=100, default="")
+    HospitalRegisterationNumber = models.CharField(max_length=100)
     City = models.CharField(max_length=100)
     State = models.IntegerField(choices=States, default=1)
     Pincode = models.CharField(max_length=20)
     Department = models.IntegerField(choices=Department, default=1)
-    Description = models.CharField(max_length=150, blank=True)
-    Achievements1 = models.CharField(max_length=50, blank=True)
-    Achievements2 = models.CharField(max_length=50, blank=True)
-    Achievements3 = models.CharField(max_length=50, blank=True)
-    Achievements4 = models.CharField(max_length=50, blank=True)
+    Description = models.CharField(max_length=150, default="Dear, be strong because your life will be better now. Time does not remain same. You will get well soon!")
+    Achievements1 = models.CharField(max_length=50, default="No achievements added recently")
+    Achievements2 = models.CharField(max_length=50, default="No achievements added recently")
+    Achievements3 = models.CharField(max_length=50, default="No achievements added recently")
+    Achievements4 = models.CharField(max_length=50, default="No achievements added recently")
     def __str__(self):
         return self.Username
     
