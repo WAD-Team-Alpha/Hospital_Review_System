@@ -71,7 +71,7 @@
                         
                         
                       </span>
-                      <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
+                      <span style="padding-top: 10px; padding-bottom: 10px;" class="email-icon">
                         
                           <a  href="#"><span class="button">Update Profile</span> </a>
                         
@@ -96,9 +96,9 @@
 
        <section class="sec" >
           <div class=".container-fluid ba">
-          <img src="{% static 'images/hospitalPhotos.jpg' %}" alt="Snow" style="width:100%; ">
+          <img src="{{ hospital.HospitalPhoto.url }}" alt="Snow" style="width:100%; ">
             <div class="top-left"> <h1 style="color:white;"> {{hospital.HospitalName}} </h1>
-            <p class="back" style="color:white;"> how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen</p>
+            <p class="back" style="color:white;"> {{hospital.HospitalDescription}} </p>
              </div>
           </div>
           </section>
@@ -118,24 +118,24 @@
                       <center class="boss">
                       
                         <i class="glyphicon glyphicon-calendar"></i>
-                       <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                       <h3>Feature - 1</h3>
+                        <p>{{hospital.Achievements1}}</p>
                         </center>
                    </div>
 
                      <div class="col-md-3 col-sm-3">
                         <center>
                        <i class="glyphicon glyphicon-calendar"></i>
-                        <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                        <h3>Feature - 2</h3>
+                        <p>{{hospital.Achievements2}}</p>
                         </center>
                    </div>
                      <div class="col-md-3 col-sm-3">
                       <center>
                          <i class="glyphicon glyphicon-calendar"></i>
                       
-                        <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                        <h3>Feature - 3</h3>
+                        <p>{{hospital.Achievements3}}</p>
                         </center>
                    </div>
                    
@@ -149,23 +149,23 @@
                       <center class="boss">
                       
                         <i class="glyphicon glyphicon-calendar"></i>
-                        <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                        <h3>Feature - 4</h3>
+                        <p>{{hospital.Achievements4}}</p>
                         </center>
                    </div>
 
                      <div class="col-md-3 col-sm-3">
                         <center>
                        <i class="glyphicon glyphicon-calendar"></i>
-                       <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                       <h3>Feature - 5</h3>
+                        <p>{{hospital.Achievements5}}</p>
                         </center>
                    </div>
                      <div class="col-md-3 col-sm-3">
                       <center>
                          <i class="glyphicon glyphicon-calendar"></i>
-                      <h3>High Customer Satisfaction</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Donec ut erat nec leo lobortis blandit.</p>
+                      <h3>Feature - 6</h3>
+                        <p>{{hospital.Achievements6}}</p>
                         </center>
                    </div>
                    
@@ -184,7 +184,7 @@
 
 
                     <div class="col-md-6 col-sm-12 doc-img">
-                        <img  src="{% static 'images/doctt.png' %}" alt="">
+                        <img  src="{{ hospital.ChiefMedicalOfficerPhoto.url }}" alt="DC">
                     </div>
                     <div class="col-md-6 col-sm-12 doc-det">
                         <h1>Hello, I’m {{hospital.ChiefMedicalOfficer}}</h1>
@@ -206,39 +206,14 @@
     <div class="carousel slide" id="myCarousel">
 
       <div class="carousel-inner"> 
-        <div class="item active">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb4.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5>
+        {% for doctor in doctors %}
+          <div class="item active">
+            <div class="col-xs-3">
+              <a href="{% url 'DoctorProfile' doctor.id %}"><img src="{{doctor.ProfilePhoto.url}}" class="img-responsive"></a>
+              <h5>Dr {{doctor.FirstName}} {{doctor.LastName}}</h5>
+            </div>
           </div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb2.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb3.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb4.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><a href="#"><img src="{% static 'images/team-memb2.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
-        <div class="item">
-          <div class="col-xs-3"><a href="#"><img src="{% static 'images/team-memb3.jpg' %}" class="img-responsive"></a>
-          <h5> 3+ Years of Experiance in PHP with good innovative Ideas</h5></div>
-        </div>
+        {% endfor %}
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>

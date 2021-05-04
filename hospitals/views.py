@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Hospital
+from doctors.models import Doctor
 from accounts.models import User
 from reviews.models import HosReview
 from .choices import States
@@ -7,7 +8,8 @@ from .choices import States
 # Create your views here.
 def hosProf(request, hospital_id):
     hospital =get_object_or_404(Hospital, pk= hospital_id)
-
+    doctor_list = Doctor.objects.all().filter(HospitalRegisterationNumber=hospital.HospitalRegisterationNumber)
+    print(doctor_list)
     queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)
     
     
@@ -71,7 +73,7 @@ def hosProf(request, hospital_id):
         'flag' : flag,
         'ratings_count' : ratings_count,
         'ratings_percentage' : ratings_percentage,
-        
+        'doctors' : doctor_list
     }
     return render(request, 'HospitalProfile.html', context)
 
