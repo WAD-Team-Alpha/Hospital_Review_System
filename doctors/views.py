@@ -115,18 +115,20 @@ def searchRes(request):
             queryset_list = queryset_list.filter(City__iexact = City)
     print(queryset_list,request.GET['city'])  
     #State
+
     if 'state' in request.GET:
-        State = request.GET['state']
-        if State:
-            queryset_list = queryset_list.filter(State = State)
-    print(queryset_list,request.GET['state']) 
-     
+        if not request.GET['state'] == "29":
+            State = request.GET['state']
+            if State:
+                queryset_list = queryset_list.filter(State = State)
+          
     #Department
     if 'dept' in request.GET:
-        Departments = request.GET['dept']
-        if Departments:
-            queryset_list = queryset_list.filter(Department = Departments)
-    print(queryset_list,request.GET['dept']) 
+        if not request.GET['dept'] == "7":
+            Departments = request.GET['dept']
+            if Departments:
+                queryset_list = queryset_list.filter(Department = Departments)
+   
     #pincode
     if 'pincode' in request.GET:
          Pincode = request.GET['pincode']
@@ -134,15 +136,22 @@ def searchRes(request):
              queryset_list = queryset_list.filter(Pincode = Pincode)
     print(queryset_list,request.GET['pincode'])
     
+   
+    dict = []
     for result in queryset_list:
+        Result = result
         State_result = States[result.State-1][1]
         dept_result = Department[result.Department-1][1]
-    context = {
-        'States' : State_result,
-        'Department' : dept_result,
-        'results' : queryset_list,
-        'values' : request.GET
-    }
+        res={
+            'result': Result,
+            'State_result' : State_result,
+            'dept_result': dept_result,
+        }
+        dict.append(res)
     
-
+        
+            
+    context = {
+        'dict': dict
+    }
     return render(request, 'searchbarResults.html', context)
