@@ -64,32 +64,32 @@
                <h2 class="heading wow fadeInUp">Based on your recent search</h2>
          </div>
          <!-- data1 -->
-         {% if results %} {% for result in results %}
+         {% if dict %} {% for result in dict %}
           <div class="parentresults container">
                <!-- Search Results -->
                
                          <div class="results row">
                               <div class="image col-md-4">
 
-                                   <img src="{{result.get_image.url}}" alt="dc" class="profileImage">
+                                   <img src="{{result.result.get_image.url}}" alt="dc" class="profileImage">
                               </div>
-                              <!-- <div class="col-md-1"></div> -->
+                              
                               <div class="data col-md-4">
-                                   <h3>Name: {{result.FirstName}} {{result.LastName}}</h3>
+                                   <h3>Name: {{result.result.FirstName}} {{result.result.LastName}}</h3>
                                    <p class="values">
-                                        <b>Hospital: </b> {{result.HospitalName}} <br>
-                                        <b>Department: </b> {{Department}} <br/>
-                                        <b>Works at: </b> {{result.City}},{{States}}<br/>
-                                        <b>Pincode: </b>{{result.Pincode}} <br>
+                                        <b>Hospital: </b> {{result.result.HospitalName}} <br>
+                                        <b>Department: </b> {{result.dept_result}} <br/>
+                                        <b>Works at: </b> {{result.result.City}},{{result.State_result}}<br/>
+                                        <b>Pincode: </b>{{result.result.Pincode}} <br>
                                    </p>
                                    
                               </div>
                               <div class="ratings col-md-3">
                                    <h4><strong>Rating </strong></h4>
-                                   {% for i in result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %}
-                                   {% for i in result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
+                                   {% for i in result.result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %}
+                                   {% for i in result.result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
                                    <br>
-                                   <div class="appointment-btn"><a href="{% url 'DoctorProfile' result.id %}">View Profile</a></div>
+                                   <div class="appointment-btn"><a href="{% url 'DoctorProfile' result.result.id %}">View Profile</a></div>
                                    <div class="divider"> </div>
                               </div>
                           </div>
