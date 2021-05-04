@@ -206,8 +206,14 @@
     <div class="carousel slide" id="myCarousel">
 
       <div class="carousel-inner"> 
+        <div class="item active">
+          <div class="col-xs-3">
+            <a href=""><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
+            <h5>Please find all the doctors here</h5>
+          </div>
+        </div>
         {% for doctor in doctors %}
-          <div class="item active">
+          <div class="item">
             <div class="col-xs-3">
               <a href="{% url 'DoctorProfile' doctor.id %}"><img src="{{doctor.ProfilePhoto.url}}" class="img-responsive"></a>
               <h5>Dr {{doctor.FirstName}} {{doctor.LastName}}</h5>
