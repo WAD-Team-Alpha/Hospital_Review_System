@@ -27,9 +27,10 @@
             text-align: center;
             font-size: 30px
         }
-        .divider{
+        
+        .divider {
             margin-bottom: 5em;
-       }
+        }
     </style>
 
 </head>
@@ -74,31 +75,28 @@
             <!-- Search Results -->
 
 
-            {% if results %} {% for result in results %}
+            {% if dict %} {% for result in dict %}
             <div class="results row">
                 <div class="image col-md-4">
-                    <img src="{{result.HospitalPhoto.url}}" alt="dc" class="profileImage">
+                    <img src="{{result.result.HospitalPhoto.url}}" alt="dc" class="profileImage">
                 </div>
                 <!-- <div class="col-md-1"></div> -->
                 <div class="data col-md-4">
-                    <h3> {{result.HospitalName}}</h3>
+                    <h3> {{result.result.HospitalName}}</h3>
                     <p class="values">
-                        <b>location: </b> {{result.City}},{{States}}<br/>
-                        <b>Pincode: </b>{{result.Pincode}} <br>
-                        <b>ChiefMedicalOfficer: </b>{{result.ChiefMedicalOfficer}} <br>
-                        <b>PhoneNumber: </b>{{result.PhoneNumber}} <br>
-                        <b>Email: </b>{{result.Email}} <br>
+                        <b>location: </b> {{result.result.City}},{{result.State_result}}<br/>
+                        <b>Pincode: </b>{{result.result.Pincode}} <br>
+                        <b>ChiefMedicalOfficer: </b>{{result.result.ChiefMedicalOfficer}} <br>
+                        <b>PhoneNumber: </b>{{result.result.PhoneNumber}} <br>
+                        <b>Email: </b>{{result.result.Email}} <br>
                     </p>
 
                 </div>
                 <div class="ratings col-md-3">
                     <h4><strong>Rating </strong></h4>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span><br>
-                    <div class="appointment-btn"><a href="{% url 'HospitalProfile' result.id %}">View Profile</a></div>
+                    {% for i in result.result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %} {% for i in result.result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
+                    <br>
+                    <div class="appointment-btn"><a href="{% url 'HospitalProfile' result.result.id %}">View Profile</a></div>
                     <div class="divider"> </div>
                 </div>
             </div>
