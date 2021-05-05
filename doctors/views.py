@@ -70,13 +70,16 @@ def docProf(request, doctor_id):
     if request.method == 'POST':
         flag = 1
         queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
+
+    dept = Department[doctor.Department-1][1]
+
     context = {
         'doctor' : doctor,
         'doctor_reviews' : queryset_list,
         'flag' : flag,
         'ratings_count' : ratings_count,
         'ratings_percentage' : ratings_percentage,
-        
+        'department': dept,
     }
     return render(request, 'DoctorProfile.html', context)
 

@@ -104,7 +104,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-5">
-                  <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
+                    <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
                 </div>
 
                 <div class="col-md-8 col-sm-7 text-align-right">
@@ -224,7 +224,7 @@
                   </h3>
                   <h1>RATINGS MATTER</h1>
                   <a
-                    href="#about"
+                    href="#about2"
                     class="section-btn btn btn-default btn-gray smoothScroll"
                     >More Info</a
                   >
@@ -505,7 +505,7 @@
                 <div class="col-md-6 col-sm-6">
                   <label for="doctor_state">Select State</label>
                   <select name="state" id="state" class="form-control">
-                    <option value=29>All</option>
+                    <option value= 29>All</option>
                     <option value= 1 >Andhra Pradesh</option>
                     <option value = 2>Arunachal Pradesh</option>
                     <option value = 3>Assam</option>
@@ -618,6 +618,7 @@
                     id="dname"
                     name="dname"
                     placeholder="Enter here"
+                    required
                   />
                 </div>
 
@@ -628,6 +629,7 @@
                     name="date"
                     value=""
                     class="form-control"
+                    required
                   />
                 </div>
 
@@ -639,6 +641,7 @@
                     id="message"
                     name="message"
                     placeholder="Message"
+                    required
                   ></textarea>
                   <button
                     type="submit"
