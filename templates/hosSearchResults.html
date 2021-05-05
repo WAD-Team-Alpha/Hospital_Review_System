@@ -78,10 +78,12 @@
             {% if dict %} {% for result in dict %}
             <div class="results row">
                 <div class="image col-md-4">
+                    <!-- the image of the Hospital -->
                     <img src="{{result.result.HospitalPhoto.url}}" alt="dc" class="profileImage">
                 </div>
                 <!-- <div class="col-md-1"></div> -->
                 <div class="data col-md-4">
+                    <!-- Hospital details -->
                     <h3> {{result.result.HospitalName}}</h3>
                     <p class="values">
                         <b>location: </b> {{result.result.City}},{{result.State_result}}<br/>
@@ -93,6 +95,7 @@
 
                 </div>
                 <div class="ratings col-md-3">
+                    <!-- Ratings -->
                     <h4><strong>Rating </strong></h4>
                     {% for i in result.result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %} {% for i in result.result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
                     <br>
@@ -105,6 +108,7 @@
 
             <div class="results row">
                 <div class="col-md-12">
+                    <!-- if there exists no hospital then it shows this message -->
                     <h6><b> No Hospitals Found </b></h6>
                 </div>
             </div>
