@@ -42,29 +42,40 @@ def signup(request):
 
 def hospReg(request):
     if request.method == "POST":
+        # Creating an instance of the hospital registeration form for validation
         hospform = HospitalForm(request.POST, request.FILES)
+
+        # Accessing all the required information for authentication and validation
         username = request.POST['Username']
         password = request.POST['psw']
         email = request.POST['Email']
         hospreg = request.POST['HospitalRegisterationNumber']
 
+        # variables used for storing the error messages
         emailerror = ""
         usernameerror = ""
         regerror = ""
 
+        # Fetching the database whether the particular hospital information is already available or not
+        # Checking whether the email exists or not
         if User.objects.filter(email=email).exists():
             emailerror = "Email already exists"
         else:
             emailerror = ""
+
+        # Checking whether the username exists or not
         if User.objects.filter(username=username).exists():
             usernameerror = "Username already exists"
         else:
             usernameerror = ""
+
+        # Checking whether the registeration number exists or not
         if Hospital.objects.filter(HospitalRegisterationNumber=hospreg).exists():
             regerror = "A hospital is already registered with this registeration number"
         else:
             regerror = ""
 
+        # Storing all the error messages and the hospital registeration form in a variable
         context = {
             "form": hospform,
             "regerror": regerror,
@@ -73,11 +84,13 @@ def hospReg(request):
             "formerror": ""
         }
 
+        # checking whether there exists any error message in the hospital information
         if emailerror != "" or usernameerror != "" or regerror != "":
             return render(request, 'Hospitalregistion.html', context)
 
+        # Validating the form here
         if hospform.is_valid():
-            # Create user
+            # Create user for the hospital
             user = User.objects.create_user(username=username, password=password, email=email)
             user.is_active = False
             user.save()
@@ -85,14 +98,16 @@ def hospReg(request):
             # Save the Data to the Database 
             hospform.save()
 
+            # Sending the account activation link to his mail
             subject = "Activate Your account"
-            uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
-            token = token_generator.make_token(user)
-            domain = get_current_site(request).domain
-            link = reverse('activate', kwargs={'uidb64': uidb64, "token": token})
-            activate_url = 'http://'+domain+link
-            body = "Hi " + username + "!\n To activate your account please click on this link\n" + activate_url
+            uidb64 = urlsafe_base64_encode(force_bytes(user.pk)) # Creating a unique uid for the hospital
+            token = token_generator.make_token(user) # validating a token
+            domain = get_current_site(request).domain #obtaining the current domain of the website
+            link = reverse('activate', kwargs={'uidb64': uidb64, "token": token}) # combining the total link
+            activate_url = 'http://'+domain+link # overall url
+            body = "Hi " + username + "!\n To activate your account please click on this link\n" + activate_url # body of the mail
 
+            # Sending the account activation link to the hospital's mail
             Email = send_mail (
                 subject,
                 body,
@@ -104,6 +119,8 @@ def hospReg(request):
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
             print("User Created")
+
+            # Validating the hospital info
             if user is not None:
                 auth.login(request, user)
                 return redirect('index')
@@ -271,22 +288,25 @@ def signout(request):
     
     return redirect('index')
 
+# This class is used to create the activation link
 class verificationView(View):
     def get(self, request, uidb64, token):
         try:
             id = force_text(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=id)
 
+            # using the token generator to generate a unique link for the particular user
             if not token_generator.check_token(user, token):
                 return redirect('index'+'?message'+'User already activated')
 
+            # If user clicks on the link sucessfully then the account will be activated
             if user.is_active:
                 messages.success(request, 'Account is already active')
                 return redirect('index')
             user.is_active = True
             user.save()
-            auth.login(request, user)
-            messages.success(request, 'Account activated successfully')
+            auth.login(request, user) # he will be logged in for the first time sucessfully
+            messages.success(request, 'Account activated successfully') # a sucess message
             return redirect('index')
         except Exception as ex:
             pass
