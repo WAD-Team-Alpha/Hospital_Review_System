@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+#define all path for doctor profile and doctor_search_bar
 
 urlpatterns = [
     path('search-results', views.searchRes, name="searchRes"),

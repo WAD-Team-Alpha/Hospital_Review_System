@@ -76,6 +76,7 @@
                 <div class="col-md-6 col-sm-6">
                     <img src="{% static 'images/hospital-registeration.jpg' %}" alt="Use Image Here">
                 </div>
+                <!-- hospital registeration  section  -->
                 <div class="col-md-6 col-sm-6">
                     <form id="user-registration" role="form" method="post" action="#" onsubmit="return checkPass()" enctype= multipart/form-data>
                     {% csrf_token %}
@@ -87,7 +88,7 @@
                                 <label for="name">Hospital Name</label>
                                 {{form.HospitalName}}
                             </div>
-
+                                  
                             <div class="col-md-12 col-sm-12">
                                 <label for="Registration">Hospital Registration Number</label>
                                 {{form.HospitalRegisterationNumber}}
