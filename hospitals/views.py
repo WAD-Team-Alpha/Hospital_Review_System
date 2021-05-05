@@ -5,9 +5,11 @@ from accounts.models import User
 from reviews.models import HosReview
 from .choices import States
 
-# Create your views here.
+# Create  Hospital profile function 
+
 def hosProf(request, hospital_id):
     hospital =get_object_or_404(Hospital, pk= hospital_id)
+    # doctor search list which belong to this hospital 
     doctor_list = Doctor.objects.all().filter(HospitalRegisterationNumber=hospital.HospitalRegisterationNumber)
     print(doctor_list)
     queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)
@@ -76,6 +78,9 @@ def hosProf(request, hospital_id):
         'doctors' : doctor_list
     }
     return render(request, 'HospitalProfile.html', context)
+   
+# Hospital search result  function 
+
 
 def hosSearch(request):
     queryset_list = Hospital.objects.order_by('-HospitalName')

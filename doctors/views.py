@@ -6,7 +6,7 @@ from reviews.models import DocReview
 from .choices import Department, States
 # Create your views here.
 
-
+# Doctor profile view function  
 def docProf(request, doctor_id):
     doctor =get_object_or_404(Doctor, pk= doctor_id)
     queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
@@ -83,6 +83,10 @@ def docProf(request, doctor_id):
     }
     return render(request, 'DoctorProfile.html', context)
 
+
+
+# it is doctor search result by user get all details
+
 def searchRes(request):
     queryset_list = Doctor.objects.order_by('-FirstName')
     State_result = States
@@ -125,7 +129,7 @@ def searchRes(request):
             if State:
                 queryset_list = queryset_list.filter(State = State)
           
-    #Department
+    #Department of doctor 
     if 'dept' in request.GET:
         if not request.GET['dept'] == "7":
             Departments = request.GET['dept']
