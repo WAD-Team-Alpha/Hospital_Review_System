@@ -15,8 +15,14 @@ def docreview(request):
             print("failed")
             #messages.error(request, "Please Signin")
             return redirect('signin')
-        username = request.POST['username']
-        star_rating = request.POST['rating']
+        try:
+            username = request.POST['username']
+            star_rating = request.POST['rating']
+        except:
+            print("failed")
+            #messages.error(request, "Please Signin")
+            return redirect('/doctors/'+doctor_id)
+
         non_rating = ""
         if star_rating == '1':
             non_rating = "2345"
@@ -75,8 +81,13 @@ def hosreview(request):
             print("failed")
             #messages.error(request, "Please Signin")
             return redirect('/hospitals/'+hospital_id)
-        username = request.POST['username']
-        star_rating = request.POST['rating']
+        try:
+            username = request.POST['username']
+            star_rating = request.POST['rating']
+        except:
+            print("failed")
+            #messages.error(request, "Please Signin")
+            return redirect('/hospitals/'+hospital_id)
         non_rating = ""
         if star_rating == '1':
             non_rating = "2345"
