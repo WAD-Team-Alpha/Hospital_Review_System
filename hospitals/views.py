@@ -81,7 +81,6 @@ def hosSearch(request):
     queryset_list = Hospital.objects.order_by('-HospitalName')
     State_result = States
     print(State_result)
-    #dept_result = Department
 
     #firstname
 
@@ -111,13 +110,13 @@ def hosSearch(request):
         if City:
             queryset_list = queryset_list.filter(City__iexact = City)
     print(queryset_list,request.GET['city'])  
-    #State
+   
     if 'state' in request.GET:
-        State = request.GET['state']
-        if State:
-            queryset_list = queryset_list.filter(State = State)
-    print(queryset_list,request.GET['state']) 
-     
+        if not request.GET['state'] == "29":
+            State = request.GET['state']
+            if State:
+                queryset_list = queryset_list.filter(State = State)
+
     #pincode
     if 'pincode' in request.GET:
          Pincode = request.GET['pincode']
@@ -125,14 +124,20 @@ def hosSearch(request):
              queryset_list = queryset_list.filter(Pincode = Pincode)
     print(queryset_list,request.GET['pincode'])
     
+    dict = []
     for result in queryset_list:
+        Result = result
         State_result = States[result.State-1][1]
-       # dept_result = Department[result.Department-1][1]
+        res={
+            'result': Result,
+            'State_result' : State_result,
+        }
+        dict.append(res)
+    
+        
+            
     context = {
-        'States' : State_result,
-        #'Department' : dept_result,
-        'results' : queryset_list,
-        'values' : request.GET
+        'dict': dict
     }
     
 
