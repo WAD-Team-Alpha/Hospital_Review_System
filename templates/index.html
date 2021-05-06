@@ -442,17 +442,18 @@
 
     <!-- Hospitals Search Bar -->
 
-    <section id="hospital-searchbar" data-stellar-background-ratio="2.5">
-      <div class="container">
+    <section id="hospital-searchbar" data-stellar-background-ratio="2.5">  <!-- creating hospital search bar sction -->
+      <div class="container"> <!-- Creating  grid for the hospital search bar which contains images and form -->
         <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <form id="doctor_search" role="form" mrthod="post" action="{% url 'hospsearchRes' %}" >
-              <div class="search_h1 wow fadeInUp" data-wow-delay="0.4s">
+          <div class="col-md-6 col-sm-6">  <!-- The left side of the container for search form-->
+            <!-- the below id doctor_search was given since css file is same as doctor search bar-->
+            <form id="doctor_search" role="form" mrthod="post" action="{% url 'hospsearchRes' %}" >  <!-- Creating the form for search bar-->
+              <div class="search_h1 wow fadeInUp" data-wow-delay="0.4s"> <!-- Heading division for searching-->
                 <h2>Search for a hospital</h2>
               </div>
-              <div class="wow fadeInUp" data-wow-delay="0.8s">
+              <div class="wow fadeInUp" data-wow-delay="0.8s">  <!-- setting up fading delay-->
                 <div class="col-md-6 col-sm-6">
-                  <label for="firstname">Hospital Name</label>
+                  <label for="firstname">Hospital Name</label>  <!-- hospital name field for searching-->
                   <input
                     type="text"
                     class="form-control"
@@ -461,7 +462,7 @@
                     placeholder="Hospital Name"
                   />
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-6">   <!-- hospital registration number field for searching-->
                   <label for="lastname">Hospital Reg. No.</label>
                   <input
                     type="text"
@@ -472,7 +473,7 @@
                   />
                 </div>
 
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-6">  <!-- place of the hospital  field for searching-->
                   <label for="place">Town/Village</label>
                   <input
                     type="text"
@@ -482,7 +483,7 @@
                     placeholder="Town/Village"
                   />
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-6">  <!-- city of hospital  field for searching-->
                   <label for="doctor_city">City</label>
                   <input
                     type="text"
@@ -492,7 +493,7 @@
                     placeholder="City"
                   />
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-6">  <!-- pincode of hospital location  field for searching-->
                   <label for="pincode">Enter Pincode</label>
                   <input
                     type="text"
@@ -502,9 +503,9 @@
                     placeholder="Pincode"
                   />
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-6">  <!-- selecting staes field for searching-->
                   <label for="doctor_state">Select State</label>
-                  <select name="state" id="state" class="form-control">
+                  <select name="state" id="state" class="form-control">  <!-- all 28 states names are given along with 'all' option to chose from -->
                     <option value= 29>All</option>
                     <option value= 1 >Andhra Pradesh</option>
                     <option value = 2>Arunachal Pradesh</option>
@@ -536,7 +537,7 @@
                     <option value= 28>West Bengal</option>
                   </select>
                 </div>
-                <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12"> <!-- submit button division-->
                   <button
                     type="submit"
                     class="form-control"
@@ -550,11 +551,12 @@
             </form>
           </div>
 
-          <div class="col-md-6 col-sm-6">
+          <div class="col-md-6 col-sm-6">    <!--Right half of the section for image -->
+            <!-- setting the path for the image -->
             <img
               src="{% static 'images/hospita-search-bar.png' %}"
               class="img-responsive"
-              alt="Doctor-Search-Bar"
+              alt="Doctor-Search-Bar"  
             />
           </div>
         </div>

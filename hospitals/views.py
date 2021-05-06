@@ -77,19 +77,24 @@ def hosProf(request, hospital_id):
     }
     return render(request, 'HospitalProfile.html', context)
 
+# Hospital Search Results Function
 def hosSearch(request):
+    #Storing all the objects of the hospital which are imported from models in queryset_list and are ordered by their FirstName
     queryset_list = Hospital.objects.order_by('-HospitalName')
+    #Assigning variable State_result for the States which are imported from choices
     State_result = States
     print(State_result)
 
     #firstname
-
+    #Getting hospital name from user Search for hospital
     if 'first_name' in request.GET:
+        #Storing first_name in HospitalName
          HospitalName = request.GET['first_name']
+         #if HospitalName exists then we are filtering the required HospitalName from database and storing it in queryset_list and __iexact is used for case insensitive match for HospitalName.
          if HospitalName:
              queryset_list = queryset_list.filter(HospitalName__iexact = HospitalName)
           
-    print(queryset_list)  
+    #print(queryset_list)  
     
     #lastname
     if 'last_name' in request.GET:
@@ -111,8 +116,9 @@ def hosSearch(request):
             queryset_list = queryset_list.filter(City__iexact = City)
     print(queryset_list,request.GET['city'])  
    
+   #state
     if 'state' in request.GET:
-        if not request.GET['state'] == "29":
+        if not request.GET['state'] == "29": #this line is for the option 'all'
             State = request.GET['state']
             if State:
                 queryset_list = queryset_list.filter(State = State)
@@ -124,21 +130,25 @@ def hosSearch(request):
              queryset_list = queryset_list.filter(Pincode = Pincode)
     print(queryset_list,request.GET['pincode'])
     
+    #Declaring empty list dict for storing the results based on user search because if User searches with 'All' option we need to store each doctor search result from each state in a list to show search results.
     dict = []
     for result in queryset_list:
         Result = result
+         #Extarcting Key value for the State from choices.py 
         State_result = States[result.State-1][1]
+        #Storing the above two values in a Dictionary
         res={
             'result': Result,
             'State_result' : State_result,
         }
+        #Appending res to dict.
         dict.append(res)
     
         
-            
+    #Passing dict values in context        
     context = {
         'dict': dict
     }
     
-
+    #Passing values of context to Doctor Search Results page
     return render(request, 'hosSearchResults.html', context)
