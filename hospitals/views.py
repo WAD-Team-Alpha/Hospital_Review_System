@@ -255,7 +255,7 @@ def updateProf(request):
         else:
             city = data['city']
 
-        if data['state'] == "":
+        if data['state'] == '0':
             state = hospital.State
         else:
             state = data['state']

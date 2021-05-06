@@ -4,6 +4,7 @@ from doctors.models import Doctor
 from accounts.models import User
 from .models import DocReview
 from .models import HosReview
+from django.contrib import messages
 # Create your views here.
 
 
@@ -49,6 +50,7 @@ def docreview(request):
            user = User.objects.all().filter(Username=request.user.username).get()
         except:
             # if this run only when user signed in with non user account
+            messages.error(request, "You are not eligible to add review")
             return redirect('/doctors/'+doctor_id)
         
         doctor = Doctor.objects.all().filter(Username=doctor_name).get()
@@ -87,7 +89,7 @@ def docreview(request):
             non_stars = "1234"
         # updating the values 
         doctor = Doctor.objects.all().filter(Username=doctor_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length,non_stars = non_stars)
-        
+        messages.success(request, "Added review sucessfully")
         return redirect('/doctors/'+doctor_id)
 def hosreview(request):
     '''
@@ -129,6 +131,7 @@ def hosreview(request):
             user = User.objects.all().filter(Username=request.user.username).get()
         except:
             # if this run only when user signed in with non user account
+            messages.error(request, "You are not eligible to add review")
             return redirect('/hospitals/'+hospital_id)
         
         hospital = Hospital.objects.all().filter(Username=hospital_name).get()
@@ -167,6 +170,7 @@ def hosreview(request):
             non_stars = "1234"
         # updating the values 
         hospital = Hospital.objects.all().filter(Username=hospital_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length,non_stars = non_stars)
+        messages.success(request, "Added review sucessfully")
         return redirect('/hospitals/'+hospital_id)
 
 

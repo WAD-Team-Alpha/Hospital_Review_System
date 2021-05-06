@@ -33,7 +33,7 @@ def signin(request):
         # based on returned value user get logged .
         if user is not None:
             auth.login(request, user)
-            
+            messages.success(request, "Signed in successfully")
             return redirect('index')
         else:
            
@@ -327,7 +327,7 @@ def signout(request):
     this function will run only when the user presses logout button.
     '''
     auth.logout(request)
-    
+    messages.success(request, "Signed out successfully")
     return redirect('index')
 
 # This class is used to create the activation link
