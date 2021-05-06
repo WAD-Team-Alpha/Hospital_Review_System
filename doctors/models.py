@@ -9,18 +9,18 @@ class Doctor(models.Model):
     FirstName = models.CharField(max_length=150)  # doctor first name 
     LastName = models.CharField(max_length=150)   # doctor last name
     Email = models.CharField(max_length=150)      # doctor email 
-    Username = models.CharField(max_length=150, default="")   # doctor username
+    Username = models.CharField(max_length=150)   # doctor username
     DateOfBirth = models.CharField(max_length=150)
     ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", default="DoctorPhotos/boy_avatar.jpg") # doctor profile photo 
-    MobileNumber = models.CharField(max_length=10)                                   # doctor phone number 
+    MobileNumber = models.CharField(max_length=13, default="Not available")                                   # doctor phone number 
     DoctorLicense = models.FileField(upload_to="DoctorDocuments/")                   # doctor License which is taken by goverment 
-    YearsOfExperience = models.IntegerField(blank=True)                              # Experience year 
+    YearsOfExperience = models.IntegerField(default=0)                              # Experience year 
     Rating = models.DecimalField(max_digits=2, decimal_places = 1, default=0.0)      # doctor rating 
     Ratings_stars = models.CharField(max_length=5,default="", blank= True)  
     non_stars = models.CharField(max_length=5,default="12345")
     Ratings_count = models.IntegerField(default=0) 
-    Education = models.CharField(max_length=250, blank=True)                         #  education  details 
-    Masters = models.CharField(max_length=250, blank=True)
+    Education = models.CharField(max_length=250, default="Not available")                         #  education  details 
+    Masters = models.CharField(max_length=250, default="Not available")
     HospitalName = models.CharField(max_length=50)
     HospitalRegisterationNumber = models.CharField(max_length=100)                   # hospital name and all details
     City = models.CharField(max_length=100)

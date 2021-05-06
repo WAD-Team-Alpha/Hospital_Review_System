@@ -79,7 +79,7 @@
             </span>
             <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
               
-                <a  href="#"><span class="button">Update Profile</span> </a>
+                <a  href="{% url 'UpdateProfile' %}"><span class="button">Update Profile</span> </a>
               
               
             </span>
@@ -109,10 +109,11 @@
               alt="profile-photo"
             />
             <div class="profile-contact">
-              <h3>Name: {{ doctor.FirstName }}</h3>
+              <h3>Name: Dr. {{ doctor.FirstName }} {{ doctor.LastName }}</h3>
+              <h4 style="color: white;">Username: {{doctor.Username}}</h4>
               <p>
                 <b>Hospital: </b>{{ doctor.HospitalName }} <br />
-                <b>Experience: </b>{{doctor.YearsOfExperience}} years<br />
+                <b>Experience: </b>{{experience}} years<br />
                 <b>Department: </b> {{department}} <br />
                 <b>Education: </b>{{ doctor.Education }}<br />
                 <b>Master: </b>{{ doctor.Masters }} <br />

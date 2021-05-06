@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path('search-results', views.searchRes, name="searchRes"),
     path('<int:doctor_id>', views.docProf, name="DoctorProfile"),
+    path('<int:doctor_id>/updateProf', views.updateProf, name="UpdateProfile"),
 ]

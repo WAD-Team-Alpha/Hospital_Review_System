@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 # Create your views here.
 def index(request):
     username = request.user.username
-    print(username)
+    # print(username)
      
     users = User.objects.all()
     doctors = Doctor.objects.all()
@@ -38,7 +38,7 @@ def index(request):
     elif username in hospital_list:
         USER = Hospital.objects.all().filter(Username=username).get()
         type = "hospital"
-    print(USER)
+    # print(USER)
     context = {
         'type' : type,
         'USER' : USER

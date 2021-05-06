@@ -1,5 +1,9 @@
+from django.contrib import messages
+import doctors
+from os import error
+from django.core.files.storage import FileSystemStorage
 from django.db.models.aggregates import Count
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Doctor
 from accounts.models import User
 from reviews.models import DocReview
@@ -72,6 +76,11 @@ def docProf(request, doctor_id):
         queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
 
     dept = Department[doctor.Department-1][1]
+    exp = ""
+    if doctor.YearsOfExperience == 0:
+        exp = "Not given about no. of"
+    else:
+        exp = doctor.YearsOfExperience
 
     context = {
         'doctor' : doctor,
@@ -80,6 +89,7 @@ def docProf(request, doctor_id):
         'ratings_count' : ratings_count,
         'ratings_percentage' : ratings_percentage,
         'department': dept,
+        'experience': exp,
     }
     return render(request, 'DoctorProfile.html', context)
 
@@ -90,7 +100,7 @@ def docProf(request, doctor_id):
 def searchRes(request):
     queryset_list = Doctor.objects.order_by('-FirstName')
     State_result = States
-    print(State_result)
+    # print(State_result)
     dept_result = Department
 
     #firstname
@@ -100,27 +110,27 @@ def searchRes(request):
         if FirstName:
             queryset_list = queryset_list.filter(FirstName__iexact = FirstName)
           
-    #print(queryset_list)  
+    ## print(queryset_list)  
     
     #lastname
     if 'last_name' in request.GET:
         LastName = request.GET['last_name']
         if LastName:
             queryset_list = queryset_list.filter(LastName__iexact = LastName)
-    #print(queryset_list)  
+    ## print(queryset_list)  
     
     #town/village
     if 'place' in request.GET:
         Town = request.GET['place']
         if Town:
             queryset_list = queryset_list.filter(Town__iexact = Town)
-    print(queryset_list)  
+    # print(queryset_list)  
     #City
     if 'city' in request.GET:
         City = request.GET['city']
         if City:
             queryset_list = queryset_list.filter(City__iexact = City)
-    print(queryset_list,request.GET['city'])  
+    # print(queryset_list,request.GET['city'])  
     #State
 
     if 'state' in request.GET:
@@ -141,7 +151,7 @@ def searchRes(request):
          Pincode = request.GET['pincode']
          if Pincode:
              queryset_list = queryset_list.filter(Pincode = Pincode)
-    print(queryset_list,request.GET['pincode'])
+    # print(queryset_list,request.GET['pincode'])
     
    
     dict = []
@@ -162,3 +172,123 @@ def searchRes(request):
         'dict': dict
     }
     return render(request, 'searchbarResults.html', context)
+
+def updateProf(request):
+    if request.method == "POST":
+        flag = 0
+        data = request.POST
+        files = request.FILES.get('profilePhoto')
+        fs = FileSystemStorage()
+
+        try:
+            fs.save("DoctorPhotos/"+files.name, files)
+            Path = "DoctorPhotos/"+str(files.name)
+        except AttributeError:
+            flag = 1
+
+
+        doctor = Doctor.objects.all().filter(Username=request.user.username).get()
+
+        if data['fname'] == "":
+            fname = doctor.FirstName
+        else:
+            fname = data['fname']
+
+        if data['lname'] == "":
+            lname = doctor.LastName
+        else:
+            lname = data['lname']
+
+        if flag == 0:
+            profilePhoto = Path
+        else:
+            profilePhoto = doctor.ProfilePhoto
+
+        if data['phn_no'] == "":
+            mobilenum = doctor.MobileNumber
+        else:
+            mobilenum = data['phn_no']
+
+        if data['yoe'] == "":
+            yoe = doctor.YearsOfExperience
+        else:
+            yoe = data['yoe']
+
+        if data['hospname'] == "":
+            hospname = doctor.HospitalName
+        else:
+            hospname = data['hospname']
+
+        if data['hospRegNum'] == "":
+            hospRegNum = doctor.HospitalRegisterationNumber
+        else:
+            hospRegNum = data['hospRegNum']
+
+        if data['city'] == "":
+            city = doctor.City
+        else:
+            city = data['city']
+
+        if data['state'] == "":
+            state = doctor.State
+        else:
+            state = data['state']
+
+        if data['pinc'] == "":
+            pincode = doctor.Pincode
+        else:
+            pincode = data['pinc']
+
+        if data['dept'] == "":
+            dept = doctor.Department
+        else:
+            dept = data['dept']
+
+        if data['desc'] == "":
+            desc = doctor.Description
+        else:
+            desc = data['desc']
+
+        if data['ach1'] == "":
+            ach1 = doctor.Achievements1
+        else:
+            ach1 = data['ach1']
+
+        if data['ach2'] == "":
+            ach2 = doctor.Achievements2
+        else:
+            ach2 = data['ach2']
+
+        if data['ach3'] == "":
+            ach3 = doctor.Achievements3
+        else:
+            ach3 = data['ach3']
+
+        if data['ach4'] == "":
+            ach4 = doctor.Achievements4
+        else:
+            ach4 = data['ach4']
+
+        doctorUpdated = Doctor.objects.all().filter(Username=request.user.username).update(
+            FirstName = fname,
+            LastName = lname,
+            ProfilePhoto = profilePhoto,
+            MobileNumber = mobilenum,
+            YearsOfExperience = yoe ,          
+            HospitalName = hospname,
+            HospitalRegisterationNumber = hospRegNum,
+            City = city,
+            State = state,
+            Pincode = pincode,
+            Department = dept,
+            Description = desc,
+            Achievements1 = ach1,
+            Achievements2 = ach2,
+            Achievements3 = ach3,
+            Achievements4 = ach4
+        )
+
+        messages.success(request, "Updated profile sucessfully")
+        return redirect('index')
+        
+    return render(request, 'doctorUpdateProfile.html')

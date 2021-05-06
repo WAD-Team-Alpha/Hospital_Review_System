@@ -22,7 +22,7 @@ def signin(request):
         username = request.POST['username']
         password = request.POST['password']
         
-        print(username, password)
+        # print(username, password)
         user = auth.authenticate(request, username=username, password=password)
         
         if user is not None:
@@ -118,7 +118,7 @@ def hospReg(request):
 
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
-            print("User Created")
+            # print("User Created")
 
             # Validating the hospital info
             if user is not None:
@@ -191,7 +191,7 @@ def userReg(request):
             
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
-            print("User Created")
+            # print("User Created")
             if user is not None:
                 auth.login(request, user)
                 return redirect('index')
@@ -262,7 +262,7 @@ def docReg(request):
             
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
-            print("User Created")
+            # print("User Created")
             if user is not None:
                 auth.login(request, user)
                 return redirect('index')

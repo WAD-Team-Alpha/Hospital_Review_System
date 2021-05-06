@@ -11,7 +11,7 @@ def hosProf(request, hospital_id):
     hospital =get_object_or_404(Hospital, pk= hospital_id)
     # doctor search list which belong to this hospital 
     doctor_list = Doctor.objects.all().filter(HospitalRegisterationNumber=hospital.HospitalRegisterationNumber)
-    print(doctor_list)
+    # print(doctor_list)
     queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)
     
     
@@ -85,7 +85,7 @@ def hosProf(request, hospital_id):
 def hosSearch(request):
     queryset_list = Hospital.objects.order_by('-HospitalName')
     State_result = States
-    print(State_result)
+    # print(State_result)
 
     #firstname
 
@@ -94,27 +94,27 @@ def hosSearch(request):
          if HospitalName:
              queryset_list = queryset_list.filter(HospitalName__iexact = HospitalName)
           
-    print(queryset_list)  
+    # print(queryset_list)  
     
     #lastname
     if 'last_name' in request.GET:
         RegNo = request.GET['last_name']
         if RegNo:
             queryset_list = queryset_list.filter(HospitalRegisterationNumber__iexact = RegNo)
-    print(queryset_list)  
+    # print(queryset_list)  
     
     #town/village
     if 'place' in request.GET:
         Town = request.GET['place']
         if Town:
             queryset_list = queryset_list.filter(Town__iexact = Town)
-    print(queryset_list)  
+    # print(queryset_list)  
     #City
     if 'city' in request.GET:
         City = request.GET['city']
         if City:
             queryset_list = queryset_list.filter(City__iexact = City)
-    print(queryset_list,request.GET['city'])  
+    # print(queryset_list,request.GET['city'])  
    
     if 'state' in request.GET:
         if not request.GET['state'] == "29":
@@ -127,7 +127,7 @@ def hosSearch(request):
          Pincode = request.GET['pincode']
          if Pincode:
              queryset_list = queryset_list.filter(Pincode = Pincode)
-    print(queryset_list,request.GET['pincode'])
+    # print(queryset_list,request.GET['pincode'])
     
     dict = []
     for result in queryset_list:
