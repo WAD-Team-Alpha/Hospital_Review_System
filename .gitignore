@@ -11,5 +11,10 @@ reviews/migrations/__pycache__
 mainpage/__pycache__
 mainpage/migrations/__pycache__
 public/__pycache__
-media
+media/ChiefDoctorDocuments
+media/DoctorDocuments
+media/ChiefDoctorPhotos
+media/DoctorPhotos
+media/HospitalDocuments
+media/HospitalPhotos
 public/email.py

@@ -259,17 +259,18 @@ def updateProf(request):
         else:
             city = data['city']
 
-        if data['state'] == "":
+        if data['state'] == '0':
             state = doctor.State
         else:
             state = data['state']
+            
 
         if data['pinc'] == "":
             pincode = doctor.Pincode
         else:
             pincode = data['pinc']
 
-        if data['dept'] == "":
+        if data['dept'] == '0':
             dept = doctor.Department
         else:
             dept = data['dept']
