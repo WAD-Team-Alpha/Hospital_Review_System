@@ -1,26 +1,28 @@
 from django.db import models
 from .choices import *
 from PIL import Image
-# Create your models here.
+
+#Create models forms for doctor details 
+
 
 class Doctor(models.Model):
-    FirstName = models.CharField(max_length=150)
-    LastName = models.CharField(max_length=150)
-    Email = models.CharField(max_length=150)
-    Username = models.CharField(max_length=150, default="")
+    FirstName = models.CharField(max_length=150)  # doctor first name 
+    LastName = models.CharField(max_length=150)   # doctor last name
+    Email = models.CharField(max_length=150)      # doctor email 
+    Username = models.CharField(max_length=150)   # doctor username
     DateOfBirth = models.CharField(max_length=150)
-    ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", default="DoctorPhotos/boy_avatar.jpg")
-    MobileNumber = models.CharField(max_length=10)
-    DoctorLicense = models.FileField(upload_to="DoctorDocuments/")
-    YearsOfExperience = models.IntegerField(blank=True)
-    Rating = models.DecimalField(max_digits=2, decimal_places = 1, default=0.0) 
-    Ratings_stars = models.CharField(max_length=5,default="", blank= True)
+    ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", default="DoctorPhotos/boy_avatar.jpg") # doctor profile photo 
+    MobileNumber = models.CharField(max_length=13, default="Not available")                                   # doctor phone number 
+    DoctorLicense = models.FileField(upload_to="DoctorDocuments/")                   # doctor License which is taken by goverment 
+    YearsOfExperience = models.IntegerField(default=0)                              # Experience year 
+    Rating = models.DecimalField(max_digits=2, decimal_places = 1, default=0.0)      # doctor rating 
+    Ratings_stars = models.CharField(max_length=5,default="", blank= True)  
     non_stars = models.CharField(max_length=5,default="12345")
     Ratings_count = models.IntegerField(default=0) 
-    Education = models.CharField(max_length=250, blank=True)
-    Masters = models.CharField(max_length=250, blank=True)
+    Education = models.CharField(max_length=250, default="Not available")                         #  education  details 
+    Masters = models.CharField(max_length=250, default="Not available")
     HospitalName = models.CharField(max_length=50)
-    HospitalRegisterationNumber = models.CharField(max_length=100)
+    HospitalRegisterationNumber = models.CharField(max_length=100)                   # hospital name and all details
     City = models.CharField(max_length=100)
     State = models.IntegerField(choices=States, default=1)
     Pincode = models.CharField(max_length=20)
@@ -32,7 +34,7 @@ class Doctor(models.Model):
     Achievements4 = models.CharField(max_length=50, default="No achievements added recently")
     def __str__(self):
         return self.Username
-    
+    # image resize function 
     def save(self):
         super().save()  # saving image first
 
@@ -43,8 +45,4 @@ class Doctor(models.Model):
             img.thumbnail(new_img)
             img.save(self.ProfilePhoto.path)
     
-    def get_image(self):
-        if self.ProfilePhoto and hasattr(self.ProfilePhoto, 'url'):
-            return self.ProfilePhoto
-        else:
-            return "#"
+   

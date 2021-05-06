@@ -2,12 +2,21 @@ from django import forms
 from .models import *
 from .choices import *
 
+
+#Create doctor profile forms
+
+
 class DoctorForm(forms.ModelForm):
 
     class Meta:
+        # All attributes  from models forms for user input 
         model = Doctor
-        fields = ["FirstName", "LastName", "HospitalName", "HospitalRegisterationNumber", "City", "State", "Pincode", "Email", "Username", "Education", "DoctorLicense", "Description", "Department", "DateOfBirth", 
-                  "ProfilePhoto", "Achievements4", "Achievements3", "Achievements2", "Achievements1", "YearsOfExperience", "Masters", "MobileNumber"]
+        fields = ["FirstName", "LastName", "HospitalName", "HospitalRegisterationNumber", "City", "State", 
+                    "Pincode", "Email", "Username", "Education", "DoctorLicense", "Description", "Department", 
+                    "DateOfBirth", "ProfilePhoto", "Achievements4", "Achievements3", "Achievements2", 
+                    "Achievements1", "YearsOfExperience", "Masters", "MobileNumber"]
+
+                  # All details for each attributes
         widgets = {
             "FirstName": forms.TextInput(attrs={
                 'type': 'text',

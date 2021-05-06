@@ -124,7 +124,7 @@ def hospReg(request):
 
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
-            print("User Created")
+            # print("User Created")
 
             # Validating the hospital info
             if user is not None:
@@ -140,26 +140,37 @@ def hospReg(request):
         hospform = HospitalForm()
     return render(request, 'Hospitalregistion.html', {"form": hospform, "regerror": "", "emailerror": "", "usernameerror": "", "formerror": ""})
 
+
+#User Registration Function
 def userReg(request):
     if request.method == "POST":
+        # Creating an instance of the user registeration form for validation
         userform = UserForm(request.POST, request.FILES)
+        
+        # Accessing all the required information for authentication and validation
         username = request.POST['Username']
         password = request.POST['psw']
         email=request.POST['Email']
 
+        # variables used for storing the error messages
         emailerror = ""
         usernameerror = ""
 
+        # Fetching the database whether the particular user information is already available or not
+        # Checking whether the username exists or not
         if User.objects.filter(username=username).exists():
             usernameerror = "Username already exists"
         else:
             usernameerror = ""
+        
+        # Checking whether the email exists or not
         if User.objects.filter(email=email).exists():
             emailerror = "Email already exists"
             
         else:
             emailerror = ""
         
+        # Storing all the error messages and the user registeration form in a variable
         context = {
             "form": userform,
             "emailerror": emailerror,
@@ -167,10 +178,12 @@ def userReg(request):
             "formerror": ""
         }
 
+
+        # checking whether there exists any error message in the user information
         if emailerror != "" or usernameerror != "":
             return render(request, 'user_registration.html', context)
 
-
+        # Validating the form here
         if userform.is_valid():
             # Create user
             user = User.objects.create_user(username=username, password=password, email=email)
@@ -179,6 +192,8 @@ def userReg(request):
             
             # Save the Data to the Database 
             userform.save()
+
+            # Sending the account activation link to his mail
             subject = "Activate Your account"
             uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
             token = token_generator.make_token(user)
@@ -187,6 +202,7 @@ def userReg(request):
             activate_url = 'http://'+domain+link
             body = "Hi " + username + "!\n To activate your account please click on this link\n" + activate_url
 
+             # Sending the account activation link to the user's mail
             Email = send_mail (
                 subject,
                 body,
@@ -197,7 +213,7 @@ def userReg(request):
             
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
-            print("User Created")
+            # print("User Created")
             if user is not None:
                 auth.login(request, user)
                 return redirect('index')
@@ -214,23 +230,32 @@ def userReg(request):
 
 def docReg(request):
     if request.method == "POST":
+        # Creating an instance of the doctor registeration form for validation
         doctorForm = DoctorForm(request.POST, request.FILES)
+
+        # Accessing all the required information for authentication and validation
         username = request.POST['Username']
         password = request.POST['psw']
         email=request.POST['Email']
+
+        # variables used for storing the error messages
         emailerror = ""
         usernameerror = ""
 
+        # Fetching the database whether the particular doctor information is already available or not
+        # Checking whether the username exists or not
         if User.objects.filter(username=username).exists():
             usernameerror = "Username already exists"
         else:
             usernameerror = ""
+
+         # Checking whether the email exists or not 
         if User.objects.filter(email=email).exists():
-            emailerror = "Email already exists"
-            
+            emailerror = "Email already exists"   
         else:
             emailerror = ""
         
+        # Storing all the error messages and the doctor registeration form in a variable
         context = {
             "form": doctorForm,
             "emailerror": emailerror,
@@ -238,10 +263,11 @@ def docReg(request):
             "formerror": ""
         }
 
+        # checking whether there exists any error message in the hospital information
         if emailerror != "" or usernameerror != "":
             return render(request, 'doctor_regestration.html', context)
 
-        
+        # Validating the form here
         if doctorForm.is_valid():
             # Create user
             user = User.objects.create_user(username=username, password=password, email=email)
@@ -250,6 +276,7 @@ def docReg(request):
             
             # Save the Data to the Database 
             doctorForm.save()
+            # Sending the account activation link to his mail
             subject = "Activate Your account"
             uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
             token = token_generator.make_token(user)
@@ -258,6 +285,7 @@ def docReg(request):
             activate_url = 'http://'+domain+link
             body = "Hi " + username + "!\n To activate your account please click on this link\n" + activate_url
 
+            # Sending the account activation link to the doctor's mail
             Email = send_mail (
                 subject,
                 body,
@@ -268,7 +296,7 @@ def docReg(request):
             
             #automatically login the user for the firsttime
             user = auth.authenticate(request, username=username, password=password)
-            print("User Created")
+            # print("User Created")
             if user is not None:
                 auth.login(request, user)
                 return redirect('index')

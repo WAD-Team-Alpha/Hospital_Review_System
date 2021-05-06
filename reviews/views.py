@@ -67,7 +67,7 @@ def docreview(request):
             avg.append(len(doctor.star_rating))  
         
         avg = sum(avg)/len(avg)
-        print(avg)
+        # print(avg)
         stars = ""
         non_stars = "12345"
         if avg > 4.5:
@@ -147,7 +147,7 @@ def hosreview(request):
             avg.append(len(hospital.star_rating))  
         
         avg = sum(avg)/len(avg)
-        print(avg)
+        # print(avg)
         stars = ""
         non_stars = "12345"
         if avg > 4.5:
