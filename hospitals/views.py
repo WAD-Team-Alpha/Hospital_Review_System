@@ -7,12 +7,18 @@ from .choices import States
 
 # Create your views here.
 def hosProf(request, hospital_id):
+    '''
+    this function will helps the hospital profile html page to access all the dynamic data 
+    from the database. we get hospital_id from html page
+    '''
+
+    #checking whether doctor  exists or not
     hospital =get_object_or_404(Hospital, pk= hospital_id)
     doctor_list = Doctor.objects.all().filter(HospitalRegisterationNumber=hospital.HospitalRegisterationNumber)
     print(doctor_list)
     queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)
     
-    
+    # computing the count of each type of stars 
     five_stars = 0
     for review  in queryset_list:
         if review.star_rating == "12345":
@@ -33,7 +39,8 @@ def hosProf(request, hospital_id):
     for review  in queryset_list:
         if review.star_rating == "1":
             one_stars = one_stars + 1
-    #percentages
+    
+    #computing percentages of each star belogs to.
     count = hospital.Ratings_count
     if count != 0:
         five_starPercentage = five_stars/count*100
@@ -42,11 +49,14 @@ def hosProf(request, hospital_id):
         two_starPercentage = two_stars/count*100
         one_starPercentage = one_stars/count*100
     else:
+        # this will run when no reviews are added as count = 0
         five_starPercentage = 0
         four_starPercentage = 0
         three_starPercentage = 0
         two_starPercentage = 0
         one_starPercentage = 0
+
+    # storing all counts in a ratings_count dictcionary
     ratings_count = {
         "five_star" : five_stars,
         "four_star" : four_stars,
@@ -54,6 +64,8 @@ def hosProf(request, hospital_id):
         "two_star" : two_stars,
         "one_star" : one_stars,
     }
+
+    # storing all counts in a ratings_percentage dictcionary
     ratings_percentage = {
         "five_starPercentage" : five_starPercentage,
         "four_starPercentage" : four_starPercentage,
@@ -62,11 +74,16 @@ def hosProf(request, hospital_id):
         "one_starPercentage" : one_starPercentage,
     
     }    
+
+    # here flag is used to decide whether to send all the reviews or only 3 reviews
+    #by default(flag = 0) we send only 3 reviews until user request for more (flag = 1)
     queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)[:3]
     flag = 0
     if request.method == 'POST':
         flag = 1
         queryset_list = HosReview.objects.order_by('-review_date').filter(hospital = hospital)
+
+    # sending all the computed values to the to context
     context = {
         'hospital' : hospital,
         'hospital_reviews' : queryset_list,

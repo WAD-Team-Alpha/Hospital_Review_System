@@ -1,5 +1,4 @@
-{% load static %}
-{% load humanize %}
+{% load static %} {% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +12,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/fav.ico' %}"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
@@ -29,7 +32,7 @@
     <link rel="stylesheet" href="{% static 'css/docter_review.css' %}" />
   </head>
   <style>
-    .button{
+    .button {
       background: #0cd9e7;
       border-radius: 3px;
       color: white;
@@ -40,9 +43,8 @@
       padding-right: 6px;
       font-size: 12px;
       line-height: 24px;
-      
     }
-    
+
     .button:hover {
       background-color: #2d60ec;
     }
@@ -65,36 +67,38 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-5">
-            <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
+            <p style="font-size: large">
+              <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a>
+            </p>
           </div>
 
           <div class="col-md-8 col-sm-7 text-align-right">
-                  
+            <!-- below condition will run when the user is doctor himself -->
             {% if user.username == doctor.Username %}
-              <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
-              
-                <a  href="{% url 'Signout' %}"><span class="button">Signout</span> </a>
-              
-              
+            <span
+              style="padding-top: 10px; padding-bottom: 10px"
+              class="phone-icon"
+            >
+              <a href="{% url 'Signout' %}"
+                ><span class="button">Signout</span>
+              </a>
             </span>
-            <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
-              
-                <a  href="#"><span class="button">Update Profile</span> </a>
-              
-              
+            <span
+              style="padding-top: 10px; padding-bottom: 10px"
+              class="phone-icon"
+            >
+              <a href="#"><span class="button">Update Profile</span> </a>
             </span>
+            <!-- the else statement run when some random user veiws doctor profile -->
             {% else %}
             <span class="email-icon"
-              ><i class="fa fa-phone"></i>
-              <a href="#">999-888-726-1</a></span
-            > 
-              <span class="email-icon"
+              ><i class="fa fa-phone"></i> <a href="#">999-888-726-1</a></span
+            >
+            <span class="email-icon"
               ><i class="fa fa-envelope-o"></i>
               <a href="#">jeevannaksha@WAD8.com</a></span
-            > 
+            >
             {% endif %}
-            
-            
           </div>
         </div>
       </div>
@@ -104,10 +108,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6 sec1">
-            <img
-              src="{{ doctor.get_image.url }}"
-              alt="profile-photo"
-            />
+            <img src="{{ doctor.get_image.url }}" alt="profile-photo" />
             <div class="profile-contact">
               <h3>Name: {{ doctor.FirstName }}</h3>
               <p>
@@ -123,9 +124,7 @@
             <div class="profile-contact">
               <div class="status">
                 <h3 class="status-heading">STATUS</h3>
-                <p>
-                  {{ doctor.Description }}
-                </p>
+                <p>{{ doctor.Description }}</p>
               </div>
               <h3 class="detail-heading">DETAILS</h3>
               <table>
@@ -144,7 +143,10 @@
               </table>
               <div class="doctor-contact">
                 <h3>Contact Me</h3>
-                <p><i class="fa fa-phone"></i> <a href="#">{{ doctor.MobileNumber }}</a></p>
+                <p>
+                  <i class="fa fa-phone"></i>
+                  <a href="#">{{ doctor.MobileNumber }}</a>
+                </p>
                 <p>
                   <i class="fa fa-envelope-o"></i>
                   <a href="#">{{ doctor.Email }}</a>
@@ -154,30 +156,36 @@
           </div>
         </div>
       </div>
+
       <!-- Container for Ratings and Reviews Part -->
       <div class="container" style="padding-right: 40px">
         <div class="row">
           <div class="col-sm-12 sec3">
             <div style="padding-top: 50px">
               <span class="heading"><strong>User Ratings</strong> </span>
+              <!-- printing stars using for loop -->
               {% for i in doctor.Ratings_stars %}
-                <span class="fa fa-star checked"></span>
-              {% endfor %}
-              {% for i in doctor.non_stars %}
-                <span class="fa fa-star"></span>
+              <span class="fa fa-star checked"></span>
+              {% endfor %} {% for i in doctor.non_stars %}
+              <span class="fa fa-star"></span>
               {% endfor %}
               <p style="padding-top: 20px">
-                <span class="average">{{doctor.Rating}}</span> average based on {{doctor.Ratings_count}} reviews.
+                <span class="average">{{doctor.Rating}}</span> average based on
+                {{doctor.Ratings_count}} reviews.
               </p>
               <hr class="hr-line" />
 
+              <!-- pring the computed percentages values in the bars using css  -->
               <div class="row">
                 <div class="side">
                   <div>5 star</div>
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div style="width: {{ratings_percentage.five_starPercentage}}%;" class="bar-5"></div>
+                    <div
+                      style="width: {{ratings_percentage.five_starPercentage}}%;"
+                      class="bar-5"
+                    ></div>
                   </div>
                 </div>
                 <div class="side right">
@@ -188,7 +196,10 @@
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div style="width: {{ratings_percentage.four_starPercentage}}%;" class="bar-4"></div>
+                    <div
+                      style="width: {{ratings_percentage.four_starPercentage}}%;"
+                      class="bar-4"
+                    ></div>
                   </div>
                 </div>
                 <div class="side right">
@@ -199,7 +210,10 @@
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div style="width: {{ratings_percentage.three_starPercentage}}%;" class="bar-3"></div>
+                    <div
+                      style="width: {{ratings_percentage.three_starPercentage}}%;"
+                      class="bar-3"
+                    ></div>
                   </div>
                 </div>
                 <div class="side right">
@@ -210,7 +224,10 @@
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div style="width: {{ratings_percentage.two_starPercentage}}%;" class="bar-2"></div>
+                    <div
+                      style="width: {{ratings_percentage.two_starPercentage}}%;"
+                      class="bar-2"
+                    ></div>
                   </div>
                 </div>
                 <div class="side right">
@@ -221,7 +238,10 @@
                 </div>
                 <div class="middle">
                   <div class="bar-container">
-                    <div style="width: {{ratings_percentage.one_starPercentage}}%;" class="bar-1"></div>
+                    <div
+                      style="width: {{ratings_percentage.one_starPercentage}}%;"
+                      class="bar-1"
+                    ></div>
                   </div>
                 </div>
                 <div class="side right">
@@ -230,6 +250,8 @@
               </div>
             </div>
             <h2 class="review-heading h2 strong">Reviews & Ratings</h2>
+
+            <!-- adding review form. here it checks whether user is logged in or not -->
             <form action="{% url 'docreview' %}" method="POST">
               {% csrf_token %} {% if user.is_authenticated %}
               <input
@@ -239,9 +261,13 @@
               />
               {% else %}
               <input type="hidden" name="user_id" value="NONE" />
-              <h3 class="h3" style="color: red;">Please get signed In before adding review..</h3>
-              
-              <a class="btn" href="{% url 'signin' %}"><button class="btn btn-info">Signin</button></a>
+              <h3 class="h3" style="color: red">
+                Please get signed In before adding review..
+              </h3>
+
+              <a class="btn" href="{% url 'signin' %}"
+                ><button class="btn btn-info">Signin</button></a
+              >
               {% endif %}
 
               <input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
@@ -309,54 +335,57 @@
                 </div>
               </div>
             </form>
-            <table style="column-width: auto;" class="table table-hover">
+
+            <!-- printing reviews fron data base -->
+            <table style="column-width: auto" class="table table-hover">
               {% if doctor_reviews %} {% for review in doctor_reviews %}
               <tr>
                 <td>
                   <div>
-                    <h4 class="h4" style="padding-left: 20px;">{{ review.user.Username }}</h4>
+                    <h4 class="h4" style="padding-left: 20px">
+                      {{ review.user.Username }}
+                    </h4>
                     <img
                       class="avatar"
                       src="{% static 'images/boy_avatar.jpg' %}"
                       alt="profile"
                     />
                   </div>
-                 
-                  <p style="padding-top: 10px">{{ review.review_date | timesince }} ago</p>
+                  <!-- in below line we used humanize module for getting time since -->
+                  <p style="padding-top: 10px">
+                    {{ review.review_date | timesince }} ago
+                  </p>
                 </td>
-                <td style="width: 85%;" class="reveiws">
+                <td style="width: 85%" class="reveiws">
                   <h4><strong>Rating </strong></h4>
-                  
+
                   {% for i in review.star_rating %}
-                    <span class="fa fa-star checked"></span>
-                  {% endfor %}
-                  {% for i in review.non_rating %}
-                    <span class="fa fa-star "></span>
+                  <span class="fa fa-star checked"></span>
+                  {% endfor %} {% for i in review.non_rating %}
+                  <span class="fa fa-star"></span>
                   {% endfor %}
                   <h4><strong>Review</strong></h4>
-                  <p>
-                    {{ review.review }}
-                  </p>
-                  
-                
-                  
+                  <p>{{ review.review }}</p>
                 </td>
               </tr>
-              {% endfor %} {% else %} 
+              {% endfor %}
+              <!-- else statement will run when there are no more reviews -->
+              {% else %}
               <p class="p">No Reviews added</p>
               {% endif %}
             </table>
+
+            <!-- flag is used to add view more reviews button -->
             {% if flag == 0 %}
-              <form action="{% url 'DoctorProfile' doctor.id %}" method="POST">
+            <form action="{% url 'DoctorProfile' doctor.id %}" method="POST">
               {% csrf_token %}
               <button class="btn btn-info">Load more</button>
             </form>
             {% else %}
             <p class="p">No more reveiws available</p>
             {% endif %}
-            
-            <br>
-            
+
+            <br />
           </div>
         </div>
       </div>

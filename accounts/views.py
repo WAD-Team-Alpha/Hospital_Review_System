@@ -18,13 +18,19 @@ from accounts.Utils import token_generator
 # Create your views here.
 
 def signin(request):
+    '''
+    this function is used to validate the user credentials and then get signed in the eligible 
+    users of the web app
+    '''
+    # getting credentials using POST method
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         
-        print(username, password)
+        # below line will validate credentials and store the returned data of the user
         user = auth.authenticate(request, username=username, password=password)
         
+        # based on returned value user get logged .
         if user is not None:
             auth.login(request, user)
             
@@ -281,9 +287,17 @@ def forgPass(request):
     return render(request, 'forgot_password.html')
 
 def signinFail(request):
+    '''
+        This function will be excuted when the user credentials are wrong or something 
+        went wrong during signin process.
+    '''
     return render(request, 'signin_fail.html')
     
 def signout(request):
+    '''
+    This function will helps the user to get logged out of the website,
+    this function will run only when the user presses logout button.
+    '''
     auth.logout(request)
     
     return redirect('index')
