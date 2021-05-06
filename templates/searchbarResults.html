@@ -68,95 +68,52 @@
 
     <!-- Search Results Content-->
     <section id="Searchresults">
-        <<<<<<< HEAD <div class="Heading container">
+        <div class="Heading container">
             <h2 class="heading wow fadeInUp">Based on your recent search</h2>
-            </div>
-            <!-- data1 -->
-            {% if dict %} {% for result in dict %}
-            <div class="parentresults container">
-                <!-- Search Results -->
+        </div>
+        {% if dict %} {% for result in dict %}
+        <div class="parentresults container">
+            <!-- Search Results -->
 
-                <div class="results row">
-                    <div class="image col-md-4">
+            <div class="results row">
+                <div class="image col-md-4">
 
-                        <img src="{{result.result.ProfilePhoto.url}}" alt="dc" class="profileImage">
-                    </div>
-
-                    <div class="data col-md-4">
-                        <h3>Name: {{result.result.FirstName}} {{result.result.LastName}}</h3>
-                        <p class="values">
-                            <b>Hospital: </b> {{result.result.HospitalName}} <br>
-                            <b>Department: </b> {{result.dept_result}} <br/>
-                            <b>Works at: </b> {{result.result.City}},{{result.State_result}}<br/>
-                            <b>Pincode: </b>{{result.result.Pincode}} <br>
-                        </p>
-
-                    </div>
-                    <div class="ratings col-md-3">
-                        <h4><strong>Rating </strong></h4>
-                        {% for i in result.result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %} {% for i in result.result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
-                        <br>
-                        <div class="appointment-btn"><a href="{% url 'DoctorProfile' result.result.id %}">View Profile</a></div>
-                        <div class="divider"> </div>
-                    </div>
+                    <img src="{{result.result.ProfilePhoto.url}}" alt="dc" class="profileImage">
                 </div>
-                <br>
-            </div>
-            {% endfor %} {% else %}
-            <div class="parentresults container">
-                <div class="results row">
-                    <div class="col-md-12">
-                        <h6><b> No Doctors Found </b></h6>
-                    </div>
+
+                <div class="data col-md-4">
+                    <!-- his personal details -->
+                    <h3>Name: {{result.result.FirstName}} {{result.result.LastName}}</h3>
+                    <p class="values">
+                        <b>Hospital: </b> {{result.result.HospitalName}} <br>
+                        <b>Department: </b> {{result.dept_result}} <br/>
+                        <b>Works at: </b> {{result.result.City}},{{result.State_result}}<br/>
+                        <b>Pincode: </b>{{result.result.Pincode}} <br>
+                    </p>
+
+                </div>
+                <div class="ratings col-md-3">
+                    <!-- Ratings part of the particular doctor -->
+                    <h4><strong>Rating </strong></h4>
+                    {% for i in result.result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %} {% for i in result.result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
+                    <br>
+                    <!-- They can view his full profile by clicking here -->
+                    <div class="appointment-btn"><a href="{% url 'DoctorProfile' result.result.id %}">View Profile</a></div>
+                    <div class="divider"> </div>
                 </div>
             </div>
-            {% endif %} =======
-            <div class="Heading container">
-                <h2 class="heading wow fadeInUp">Based on your recent search</h2>
-            </div>
-            {% if dict %} {% for result in dict %}
-            <div class="parentresults container">
-                <!-- Search Results -->
-
-                <div class="results row">
-                    <div class="image col-md-4">
-
-                        <img src="{{result.result.ProfilePhoto.url}}" alt="dc" class="profileImage">
-                    </div>
-
-                    <div class="data col-md-4">
-                        <!-- his personal details -->
-                        <h3>Name: {{result.result.FirstName}} {{result.result.LastName}}</h3>
-                        <p class="values">
-                            <b>Hospital: </b> {{result.result.HospitalName}} <br>
-                            <b>Department: </b> {{result.dept_result}} <br/>
-                            <b>Works at: </b> {{result.result.City}},{{result.State_result}}<br/>
-                            <b>Pincode: </b>{{result.result.Pincode}} <br>
-                        </p>
-
-                    </div>
-                    <div class="ratings col-md-3">
-                        <!-- Ratings part of the particular doctor -->
-                        <h4><strong>Rating </strong></h4>
-                        {% for i in result.result.Ratings_stars %}<span class="fa fa-star checked"></span>{% endfor %} {% for i in result.result.non_stars %}<span class="fa fa-star"></span>{% endfor %}
-                        <br>
-                        <!-- They can view his full profile by clicking here -->
-                        <div class="appointment-btn"><a href="{% url 'DoctorProfile' result.result.id %}">View Profile</a></div>
-                        <div class="divider"> </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-            {% endfor %} {% else %}
-            <!-- if there exists no doctor then it shows this message -->
-            <div class="parentresults container">
-                <div class="results row">
-                    <div class="col-md-12">
-                        <h6><b> No Doctors Found </b></h6>
-                    </div>
+            <br>
+        </div>
+        {% endfor %} {% else %}
+        <!-- if there exists no doctor then it shows this message -->
+        <div class="parentresults container">
+            <div class="results row">
+                <div class="col-md-12">
+                    <h6><b> No Doctors Found </b></h6>
                 </div>
             </div>
-            {% endif %} >>>>>>> 133ec74b1f94be4313c7ac65f83d57e626031a0c
+        </div>
+        {% endif %}
     </section>
 
     <!-- FOOTER -->
