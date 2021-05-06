@@ -21,9 +21,11 @@
 
 
 
-
+    <!--main css file link for doctor registration-->
     <link rel="stylesheet" href="{% static 'css/doctor_regestration.css' %}">
 
+
+    <!-- creating style for form-->
     <style>
         form {
             height: 55em;
@@ -36,6 +38,7 @@
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
 
+    <!-- common header of our website-->
     <header>
         <div class="container">
             <div class="row">
@@ -55,57 +58,93 @@
         </div>
     </header>
 
+    <!-- doctor registration section starts from here -->
     <section id="user_registration" data-stellar-background-ratio="3" style="background-position: 0px 90px;">
         <div class="container">
+            <!-- Creating  grid for the doctor registration page which contains images and form -->
             <div class="row">
+                <!-- This is left side of the container for image purpose-->
+                <!-- image linking division-->
                 <div class="col-md-6 col-sm-6">
                     <img src="{% static 'images/doctor-registeration.jpg' %}" alt="Use Image Here">
                 </div>
+
+                <!-- This is right side of the container for form-->
                 <div class="col-md-6 col-sm-6">
+                    <!-- setting up the form-->
                     <form id="user-registration" role="form" name="doct-reg" method="post" action="#" onsubmit="return checkPass()" enctype=multipart/form-data>
                         {% csrf_token %}
+                        <!-- setting up animation for form to appear-->
                         <div class="reg_title wow fadeInUp animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                             <h2> Doctor Registration </h2>
                         </div>
                         <div class="wow fadeInUp animated" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
                             <div class="col-md-6 col-sm-6">
+                                <!-- First name field in doctor registration form-->
                                 <label for="name">First Name</label> {{form.FirstName}}
                             </div>
 
                             <div class="col-md-6 col-sm-6">
+                                <!--last name field in doctor registration form-->
                                 <label for="name">Last Name</label> {{form.LastName}}
                             </div>
 
                             <div class="col-md-6 col-sm-6">
+                                <!-- email field in doctor registration form-->
                                 <label for="email">Email</label> {{form.Email}}
                                 <span style="color: red;">{{emailerror}}</span>
                             </div>
 
                             <div class="col-md-6 col-sm-6">
+                                <!-- user name field in doctor registration form-->
                                 <label for="username">Username</label> {{form.Username}}
                                 <span style="color: red;"> {{usernameerror}} </span>
                             </div>
 
                             <div class="col-md-6 col-sm-6">
+                                <!-- Date of birth field in doctor registration form-->
                                 <label for="date">Date of Birth</label> {{form.DateOfBirth}}
                             </div>
 
                             <div class="col-md-6 col-sm-6">
+                                <!-- profile photo field in doctor registration form-->
                                 <label for="ProfilePhoto">Profile Photo</label> {{form.ProfilePhoto}}
                             </div>
 
+
+                            <!-- This division contains all the fields with same css style -->
                             <div class="col-md-12 col-sm-12">
+
+                                <!-- password field in doctor registration form-->
                                 <label for="psw">Password</label>
                                 <input class="form-control" type="password" id="o_psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="">
 
+                                <!--confirm password field in doctor registration form-->
                                 <label for="psw">Confirm Password</label>
                                 <input class="form-control" type="password" id="c_psw" name="cpsw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="">
 
+                                <!-- show password field in doctor registration form-->
                                 <div class="shps" style="margin-top: 1em;">
                                     Show Password: <input type="checkbox" name="showpass" id="showpass" onclick="showPass()" style="height: 9px;">
                                 </div>
+
+                                <!-- the below field is to show error in red color when password and confirm password dose not match-->
                                 <span id="res" style="margin-bottom: 1em; color:red;"></span> <br> <br>
 
+                                <!-- The below label tags are for the fields:-
+                                    Mobile number
+                                    certificates for proof
+                                    years of experience
+                                    education
+                                    master degree done at
+                                    hospital name
+                                    hospital registration number
+                                    city
+                                    state
+                                    pincode
+                                    department
+                                    status
+                                -->
                                 <label for="phone_number">Mobile Number</label> {{form.MobileNumber}}
 
                                 <label for="certificates">Certificates for proof</label> {{form.DoctorLicense}}
@@ -129,8 +168,10 @@
                                 <label for="select">Department</label> {{form.Department}}
 
                                 <label for="status">Status</label> {{form.Description}}
-
+                                <!-- this field is to mention some of achievements or qualities-->
                                 <label for="achievements">Enter any four achievements</label> {{form.Achievements1}} {{form.Achievements2}} {{form.Achievements3}} {{form.Achievements4}}
+
+                                <!-- button to submit the form-->
                                 <button type="submit" class="form-control" id="user-cf-submit" name="submit">Register</button>
                             </div>
                         </div>
@@ -140,6 +181,8 @@
         </div>
     </section>
 
+
+    <!-- common footer of our website-->
     <footer data-stellar-background-ratio="5" style="background-position: 0px 2960px;">
         <div class="container" id="contact">
             <div class="row">
@@ -223,6 +266,8 @@
         </div>
     </footer>
 
+
+    <!-- script for the code-->
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/jquery.sticky.js' %}"></script>
