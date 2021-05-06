@@ -91,7 +91,6 @@
         </div>
 
       </div>
-<<<<<<< HEAD
     </div>
   </header>
 
@@ -104,132 +103,8 @@
       </div>
     </div>
   </section>
-=======
-    </section> 
-        <header>
-            <div class="container">
-                 <div class="row ">
-  
-                      <div class="col-md-4 col-sm-5 mr-5">
-                        <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
-                      </div>
-                           
-                      <div class="col-md-8 col-sm-7 text-align-right mr-md-5" style="text-align:right;">
-                          
-                        {% if user.username == hospital.Username %}
-                        <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
-                        
-                          <a  href="{% url 'Signout' %}"><span class="button">Signout</span> </a>
-                        
-                        
-                      </span>
-                      <span style="padding-top: 10px; padding-bottom: 10px;" class="email-icon">
-                        
-                          <a  href="#"><span class="button">Update Profile</span> </a>
-                        
-                        
-                      </span>
-                      {% else %}
-                      <span class="email-icon"
-                        ><i class="fa fa-phone"></i>
-                        <a href="#">999-888-726-1</a></span
-                      > 
-                        <span class="email-icon"
-                        ><i class="fa fa-envelope-o"></i>
-                        <a href="#">jeevannaksha@WAD8.com</a></span
-                      > 
-                      {% endif %}
-                           
-                      </div>
-  
-                 </div>
-            </div>
-       </header>
-                <!-- hospital detail section  -->
-       <section class="sec" >
-          <div class=".container-fluid ba">
-          <img src="{{ hospital.HospitalPhoto.url }}" alt="Snow" style="width:100%; ">
-            <div class="top-left"> <h1 style="color:white;"> {{hospital.HospitalName}} </h1>
-            <p class="back" style="color:white;"> {{hospital.HospitalDescription}} </p>
-             </div>
-          </div>
-          </section>
-        
-               <!-- hospital features  section  -->
-     <section class="sec">
-          <div class="container">
-               <div class="row">
 
-                   <div class="col-md-12 col-sm-12" data-wow-delay="0.4s">
-                       
-                       <center>   <h3 style=" font-size: 300%;"> Our Key Features</h3> <p>Take a look at some of our key features</p> </center>
-                   </div>
-                    </div>
-                    <div class="row">
-                   <div class="col-md-3 col-sm-3">
-                      <center class="boss">
-                      
-                        <i class="glyphicon glyphicon-calendar"></i>
-                       <h3>Feature - 1</h3>
-                        <p>{{hospital.Achievements1}}</p>
-                        </center>
-                   </div>
-
-                     <div class="col-md-3 col-sm-3">
-                        <center>
-                       <i class="glyphicon glyphicon-calendar"></i>
-                        <h3>Feature - 2</h3>
-                        <p>{{hospital.Achievements2}}</p>
-                        </center>
-                   </div>
-                     <div class="col-md-3 col-sm-3">
-                      <center>
-                         <i class="glyphicon glyphicon-calendar"></i>
-                      
-                        <h3>Feature - 3</h3>
-                        <p>{{hospital.Achievements3}}</p>
-                        </center>
-                   </div>
-                   
-
-                 </div>
-
-                 
-                   
-                    <div class="row">
-                   <div class="col-md-3 col-sm-3">
-                      <center class="boss">
-                      
-                        <i class="glyphicon glyphicon-calendar"></i>
-                        <h3>Feature - 4</h3>
-                        <p>{{hospital.Achievements4}}</p>
-                        </center>
-                   </div>
-
-                     <div class="col-md-3 col-sm-3">
-                        <center>
-                       <i class="glyphicon glyphicon-calendar"></i>
-                       <h3>Feature - 5</h3>
-                        <p>{{hospital.Achievements5}}</p>
-                        </center>
-                   </div>
-                     <div class="col-md-3 col-sm-3">
-                      <center>
-                         <i class="glyphicon glyphicon-calendar"></i>
-                      <h3>Feature - 6</h3>
-                        <p>{{hospital.Achievements6}}</p>
-                        </center>
-                   </div>
-                   
-
-                 </div>
-
-                 
-          </div>
-     </section>
->>>>>>> 36691ab75710d1bff2264d93f37ee3a066b8867c
-
-
+<!-- hospitals details section -->
   <section class="sec">
     <div class="container">
       <div class="row">
@@ -272,7 +147,7 @@
       </div>
 
 
-
+<!-- hospitals details section -->
       <div class="row">
         <div class="col-md-3 col-sm-3">
           <center class="boss">
@@ -303,7 +178,6 @@
 
 
     </div>
-<<<<<<< HEAD
   </section>
 
   <section>
@@ -322,21 +196,6 @@
 
               <h4>Call me on : {{hospital.PhoneNumber}}</h4>
             </div>
-=======
-    <!-- hospital doctor list  section  -->
-     </section class="typ4">
-         
-          <div class="container multi">
-   <h2 style="text-align: center;"> Our team </h2>
-  <div class="row">
-    <div class="carousel slide" id="myCarousel">
-
-      <div class="carousel-inner"> 
-        <div class="item active">
-          <div class="col-xs-3">
-            <a href=""><img src="{% static 'images/team-memb1.jpg' %}" class="img-responsive"></a>
-            <h5>Please find all the doctors here</h5>
->>>>>>> 36691ab75710d1bff2264d93f37ee3a066b8867c
           </div>
         </div>
 
