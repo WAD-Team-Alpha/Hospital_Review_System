@@ -12,9 +12,15 @@ from .choices import Department, States
 
 # Doctor profile view function  
 def docProf(request, doctor_id):
+    '''
+    this function will helps the doctor profile html page to access all the dynamic data 
+    from the database. we get doctor_id from html page
+    '''
+    #checking whether doctor  exists or not
     doctor =get_object_or_404(Doctor, pk= doctor_id)
     queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
     
+    # computing the count of each type of stars 
     five_stars = 0
     for review  in queryset_list:
         if review.star_rating == "12345":
@@ -35,7 +41,8 @@ def docProf(request, doctor_id):
     for review  in queryset_list:
         if review.star_rating == "1":
             one_stars = one_stars + 1
-    #percentages
+
+    #computing percentages of each star belogs to.
     count = doctor.Ratings_count
     if count != 0:
         five_starPercentage = five_stars/count*100
@@ -44,6 +51,7 @@ def docProf(request, doctor_id):
         two_starPercentage = two_stars/count*100
         one_starPercentage = one_stars/count*100
     else:
+        # this will run when no reviews are added as count = 0
         five_starPercentage = 0
         four_starPercentage = 0
         three_starPercentage = 0
@@ -52,7 +60,7 @@ def docProf(request, doctor_id):
 
 
     
-   
+    # storing all counts in a ratings_count dictcionary
     ratings_count = {
         "five_star" : five_stars,
         "four_star" : four_stars,
@@ -60,6 +68,8 @@ def docProf(request, doctor_id):
         "two_star" : two_stars,
         "one_star" : one_stars,
     }
+
+    # storing all counts in a ratings_percentage dictcionary
     ratings_percentage = {
         "five_starPercentage" : five_starPercentage,
         "four_starPercentage" : four_starPercentage,
@@ -69,8 +79,10 @@ def docProf(request, doctor_id):
     
     }
     
+    # here flag is used to decide whether to send all the reviews or only 3 reviews
+    #by default(flag = 0) we send only 3 reviews until user request for more (flag = 1)
     queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)[:3]
-    flag = 0
+    flag = 0 
     if request.method == 'POST':
         flag = 1
         queryset_list = DocReview.objects.order_by('-review_date').filter(doctor = doctor)
@@ -82,6 +94,7 @@ def docProf(request, doctor_id):
     else:
         exp = doctor.YearsOfExperience
 
+    # sending all the computed values to the to context
     context = {
         'doctor' : doctor,
         'doctor_reviews' : queryset_list,
@@ -305,8 +318,8 @@ def updateProf(request):
             Achievements3 = ach3,
             Achievements4 = ach4
         )
-
+        doctor_id = str(doctor.id)
         messages.success(request, "Updated profile sucessfully")
-        return redirect('index')
+        return redirect('/doctors/'+doctor_id)
         
     return render(request, 'doctorUpdateProfile.html')

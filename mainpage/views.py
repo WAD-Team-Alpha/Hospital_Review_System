@@ -8,10 +8,16 @@ from django.core.mail import send_mail
 
 
 # Create your views here.
+
 def index(request):
+    '''
+    in this index function we have accessed the user information if user had logged in and 
+    filtered him from the database using his username from Auth.
+    Here we returned details of user from database and also kind of user 
+    '''
     username = request.user.username
-    # print(username)
-     
+    
+    #storing all data in variables
     users = User.objects.all()
     doctors = Doctor.objects.all()
     hospitals = Hospital.objects.all()
@@ -27,8 +33,10 @@ def index(request):
 
     for hospital in hospitals:
         hospital_list.append(hospital.Username)
-    USER = None
-    type = "default"
+    USER = None #logged in user object
+    type = "default" # type of user
+
+    # filtering the user from database
     if username in user_list:
         USER = User.objects.all().filter(Username=username).get()
         type = "user"
@@ -38,12 +46,13 @@ def index(request):
     elif username in hospital_list:
         USER = Hospital.objects.all().filter(Username=username).get()
         type = "hospital"
-    # print(USER)
+    
+    # storing obtained values in the contexts
     context = {
         'type' : type,
         'USER' : USER
     }
-
+    # sending context to index.html
     return render(request, 'index.html', context)
 
 
