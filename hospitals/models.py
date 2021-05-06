@@ -1,15 +1,15 @@
 from django.db import models
 from .choices import *
-# Create your models here.
+#  Create models forms for Hospital  details .
 
 class Hospital(models.Model):
-    HospitalName = models.CharField(max_length=150)
-    HospitalRegisterationNumber = models.CharField(max_length=150)
+    HospitalName = models.CharField(max_length=150)   # Hospital Name  
+    HospitalRegisterationNumber = models.CharField(max_length=150)  # Hospital Registeration 
     HospitalLicense = models.FileField(upload_to="HospitalDocuments/")
-    HospitalPhoto = models.FileField(upload_to="HospitalPhotos/", default="HospitalPhotos/hospitalPhotos.jpg")
+    HospitalPhoto = models.FileField(upload_to="HospitalPhotos/", default="HospitalPhotos/hospitalPhotos.jpg") #hospital photo
     Email = models.CharField(max_length=150)
     Username = models.CharField(max_length=150)
-    HospitalEshtablishDate = models.DateField()
+    HospitalEshtablishDate = models.DateField()     # Eshtablish Date 
     HospitalDescription = models.TextField(max_length=250, default="Dear, be strong because your life will be better now. Time does not remain same. You will get well soon!")
     Rating = models.DecimalField(max_digits=2, decimal_places = 1, default=0.0)
     Ratings_stars = models.CharField(max_length=5,default="", blank=True)

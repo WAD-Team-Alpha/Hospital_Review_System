@@ -27,7 +27,6 @@
     <style>
         form {
             height: 55em;
-            overflow-y: auto;
         }
     </style>
 
@@ -58,84 +57,124 @@
     <section id="user_registration" data-stellar-background-ratio="3" style="background-position: 0px 90px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <img src="{% static 'images/doctor-registeration.jpg' %}" alt="Use Image Here">
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <form id="user-registration" role="form" name="doct-reg" method="post" action="#" onsubmit="return checkPass()" enctype=multipart/form-data>
+                <div class="col-md-2 col-sm-2"></div>
+                <div class="col-md-8 col-sm-8">
+                    <form id="user-registration" role="form" name="doct-reg" method="post" action="{% url 'UpdateProfile' %}" enctype=multipart/form-data>
                         {% csrf_token %}
                         <div class="reg_title wow fadeInUp animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                            <h2> Doctor Registration </h2>
+                            <h2> Update your profile </h2>
                         </div>
                         <div class="wow fadeInUp animated" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
                             <div class="col-md-6 col-sm-6">
-                                <label for="name">First Name</label> {{form.FirstName}}
+                                <label for="name">First Name</label>
+                                <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
                             </div>
 
                             <div class="col-md-6 col-sm-6">
-                                <label for="name">Last Name</label> {{form.LastName}}
+                                <label for="name">Last Name</label>
+                                <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
                             </div>
 
                             <div class="col-md-6 col-sm-6">
-                                <label for="email">Email</label> {{form.Email}}
-                                <span style="color: red;">{{emailerror}}</span>
+                                <label for="profilePhoto">Profile Photo</label>
+                                <input type="file" class="form-control" id="profilePhoto" name="profilePhoto" placeholder="Choose the profile photo here" accept="image/*">
                             </div>
 
                             <div class="col-md-6 col-sm-6">
-                                <label for="username">Username</label> {{form.Username}}
-                                <span style="color: red;"> {{usernameerror}} </span>
+                                <label for="phone_number">Mobile Number</label>
+                                <input type="text" class="form-control" id="phn_no" name="phn_no" placeholder="+91 ">
                             </div>
 
                             <div class="col-md-6 col-sm-6">
-                                <label for="date">Date of Birth</label> {{form.DateOfBirth}}
+                                <label for="years of experience">Years of experience</label>
+                                <input type="number" class="form-control" id="yoe" name="yoe" placeholder="Years of experience">
                             </div>
 
                             <div class="col-md-6 col-sm-6">
-                                <label for="ProfilePhoto">Profile Photo</label> {{form.ProfilePhoto}}
+                                <label for="hospitalname">Hospital Name</label>
+                                <input type="text" class="form-control" id="hospname" name="hospname" placeholder="Hospital Name">
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="hospitalRegNum">Hospital registeration number</label>
+                                <input type="text" class="form-control" id="hospRegNum" name="hospRegNum" placeholder="Hospital Registeration Number">
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="state">State</label>
+                                <select name="state" id="state" class="form-control">
+                                    <option value= 1 >Andhra Pradesh</option>
+                                    <option value = 2>Arunachal Pradesh</option>
+                                    <option value = 3>Assam</option>
+                                    <option value = 4>Bihar</option>
+                                    <option value = 5>Chhattisgarh</option>
+                                    <option value = 6>Goa</option>
+                                    <option value = 7>Gujarat</option>
+                                    <option value = 8>Haryana</option>
+                                    <option value = 9>Himachal Pradesh</option>
+                                    <option value= 10>Jharkhand</option>
+                                    <option value = 11>Karnataka</option>
+                                    <option value = 12>Kerala</option>
+                                    <option value = 13>Madhya Pradesh</option>
+                                    <option value= 14>Maharashtra</option>
+                                    <option value = 15>Manipur</option>
+                                    <option value = 16>Meghalaya</option>
+                                    <option value = 17>Mizoram</option>
+                                    <option value = 18>Nagaland</option>
+                                    <option value = 19>Odisha</option>
+                                    <option value = 20>Punjab</option>
+                                    <option value= 21>Rajasthan</option>
+                                    <option value= 22>Sikkim</option>
+                                    <option value= 23>Tamil Nadu</option>
+                                    <option value= 24>Telangana</option>
+                                    <option value= 25>Tripura</option>
+                                    <option value= 26>Uttar Pradesh</option>
+                                    <option value= 27>Uttarakhand</option>
+                                    <option value= 28>West Bengal</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="pincode">Pincode</label>
+                                <input type="text" class="form-control" id="pinc" name="pinc" placeholder="Pincode">
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="select">Department</label>
+                                <select class="form-control" id="dept" name="dept">
+                                    <option value= 1>General Health</option>
+                                    <option value = 2>Cardiology</option>
+                                    <option value = 3>Dental</option>
+                                    <option value = 4>Medical Research</option>
+                                    <option value = 5>Emergency</option>
+                                    <option value = 6>Gynecologist</option>
+                                  </select>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="status">Status</label>
+                                <input type="text" class="form-control" id="desc" name="desc" placeholder="Your description or status">
                             </div>
 
                             <div class="col-md-12 col-sm-12">
-                                <label for="psw">Password</label>
-                                <input class="form-control" type="password" id="o_psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="">
+                                <label for="achievements">Enter any four achievements</label> 
+                                <input type="text" class="form-control" id="ach1" name="ach1" placeholder="Achievement 1">
+                                <input type="text" class="form-control" id="ach2" name="ach2" placeholder="Achievement 2">
+                                <input type="text" class="form-control" id="ach3" name="ach3" placeholder="Achievement 3">
+                                <input type="text" class="form-control" id="ach4" name="ach4" placeholder="Achievement 4">
 
-                                <label for="psw">Confirm Password</label>
-                                <input class="form-control" type="password" id="c_psw" name="cpsw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="">
-
-                                <div class="shps" style="margin-top: 1em;">
-                                    Show Password: <input type="checkbox" name="showpass" id="showpass" onclick="showPass()" style="height: 9px;">
-                                </div>
-                                <span id="res" style="margin-bottom: 1em; color:red;"></span> <br> <br>
-
-                                <label for="phone_number">Mobile Number</label> {{form.MobileNumber}}
-
-                                <label for="certificates">Certificates for proof</label> {{form.DoctorLicense}}
-
-                                <label for="years of experience">Years of experience</label> {{form.YearsOfExperience}}
-
-                                <label for="education">Education</label> {{form.Education}}
-
-                                <label for="master">Master</label> {{form.Masters}}
-
-                                <label for="hospitalname">Hospital</label> {{form.HospitalName}}
-
-                                <label for="hospitalRegNum">Hospital registeration number</label> {{form.HospitalRegisterationNumber}}
-
-                                <label for="city">City</label> {{form.City}}
-
-                                <label for="state">State</label> {{form.State}}
-
-                                <label for="pincode">Pincode</label> {{form.Pincode}}
-
-                                <label for="select">Department</label> {{form.Department}}
-
-                                <label for="status">Status</label> {{form.Description}}
-
-                                <label for="achievements">Enter any four achievements</label> {{form.Achievements1}} {{form.Achievements2}} {{form.Achievements3}} {{form.Achievements4}}
-                                <button type="submit" class="form-control" id="user-cf-submit" name="submit">Register</button>
+                                <button type="submit" class="form-control" id="user-cf-submit" name="submit">Update</button>
                             </div>
+                            
                         </div>
                     </form>
                 </div>
+                <div class="col-md-2 col-sm-2"></div>
             </div>
         </div>
     </section>

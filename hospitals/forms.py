@@ -1,9 +1,10 @@
 from django import forms
 from .models import *
 from .choices import *
+#Create doctor profile forms
 
 class HospitalForm(forms.ModelForm):
-
+        # All attributes  from models forms for user input 
     class Meta:
         model = Hospital
         fields = ["HospitalName", "HospitalRegisterationNumber", "HospitalLicense", "HospitalPhoto", 
@@ -11,6 +12,7 @@ class HospitalForm(forms.ModelForm):
                 "State", "ChiefMedicalOfficer", "ChiefMedicalOfficerCertificate", "ChiefMedicalOfficerPhoto",
                 "CheifMedicalOfficerDescription", "PhoneNumber", "Achievements1", "Achievements2", 
                 "Achievements3", "Achievements4", "Achievements5", "Achievements6"]
+         # All details for each attributes
         widgets = {
             "HospitalName": forms.TextInput(attrs={
                 'type': 'text',

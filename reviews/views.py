@@ -12,7 +12,7 @@ def docreview(request):
         doctor_id = request.POST['doctor_id']
         doctor_name = request.POST['doctor_name']
         if not request.user.is_authenticated:
-            print("failed")
+            # print("failed")
             #messages.error(request, "Please Signin")
             return redirect('signin')
         username = request.POST['username']
@@ -29,7 +29,7 @@ def docreview(request):
         elif star_rating == '12345':
             non_rating = ""
         review = request.POST['review']
-        print(doctor_name, username, star_rating, review, doctor_id)
+        # print(doctor_name, username, star_rating, review, doctor_id)
         
         user = User.objects.all().filter(Username=request.user.username).get()
         doctor = Doctor.objects.all().filter(Username=doctor_name).get()
@@ -45,7 +45,7 @@ def docreview(request):
             avg.append(len(doctor.star_rating))  
         
         avg = sum(avg)/len(avg)
-        print(avg)
+        # print(avg)
         stars = ""
         non_stars = "12345"
         if avg > 4.5:
@@ -65,14 +65,14 @@ def docreview(request):
             non_stars = "1234"
         
         doctor = Doctor.objects.all().filter(Username=doctor_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length,non_stars = non_stars)
-        print("success")
+        # print("success")
         return redirect('/doctors/'+doctor_id)
 def hosreview(request):
     if request.method == 'POST':
         hospital_id = request.POST['hospital_id']
         hospital_name = request.POST['hospital_name']
         if not request.user.is_authenticated:
-            print("failed")
+            # print("failed")
             #messages.error(request, "Please Signin")
             return redirect('/hospitals/'+hospital_id)
         username = request.POST['username']
@@ -105,7 +105,7 @@ def hosreview(request):
             avg.append(len(hospital.star_rating))  
         
         avg = sum(avg)/len(avg)
-        print(avg)
+        # print(avg)
         stars = ""
         non_stars = "12345"
         if avg > 4.5:
@@ -125,7 +125,7 @@ def hosreview(request):
             non_stars = "1234"
         
         hospital = Hospital.objects.all().filter(Username=hospital_name).update(Rating = avg,Ratings_stars = stars,Ratings_count = length,non_stars = non_stars)
-        print("success")
+        # print("success")
         return redirect('/hospitals/'+hospital_id)
 
 
