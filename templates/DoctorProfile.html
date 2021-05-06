@@ -49,6 +49,7 @@
       background-color: #2d60ec;
     }
   </style>
+
   <body
     id="top"
     data-spy="scroll"
@@ -83,11 +84,13 @@
                 ><span class="button">Signout</span>
               </a>
             </span>
-            <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
-              
-                <a  href="{% url 'UpdateProfile' %}"><span class="button">Update Profile</span> </a>
-              
-              
+            <span
+              style="padding-top: 10px; padding-bottom: 10px"
+              class="phone-icon"
+            >
+              <a href="{% url 'UpdateProfile' %}"
+                ><span class="button">Update Profile</span>
+              </a>
             </span>
             <!-- the else statement run when some random user veiws doctor profile -->
             {% else %}
@@ -103,15 +106,15 @@
         </div>
       </div>
     </header>
-<!-- Doctor  Profile    section  -->
+    <!-- Doctor  Profile    section  -->
     <section class="profile-details">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 sec1">
-            <img src="{{ doctor.get_image.url }}" alt="profile-photo" />
+            <img src="{{ doctor.ProfilePhoto.url }}" alt="profile-photo" />
             <div class="profile-contact">
               <h3>Name: Dr. {{ doctor.FirstName }} {{ doctor.LastName }}</h3>
-              <h4 style="color: white;">Username: {{doctor.Username}}</h4>
+              <h4 style="color: white">Username: {{doctor.Username}}</h4>
               <p>
                 <b>Hospital: </b>{{ doctor.HospitalName }} <br />
                 <b>Experience: </b>{{experience}} years<br />
