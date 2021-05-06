@@ -1,91 +1,79 @@
-{% load static %}
-{% load humanize %}
+{% load static %} {% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Doctor Profile</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="index" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static 'css/owl.theme.default.min.css' %}"
-    />
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{% static 'css/Doctorprofile.css' %}" />
     <!-- Review & Ratings CSS -->
     <link rel="stylesheet" href="{% static 'css/docter_review.css' %}" />
-  </head>
-  <style>
-    .button{
-      background: #0cd9e7;
-      border-radius: 3px;
-      color: white;
-      font-weight: 600;
-      padding-top: 0px;
-      padding-bottom: 1px;
-      padding-left: 6px;
-      padding-right: 6px;
-      font-size: 12px;
-      line-height: 24px;
-      
+</head>
+<style>
+    .button {
+        background: #0cd9e7;
+        border-radius: 3px;
+        color: white;
+        font-weight: 600;
+        padding-top: 0px;
+        padding-bottom: 1px;
+        padding-left: 6px;
+        padding-right: 6px;
+        font-size: 12px;
+        line-height: 24px;
     }
     
     .button:hover {
-      background-color: #2d60ec;
+        background-color: #2d60ec;
     }
-  </style>
-  <body
-    id="top"
-    data-spy="scroll"
-    data-target=".navbar-collapse"
-    data-offset="50"
-  >
+</style>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
     <!-- PRE LOADER -->
     <section class="preloader">
-      <div class="spinner">
-        <span class="spinner-rotate"></span>
-      </div>
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
     </section>
 
     <!-- HEADER -->
     <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-5">
-            <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-5">
+                    <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
+                </div>
 
-          <div class="col-md-8 col-sm-7 text-align-right">
-                  
-            {% if user.username == doctor.Username %}
-              <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
+                <div class="col-md-8 col-sm-7 text-align-right">
+
+                    {% if user.username == doctor.Username %}
+                    <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
               
                 <a  href="{% url 'Signout' %}"><span class="button">Signout</span> </a>
-              
-              
-            </span>
-            <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
+
+
+                    </span>
+                    <span style="padding-top: 10px; padding-bottom: 10px;" class="phone-icon">
               
                 <a  href="{% url 'UpdateProfile' %}"><span class="button">Update Profile</span> </a>
-              
-              
-            </span>
-            {% else %}
-            <span class="email-icon"
-              ><i class="fa fa-phone"></i>
+
+
+                    </span>
+                    {% else %}
+                    <span class="email-icon"><i class="fa fa-phone"></i>
               <a href="#">999-888-726-1</a></span
             > 
               <span class="email-icon"
@@ -105,7 +93,7 @@
         <div class="row">
           <div class="col-sm-6 sec1">
             <img
-              src="{{ doctor.get_image.url }}"
+              src="{{ doctor.ProfilePhoto.url }}"
               alt="profile-photo"
             />
             <div class="profile-contact">
@@ -160,105 +148,91 @@
         <div class="row">
           <div class="col-sm-12 sec3">
             <div style="padding-top: 50px">
-              <span class="heading"><strong>User Ratings</strong> </span>
-              {% for i in doctor.Ratings_stars %}
-                <span class="fa fa-star checked"></span>
-              {% endfor %}
-              {% for i in doctor.non_stars %}
-                <span class="fa fa-star"></span>
-              {% endfor %}
-              <p style="padding-top: 20px">
-                <span class="average">{{doctor.Rating}}</span> average based on {{doctor.Ratings_count}} reviews.
-              </p>
-              <hr class="hr-line" />
+              <span class="heading"><strong>User Ratings</strong> </span> {% for i in doctor.Ratings_stars %}
+                    <span class="fa fa-star checked"></span> {% endfor %} {% for i in doctor.non_stars %}
+                    <span class="fa fa-star"></span> {% endfor %}
+                    <p style="padding-top: 20px">
+                        <span class="average">{{doctor.Rating}}</span> average based on {{doctor.Ratings_count}} reviews.
+                    </p>
+                    <hr class="hr-line" />
 
-              <div class="row">
-                <div class="side">
-                  <div>5 star</div>
+                    <div class="row">
+                        <div class="side">
+                            <div>5 star</div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div style="width: {{ratings_percentage.five_starPercentage}}%;" class="bar-5"></div>
+                            </div>
+                        </div>
+                        <div class="side right">
+                            <div>{{ratings_count.five_star}}</div>
+                        </div>
+                        <div class="side">
+                            <div>4 star</div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div style="width: {{ratings_percentage.four_starPercentage}}%;" class="bar-4"></div>
+                            </div>
+                        </div>
+                        <div class="side right">
+                            <div>{{ratings_count.four_star}}</div>
+                        </div>
+                        <div class="side">
+                            <div>3 star</div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div style="width: {{ratings_percentage.three_starPercentage}}%;" class="bar-3"></div>
+                            </div>
+                        </div>
+                        <div class="side right">
+                            <div>{{ratings_count.three_star}}</div>
+                        </div>
+                        <div class="side">
+                            <div>2 star</div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div style="width: {{ratings_percentage.two_starPercentage}}%;" class="bar-2"></div>
+                            </div>
+                        </div>
+                        <div class="side right">
+                            <div>{{ratings_count.two_star}}</div>
+                        </div>
+                        <div class="side">
+                            <div>1 star</div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div style="width: {{ratings_percentage.one_starPercentage}}%;" class="bar-1"></div>
+                            </div>
+                        </div>
+                        <div class="side right">
+                            <div>{{ratings_count.one_star}}</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div style="width: {{ratings_percentage.five_starPercentage}}%;" class="bar-5"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>{{ratings_count.five_star}}</div>
-                </div>
-                <div class="side">
-                  <div>4 star</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div style="width: {{ratings_percentage.four_starPercentage}}%;" class="bar-4"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>{{ratings_count.four_star}}</div>
-                </div>
-                <div class="side">
-                  <div>3 star</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div style="width: {{ratings_percentage.three_starPercentage}}%;" class="bar-3"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>{{ratings_count.three_star}}</div>
-                </div>
-                <div class="side">
-                  <div>2 star</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div style="width: {{ratings_percentage.two_starPercentage}}%;" class="bar-2"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>{{ratings_count.two_star}}</div>
-                </div>
-                <div class="side">
-                  <div>1 star</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div style="width: {{ratings_percentage.one_starPercentage}}%;" class="bar-1"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>{{ratings_count.one_star}}</div>
-                </div>
-              </div>
-            </div>
-            <h2 class="review-heading h2 strong">Reviews & Ratings</h2>
-            <form action="{% url 'docreview' %}" method="POST">
-              {% csrf_token %} {% if user.is_authenticated %}
-              <input
-                type="hidden"
-                name="username"
-                value="{{ user.username }}"
-              />
-              {% else %}
-              <input type="hidden" name="user_id" value="NONE" />
-              <h3 class="h3" style="color: red;">Please get signed In before adding review..</h3>
-              
-              <a class="btn" href="{% url 'signin' %}"><button class="btn btn-info">Signin</button></a>
-              {% endif %}
+                <h2 class="review-heading h2 strong">Reviews & Ratings</h2>
+                <form action="{% url 'docreview' %}" method="POST">
+                    {% csrf_token %} {% if user.is_authenticated %}
+                    <input type="hidden" name="username" value="{{ user.username }}" /> {% else %}
+                    <input type="hidden" name="user_id" value="NONE" />
+                    <h3 class="h3" style="color: red;">Please get signed In before adding review..</h3>
 
-              <input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
-              <input
-                type="hidden"
-                name="doctor_name"
-                value="{{ doctor.Username }}"
-              />
-              <div class="add-reveiw">
-                <div class="row">
-                  <div class="col-sm-2"></div>
-                  <div class="col-sm-10">
-                    <h3 class="h3">Please share your experience</h3>
-                    <p>
-                      Rating:
-                      <span class="starRating">
+                    <a class="btn" href="{% url 'signin' %}"><button class="btn btn-info">Signin</button></a> {% endif %}
+
+                    <input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
+                    <input type="hidden" name="doctor_name" value="{{ doctor.Username }}" />
+                    <div class="add-reveiw">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10">
+                                <h3 class="h3">Please share your experience</h3>
+                                <p>
+                                    Rating:
+                                    <span class="starRating">
                         <input
                           id="rating5"
                           type="radio"
@@ -295,14 +269,8 @@
                         />
                         <label for="rating1">1</label>
                       </span>
-                    </p>
-                    <textarea
-                      class="text-input"
-                      rows="5"
-                      cols="140"
-                      style="max-width: 100%"
-                      name="review"
-                    >
+                                </p>
+                                <textarea class="text-input" rows="5" cols="140" style="max-width: 100%" name="review">
                     </textarea
                     ><br />
                     <input class="btn btn-info" value="Send" type="submit" />
