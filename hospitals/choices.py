@@ -1,3 +1,4 @@
+# choose for hospital  department 
 Department = (
     (1, ("General Health")),
     (2, ("Cardiology")),
@@ -6,7 +7,7 @@ Department = (
     (5, ("Emergency")),
     (6, ("Gynecologist"))
 )
-
+#choose Hospital's state 
 States = (
     (1, ("Andhra Pradesh")), (2, ("Arunachal Pradesh")), (3, ("Assam")), (4, ("Bihar")),
     (5, ("Chhattisgarh")), (6, ("Goa")), (7, ("Gujarat")), (8, ("Haryana")),

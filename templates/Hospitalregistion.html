@@ -12,6 +12,7 @@
     <meta name="author" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
@@ -75,6 +76,7 @@
                 <div class="col-md-6 col-sm-6">
                     <img src="{% static 'images/hospital-registeration.jpg' %}" alt="Use Image Here">
                 </div>
+                <!-- hospital registeration  section  -->
                 <div class="col-md-6 col-sm-6">
                     <form id="user-registration" role="form" method="post" action="#" onsubmit="return checkPass()" enctype= multipart/form-data>
                     {% csrf_token %}
@@ -86,7 +88,7 @@
                                 <label for="name">Hospital Name</label>
                                 {{form.HospitalName}}
                             </div>
-
+                                  
                             <div class="col-md-12 col-sm-12">
                                 <label for="Registration">Hospital Registration Number</label>
                                 {{form.HospitalRegisterationNumber}}

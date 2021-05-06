@@ -1,3 +1,4 @@
+<!-- This tag is used to load all the static files in django template language -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -11,22 +12,25 @@
      <meta name="author" content="index">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+     <!-- Linking all the css files required -->
+     <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
      <link rel="stylesheet" href="{% static 'css/animate.css' %}">
      <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
      <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
 
-     <!-- MAIN CSS -->
+     <!-- Linking the main css files -->
      <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 
 </head>
 <body id="top" data-spy="scroll" data-offset="50">
 
      <!-- PRE LOADER -->
+     <!-- Used to display the loader before the site shows up -->
      <section class="preloader">
           <div class="spinner">
-
+               <!-- Can write anything in this span tag -->
                <span class="spinner-rotate"></span>
                
           </div>
@@ -35,15 +39,17 @@
 
      <!-- HEADER -->
      <header>
+          <!-- creating grid system using container and row -->
           <div class="container">
                <div class="row">
-
+                    <!-- Title goes here -->
                     <div class="col-md-4 col-sm-5">
                          <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
                     </div>
-                         
+                    <!-- Customer care phone number of the site. This number given now is not the final number, we might change it -->
                     <div class="col-md-8 col-sm-7 text-align-right">
                          <span class="phone-icon"><i class="fa fa-phone"></i>999-888-726-1</span>
+                         <!-- Email to contact our website -->
                          <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">jeevannaksha@WAD8.com</a></span>
                     </div>
 
@@ -52,6 +58,7 @@
      </header>
 
      <!-- Choose the Context -->
+     <!-- In this section we can select who we are [ User / Doctor / Hospital ] -->
      <section id="ctc">
           <div class="container">
                <div id="heading" class="wow fadeInUp" data-wow-delay="0.4s">
@@ -59,9 +66,12 @@
                </div>
                <div class="row">
                     <div class="col-sm-4">
+                         <!-- We use the card for good interface -->
                          <div class="card">
+                              <!-- For user registeration -->
                               <img src="{% static 'images/user-image.png' %}" alt="Avatar" style="width:100%">
                               <div class="data">
+                                   <!-- using user registeration url from django backend -->
                                    <span class="signup-btn"><a href="{% url 'UserRegisteration' %}">Sign up</a></span>
                                    <h4><b>User</b></h4>
                                    <p>Visited as a User</p>
@@ -70,8 +80,10 @@
                     </div>
                     <div class="col-sm-4">
                          <div class="card">
+                              <!-- For Doctor registeration -->
                               <img src="{% static 'images/doctor-registeration.png' %}" alt="Avatar" style="width:100%">
                               <div class="data">
+                                   <!-- using doctor registeration url from django backend -->
                                    <span class="signup-btn"><a href="{% url 'DoctorRegisteration' %}">Sign up</a></span>
                                    <h4><b>Doctor</b></h4>
                                    <p>I am a Doctor</p>
@@ -80,8 +92,10 @@
                     </div>
                     <div class="col-sm-4">
                          <div class="card">
+                              <!-- For hospital registeration -->
                               <img src="{% static 'images/hospital-image.png' %}" alt="Avatar" style="width:100%">
                               <div class="data">
+                                   <!-- using hospital registeration url from django backend -->
                                    <span class="signup-btn"><a href="{% url 'HospitalRegisteration' %}">Sign up</a></span>
                                    <h4><b>Hospital</b></h4>
                                    <p>I own a Hospital</p>
@@ -93,6 +107,7 @@
      </section>
 
      <!-- FOOTER -->
+     <!-- Explained in the index page -->
      <footer data-stellar-background-ratio="5">
           <div class="container" id="contact">
                <div class="row">

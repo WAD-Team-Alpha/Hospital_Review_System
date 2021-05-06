@@ -13,7 +13,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-
+    <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
@@ -72,6 +72,8 @@
                 <h3 style="text-align: center;">Enter your email where you will recieve password reset link</h3>
               </div>
 
+              <!-- This section contains only one input, it is to take the email of the user to use 
+                it in some view function.  -->
               <div class="wow fadeInUp" data-wow-delay="0.8s">
                 <div class="col-md-12 col-sm-12">
                   <input
@@ -100,7 +102,7 @@
 
             
           <div class="col-md-3 col-sm-3">
-            
+            <!-- only used to seperate the footer and the input box -->
           </div>
         </div>
       </div>

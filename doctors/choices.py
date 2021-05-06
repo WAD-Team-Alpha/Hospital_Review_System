@@ -1,3 +1,4 @@
+# choose for docter department
 Department = (
     (1, ("General Health")),
     (2, ("Cardiology")),
@@ -8,7 +9,7 @@ Department = (
     (7, ("All"))
 
 )
-
+#choose doctor's state  
 States = (
     (1, ("Andhra Pradesh")), (2, ("Arunachal Pradesh")), (3, ("Assam")), (4, ("Bihar")),
     (5, ("Chhattisgarh")), (6, ("Goa")), (7, ("Gujarat")), (8, ("Haryana")),

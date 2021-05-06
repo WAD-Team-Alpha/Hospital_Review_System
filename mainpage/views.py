@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 # Create your views here.
 def index(request):
     username = request.user.username
-    print(username)
+    # print(username)
      
     users = User.objects.all()
     doctors = Doctor.objects.all()
@@ -38,7 +38,7 @@ def index(request):
     elif username in hospital_list:
         USER = Hospital.objects.all().filter(Username=username).get()
         type = "hospital"
-    print(USER)
+    # print(USER)
     context = {
         'type' : type,
         'USER' : USER
@@ -48,28 +48,31 @@ def index(request):
 
 
 def MakeAnAppointment(request):
+    # Accessing all the required info for validation
     if request.method == "POST":
-        DoctorUsername = request.POST["dname"]
-        DateOfAppointment = request.POST["date"]
-        additionalMessage = request.POST["message"]
+        DoctorUsername = request.POST["dname"] # accessing the doctors username
+        DateOfAppointment = request.POST["date"] # accessing the date of appointment
+        additionalMessage = request.POST["message"] # Some additional message is accessed here
 
+        # Checking whether the user is signed in or not
         if not request.user.is_authenticated:
             messages.error(request, "Please Signin")
             return redirect('index')        
 
+        # retrieving the user and doctor
         user = User.objects.all().filter(Username=request.user.username).get()
-        print(user)
         doctor = Doctor.objects.all().filter(Username=DoctorUsername).get()
-        print(doctor)
 
+        # checking whether the doctor exists or not
         if not doctor:
             messages.error(request, "Doctor Does not exists")
             return redirect('index')
         
+        # saving the appointment in the database
         appointment = Appointment(user=user, doctor=doctor, dateOfAppointment=DateOfAppointment, AdditionalMessage=additionalMessage)
-
         appointment.save()
 
+        # sending the email message of the appointment to both user and the doctor
         userSubject = "Reference for your appointment"
         userBody = ("Hi " + user.FirstName + user.LastName + 
                     "\n\nHere is what we got from you" + 
@@ -108,6 +111,6 @@ def MakeAnAppointment(request):
                 fail_silently=False
         )
 
-        messages.success(request, "Appointment Sent!! Wait for the doctor to reply")
+        messages.success(request, "Appointment Sent!! Wait for the doctor to reply") # success message
         return redirect('index')
 

@@ -1,3 +1,4 @@
+<!-- This tag is used to load all the static files in django template language -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +11,8 @@
     <meta name="keywords" content="" />
     <meta name="author" content="index" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Linking all the css files required -->
     <link rel="shortcut icon" href="{% static 'images/fav.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
@@ -17,10 +20,12 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
 
-    <!-- MAIN CSS -->
+    <!-- Linking the main css files -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     <link rel="stylesheet" href="{% static 'css/doctor_searchbar.css' %}" />
     <link rel="stylesheet" href="{% static 'css/hospital_searchbar.css' %}" />
+
+    <!-- Custom css code -->
     <style>
         #snackbar {
             visibility: hidden;
@@ -92,51 +97,64 @@
 </head>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
     <!-- PRE LOADER -->
+    <!-- Used to display the loader before the site shows up -->
     <section class="preloader">
         <div class="spinner">
+            <!-- Can write anything in this span tag -->
             <span class="spinner-rotate"></span>
         </div>
     </section>
 
     <!-- HEADER -->
     <header>
+      <!-- creating grid system using container and row -->
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-5">
+                  <!-- Title goes here -->
                     <p style="font-size: large;"> <a href="{% url 'index' %}"><b>JEEVAN NAKSHA</b></a></p>
                 </div>
 
+                <!-- We are finding the type of user using if-else here -->
                 <div class="col-md-8 col-sm-7 text-align-right">
                     {% if user.is_authenticated %} {% if type == "user" %}
+                    <!-- User goes here -->
                     <span class="appointment-btn"><i class="fa fa-user-circle"></i
               ><a href="{% url 'Signout' %}">Signout</a></span
             >
             {% elif type == "doctor" %}
+            <!-- Doctor goes here -->
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
               ><a href="{% url 'DoctorProfile' USER.id %}">View Profile</a></span
             >
             {% elif type == "hospital" %}
+            <!-- Hospital goes here -->
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
               ><a href="{% url 'HospitalProfile' USER.id %}">View Profile</a></span
             >
             {% else %}
+            <!-- If we are authenticated using the django backend superuser this shows up -->
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
               ><a href="{% url 'Signout' %}">Superuser Logout</a></span
             >
             {% endif %} {% else %}
+            <!-- The last possibility is that the user is not signed in -->
             <span class="appointment-btn"
               ><i class="fa fa-user-circle"></i
               ><a href="{% url 'signin' %}">Sign in</a></span
             >
             {% endif %}
 
+            <!-- Customer care phone number of the site. This number given now is not the final number, we might change it -->
             <span class="phone-icon"
               ><i class="fa fa-phone"></i>999-888-726-1</span
             >
+            <!-- Email to contact our website -->
             <span class="email-icon"
               ><i class="fa fa-envelope-o"></i>
               <a href="#">jeevannaksha@WAD8.com</a></span
@@ -148,9 +166,13 @@
 
     <!-- MENU -->
     <section class="navbar navbar-default navbar-static-top" role="navigation">
+
+      <!-- Messages part where all the validation is shown here -->
       {% if messages %}
         {% for message in messages %}
+          <!-- Message will be printed here -->
           <div id="snackbar">{{message}}</div>
+          <!-- Its corresponding javascript code -->
           <script>
             var x = document.getElementById("snackbar");
             x.className = "show";
@@ -158,6 +180,8 @@
           </script>
         {% endfor %}
       {% endif %}
+
+      <!-- The whole navigation bar goes here -->
       <div class="container">
         <div class="navbar-header">
           <button
@@ -224,7 +248,7 @@
                   </h3>
                   <h1>RATINGS MATTER</h1>
                   <a
-                    href="#about"
+                    href="#about2"
                     class="section-btn btn btn-default btn-gray smoothScroll"
                     >More Info</a
                   >
@@ -251,6 +275,7 @@
     </section>
 
     <!-- ABOUT -->
+    <!-- This section covers about the information of the website -->
     <section id="about1">
       <div class="container">
         <div class="row">
@@ -278,12 +303,14 @@
       </div>
     </section>
 
-    <!-- DOCTOR SEARCH BAR -->
+<!-- DOCTOR SEARCH BAR -->
+    <!--Creating a Section for Doctor Search bar-->
     <section id="doctor-searchbar" data-stellar-background-ratio="2.5">
+      <!-- Creating  grid for the doctor search bar which contains a image and form-->
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-6">
-            <!--  left half-->
+            <!--  left half(image)-->
             <img
               src="{% static 'images/doctor-search-bar.jpg' %}"
               class="img-responsive"
@@ -291,12 +318,17 @@
             />
           </div>
           <div class="col-md-6 col-sm-6">
-            <!--  right half-->
+            <!--  right half(Search Form)-->
+            <!-- Form for doctor search bar on submitting goes to searchbarResults-->
             <form id="doctor_search" role="form" mrthod="post" action="{% url 'searchRes' %}">
+              <!-- Header division-->
               <div class="search_h1 wow fadeInUp" data-wow-delay="0.4s">
                 <h2>Search for a doctor</h2>
               </div>
+              <!--Attributes in the form-->
+              <!--below class="wow fadeInUp" is for the pop-up animation-->
               <div class="wow fadeInUp" data-wow-delay="0.8s">
+                <!--First Name of the doctor-->
                 <div class="col-md-6 col-sm-6">
                   <label for="firstname">First Name</label>
                   <input
@@ -307,6 +339,7 @@
                     placeholder="First Name"
                   />
                 </div>
+                <!--Last Name of the doctor-->
                 <div class="col-md-6 col-sm-6">
                   <label for="lastname">Last Name</label>
                   <input
@@ -317,6 +350,7 @@
                     placeholder="Last Name"
                   />
                 </div>
+                <!--Departments division-->
                 <div class="col-md-12 col-sm-12">
                   <label for="select">Specialization</label>
                   <select class="form-control" id="dept" name="dept">
@@ -329,7 +363,8 @@
                     <option value = 6>Gynecologist</option>
                   </select>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <!--Town/Village in which doctor works-->
+                <!-- <div class="col-md-6 col-sm-6">
                   <label for="place">Town/Village</label>
                   <input
                     type="text"
@@ -338,8 +373,9 @@
                     name="place"
                     placeholder="Town/Village"
                   />
-                </div>
-                <div class="col-md-6 col-sm-6">
+                </div> -->
+                <!--City in which the doctor works-->
+                <div class="col-md-12 col-sm-12">
                   <label for="doctor_city">City</label>
                   <input
                     type="text"
@@ -349,6 +385,7 @@
                     placeholder="City"
                   />
                 </div>
+                <!--Pin Code of the City/Town/Village-->
                 <div class="col-md-6 col-sm-6">
                   <label for="pincode">Enter Pincode</label>
                   <input
@@ -359,6 +396,7 @@
                     placeholder="Pincode"
                   />
                 </div>
+                <!--Selecting the States-->
                 <div class="col-md-6 col-sm-6">
                   <label for="doctor_state">Select State</label>
                   <select name="state" id="state" class="form-control">
@@ -393,6 +431,7 @@
                     <option value= 28>West Bengal</option>
                   </select>
                 </div>
+                <!--Submit Button-->
                 <div class="col-md-12 col-sm-12">
                   <button
                     type="submit"
@@ -405,12 +444,15 @@
                 </div>
               </div>
             </form>
+            <!--End of the form-->
           </div>
         </div>
       </div>
     </section>
+<!--End Of Doctor Search Bar-->
 
     <!-- ABOUT -->
+    <!-- This section covers about the information of the website -->
     <section id="about2">
       <div class="container">
         <div class="row">
@@ -564,6 +606,7 @@
     </section>
 
     <!-- ABOUT -->
+    <!-- This section covers about the information of the website -->
     <section id="about3">
       <div class="container">
         <div class="row">
@@ -590,11 +633,13 @@
       </div>
     </section>
 
-    <!-- MAKE AN APPOINTMENT -->
+    <!-- MAKE AN APPOINTMENT SECTION-->
     <section id="appointment" data-stellar-background-ratio="3">
+      <!-- Applying the grid system here -->
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-6">
+            <!-- Image to indicate the make an appointment -->
             <img
               src="{% static 'images/makeappointment.jpg' %}"
               class="img-responsive"
@@ -611,6 +656,7 @@
                 <h2>Make an appointment</h2>
               </div>
 
+              <!-- Asking the doctors username -->
               <div class="wow fadeInUp" data-wow-delay="0.8s">
                 <div class="col-md-6 col-sm-6">
                   <label for="email">Doctor's Username</label>
@@ -620,9 +666,11 @@
                     id="dname"
                     name="dname"
                     placeholder="Enter here"
+                    required
                   />
                 </div>
 
+                <!-- Asking the date for the appointment -->
                 <div class="col-md-6 col-sm-6">
                   <label for="date">Date of Appointment</label>
                   <input
@@ -630,9 +678,11 @@
                     name="date"
                     value=""
                     class="form-control"
+                    required
                   />
                 </div>
 
+                <!-- details about the appointment -->
                 <div class="col-md-12 col-sm-12">
                   <label for="Message">Additional Message</label>
                   <textarea
@@ -641,6 +691,7 @@
                     id="message"
                     name="message"
                     placeholder="Message"
+                    required
                   ></textarea>
                   <button
                     type="submit"
@@ -662,6 +713,18 @@
     <footer data-stellar-background-ratio="5">
       <div class="container" id="contact">
         <div class="row">
+          <!-- 
+            Consists of totally three sections
+            1.) Contact info
+            2.) Latest News
+            3.) Opening Hours
+
+           @.)  We have mentioned the contact info exactly related to the website.
+           @.)  For latest news we have given some random data for temporary purposes, and it will be updated when 
+                the website is running in real time
+           @.)  Opening hours are just for temporary as well, will be changed later
+           @.)  Social media platforms will be linked after some time 
+           -->
           <div class="col-md-4 col-sm-4">
             <div class="footer-thumb">
               <h4 class="wow fadeInUp" data-wow-delay="0.4s">Contact Info</h4>
@@ -676,7 +739,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- This data is only for temporary purpose, please dont consider it as the final -->
                             <div class="col-md-4 col-sm-4">
                                 <div class="footer-thumb">
                                     <h4 class="wow fadeInUp" data-wow-delay="0.4s">Latest News</h4>
