@@ -47,6 +47,72 @@
   .button:hover {
     background-color: #2d60ec;
   }
+  #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: rgb(42, 207, 212);
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    font-weight: 700;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 1s, fadeout 3.75s 1.5s;
+}
+/* Animations to fade the snackbar in and out */
+
+@-webkit-keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
 </style>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -76,7 +142,7 @@
           </span>
           <span style="padding-top: 10px; padding-bottom: 10px;" class="email-icon">
 
-            <a href="#"><span class="button">Update Profile</span> </a>
+            <a href="{% url 'HosUpdateProfile' %}"><span class="button">Update Profile</span> </a>
 
 
           </span>
@@ -93,7 +159,18 @@
       </div>
     </div>
   </header>
-
+  {% if messages %}
+        {% for message in messages %}
+          <!-- Message will be printed here -->
+          <div id="snackbar">{{message}}</div>
+          <!-- Its corresponding javascript code -->
+          <script>
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
+          </script>
+        {% endfor %}
+      {% endif %}
   <section class="sec">
     <div class=".container-fluid ba">
       <img src="{{ hospital.HospitalPhoto.url }}" alt="Snow" style="width:100%; ">

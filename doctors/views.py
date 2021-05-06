@@ -317,8 +317,8 @@ def updateProf(request):
             Achievements3 = ach3,
             Achievements4 = ach4
         )
-
+        doctor_id = str(doctor.id)
         messages.success(request, "Updated profile sucessfully")
-        return redirect('index')
+        return redirect('/doctors/'+doctor_id)
         
     return render(request, 'doctorUpdateProfile.html')
