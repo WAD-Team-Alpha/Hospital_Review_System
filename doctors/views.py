@@ -98,42 +98,50 @@ def docProf(request, doctor_id):
 # it is doctor search result by user get all details
 
 def searchRes(request):
+    #Storing all the objects of the Doctor which are imported from models in queryset_list and are ordered by their FirstName
     queryset_list = Doctor.objects.order_by('-FirstName')
+
+    #Assigning variable State_result for the States which are imported from choices
     State_result = States
     # print(State_result)
     dept_result = Department
 
     #firstname
-
+    #Getting first_name from user Search for Doctor
     if 'first_name' in request.GET:
+        #Storing first_name in FirstName
         FirstName = request.GET['first_name']
+        #if FirstName exists then we are filtering the required FirstName from database and storing it in queryset_list and __iexact is used for case insensitive match for FirstName.
         if FirstName:
             queryset_list = queryset_list.filter(FirstName__iexact = FirstName)
           
     ## print(queryset_list)  
     
     #lastname
+    #Getting last_name from user Search for Doctor
     if 'last_name' in request.GET:
+        #Storing last_name in LastName
         LastName = request.GET['last_name']
+        #if LastName exists then we are filtering the required LastName from database and storing it in queryset_list and __iexact is used for case insensitive match for  LastName.
         if LastName:
             queryset_list = queryset_list.filter(LastName__iexact = LastName)
     ## print(queryset_list)  
     
-    #town/village
-    if 'place' in request.GET:
-        Town = request.GET['place']
-        if Town:
-            queryset_list = queryset_list.filter(Town__iexact = Town)
-    # print(queryset_list)  
+    
     #City
+    #Getting city from user Search for Doctor
     if 'city' in request.GET:
+        #Storing city in City
         City = request.GET['city']
+         #if City exists then we are filtering the required City from database and storing it in queryset_list and __iexact is used for case insensitive match for City.
         if City:
             queryset_list = queryset_list.filter(City__iexact = City)
     # print(queryset_list,request.GET['city'])  
     #State
-
+    #Getting State from User Search for Doctor
     if 'state' in request.GET:
+        #if the searched option is not equal to All i.e. if User select any other state than All then we're storing the state in State variable and filtering the required State from database.
+        #If user selects All then we dont filter any states and pass.
         if not request.GET['state'] == "29":
             State = request.GET['state']
             if State:
@@ -141,33 +149,42 @@ def searchRes(request):
           
     #Department of doctor 
     if 'dept' in request.GET:
+        #if the searched option is not equal to All i.e. if User selects any other department than All then we're storing the department in Departments variable and filtering the required Department from database.
+        #If user selects All then we dont filter any Department and pass.
         if not request.GET['dept'] == "7":
             Departments = request.GET['dept']
             if Departments:
                 queryset_list = queryset_list.filter(Department = Departments)
    
     #pincode
+    #Getting pincode from User Search for Doctor
     if 'pincode' in request.GET:
+         #Storing pincode in Pincode
          Pincode = request.GET['pincode']
+         #if Pincode exists then we are filtering the required pincode from database and storing it in queryset_list.
          if Pincode:
              queryset_list = queryset_list.filter(Pincode = Pincode)
     # print(queryset_list,request.GET['pincode'])
     
-   
+    
+    #Declaring empty list dict for storing the results based on user search because if User searches with All option we need to store each doctor search result from each state in a list to show search results.
     dict = []
     for result in queryset_list:
         Result = result
+        #Extarcting Key value for the State and Deaprtment from choices.py 
         State_result = States[result.State-1][1]
         dept_result = Department[result.Department-1][1]
+        #Storing the above three values in a Dictionary
         res={
             'result': Result,
             'State_result' : State_result,
             'dept_result': dept_result,
         }
+        #Appending res to dict.
         dict.append(res)
     
         
-            
+    #Passing dict values in context        
     context = {
         'dict': dict
     }

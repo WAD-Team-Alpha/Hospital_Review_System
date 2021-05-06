@@ -303,12 +303,14 @@
       </div>
     </section>
 
-    <!-- DOCTOR SEARCH BAR -->
+<!-- DOCTOR SEARCH BAR -->
+    <!--Creating a Section for Doctor Search bar-->
     <section id="doctor-searchbar" data-stellar-background-ratio="2.5">
+      <!-- Creating  grid for the doctor search bar which contains a image and form-->
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-6">
-            <!--  left half-->
+            <!--  left half(image)-->
             <img
               src="{% static 'images/doctor-search-bar.jpg' %}"
               class="img-responsive"
@@ -316,12 +318,17 @@
             />
           </div>
           <div class="col-md-6 col-sm-6">
-            <!--  right half-->
+            <!--  right half(Search Form)-->
+            <!-- Form for doctor search bar on submitting goes to searchbarResults-->
             <form id="doctor_search" role="form" mrthod="post" action="{% url 'searchRes' %}">
+              <!-- Header division-->
               <div class="search_h1 wow fadeInUp" data-wow-delay="0.4s">
                 <h2>Search for a doctor</h2>
               </div>
+              <!--Attributes in the form-->
+              <!--below class="wow fadeInUp" is for the pop-up animation-->
               <div class="wow fadeInUp" data-wow-delay="0.8s">
+                <!--First Name of the doctor-->
                 <div class="col-md-6 col-sm-6">
                   <label for="firstname">First Name</label>
                   <input
@@ -332,6 +339,7 @@
                     placeholder="First Name"
                   />
                 </div>
+                <!--Last Name of the doctor-->
                 <div class="col-md-6 col-sm-6">
                   <label for="lastname">Last Name</label>
                   <input
@@ -342,6 +350,7 @@
                     placeholder="Last Name"
                   />
                 </div>
+                <!--Departments division-->
                 <div class="col-md-12 col-sm-12">
                   <label for="select">Specialization</label>
                   <select class="form-control" id="dept" name="dept">
@@ -354,7 +363,8 @@
                     <option value = 6>Gynecologist</option>
                   </select>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <!--Town/Village in which doctor works-->
+                <!-- <div class="col-md-6 col-sm-6">
                   <label for="place">Town/Village</label>
                   <input
                     type="text"
@@ -363,8 +373,9 @@
                     name="place"
                     placeholder="Town/Village"
                   />
-                </div>
-                <div class="col-md-6 col-sm-6">
+                </div> -->
+                <!--City in which the doctor works-->
+                <div class="col-md-12 col-sm-12">
                   <label for="doctor_city">City</label>
                   <input
                     type="text"
@@ -374,6 +385,7 @@
                     placeholder="City"
                   />
                 </div>
+                <!--Pin Code of the City/Town/Village-->
                 <div class="col-md-6 col-sm-6">
                   <label for="pincode">Enter Pincode</label>
                   <input
@@ -384,6 +396,7 @@
                     placeholder="Pincode"
                   />
                 </div>
+                <!--Selecting the States-->
                 <div class="col-md-6 col-sm-6">
                   <label for="doctor_state">Select State</label>
                   <select name="state" id="state" class="form-control">
@@ -418,6 +431,7 @@
                     <option value= 28>West Bengal</option>
                   </select>
                 </div>
+                <!--Submit Button-->
                 <div class="col-md-12 col-sm-12">
                   <button
                     type="submit"
@@ -430,10 +444,12 @@
                 </div>
               </div>
             </form>
+            <!--End of the form-->
           </div>
         </div>
       </div>
     </section>
+<!--End Of Doctor Search Bar-->
 
     <!-- ABOUT -->
     <!-- This section covers about the information of the website -->
