@@ -11,7 +11,7 @@ class Doctor(models.Model):
     Email = models.CharField(max_length=150)      # doctor email 
     Username = models.CharField(max_length=150)   # doctor username
     DateOfBirth = models.CharField(max_length=150)
-    ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", default="DoctorPhotos/boy_avatar.jpg") # doctor profile photo 
+    ProfilePhoto = models.FileField(upload_to="DoctorPhotos/", default="DefaultPhotos/boy_avatar.jpg") # doctor profile photo 
     MobileNumber = models.CharField(max_length=13, default="Not available")                                   # doctor phone number 
     DoctorLicense = models.FileField(upload_to="DoctorDocuments/")                   # doctor License which is taken by goverment 
     YearsOfExperience = models.IntegerField(default=0)                              # Experience year 

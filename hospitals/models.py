@@ -6,7 +6,7 @@ class Hospital(models.Model):
     HospitalName = models.CharField(max_length=150)   # Hospital Name  
     HospitalRegisterationNumber = models.CharField(max_length=150)  # Hospital Registeration 
     HospitalLicense = models.FileField(upload_to="HospitalDocuments/")
-    HospitalPhoto = models.FileField(upload_to="HospitalPhotos/", default="HospitalPhotos/hospitalPhotos.jpg") #hospital photo
+    HospitalPhoto = models.FileField(upload_to="HospitalPhotos/", default="DefaultPhotos/hospitalPhotos.jpg") #hospital photo
     Email = models.CharField(max_length=150)
     Username = models.CharField(max_length=150)
     HospitalEshtablishDate = models.DateField()     # Eshtablish Date 
@@ -21,7 +21,7 @@ class Hospital(models.Model):
     State = models.IntegerField(choices=States, default=1)
     ChiefMedicalOfficer = models.CharField(max_length=150)
     ChiefMedicalOfficerCertificate = models.FileField(upload_to="ChiefDoctorDocuments/")
-    ChiefMedicalOfficerPhoto = models.FileField(upload_to="ChiefDoctorPhotos/", default="ChiefDoctorPhotos/doctt.png")
+    ChiefMedicalOfficerPhoto = models.FileField(upload_to="ChiefDoctorPhotos/", default="DefaultPhotos/doctt.png")
     CheifMedicalOfficerDescription = models.CharField(max_length=250, default="Dear, be strong because your life will be better now. Time does not remain same. You will get well soon!")
     PhoneNumber = models.CharField(max_length=20)
     Achievements1 = models.CharField(max_length=50, default="No Hospital information added recently")
